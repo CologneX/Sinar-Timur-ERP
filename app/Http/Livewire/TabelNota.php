@@ -15,13 +15,19 @@ class TabelNota extends Component
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-
+        $maxID = DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL')+1;
         return view('livewire.tabel-nota', [
             'barangNota' => Barang::where('NAMA_BARANG', 'like', '%' . $this->cariBarangNota . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
-            'maxID' => DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL')+1,
+            'maxID' => $maxID,
         ]);
     }
-    public function masukkanBarang(){
-
+    public function masukkanBarang()
+    {
+        
     }
+    // public function temporaryTable(){
+    //     DB::insert(DB::raw('CREATE TEMPORARY TABLE Nota'));
+
+    //     DB::unprepared(DB::raw('DROP TEMPORARY TABLE Nota'));
+    // }
 }

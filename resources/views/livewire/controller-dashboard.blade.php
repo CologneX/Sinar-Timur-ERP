@@ -70,10 +70,15 @@
                     <div class="card shadow mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h6 class="text-primary fw-bold m-0">Stok Barang</h6><a class="btn btn-link btn-sm"
-                                role="button" href="index.html"><i class="fas fa-external-link-alt"></i></a>
+                                role="button" href="/barang"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                         <div class="container-fluid" style="padding-top: 10px;padding-right: 10px;padding-left: 10px;">
+                            <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control"
+                                    type="text" id="cari-barang" autocomplete="on" placeholder="Cari Barang..."
+                                    wire:model="cariBarang">
+                            </div>
                             <div class="table-responsive">
+
                                 <table class="table table-hover table-bordered">
                                     <thead>
                                         <tr>
@@ -84,22 +89,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Contoh</td>
-                                            <td>PCS</td>
-                                            <td>1</td>
-                                        </tr>
-                                        <tr></tr>
+                                        @forelse ($barang as $data)
+                                            <tr>
+                                                <td>{{ $data->ID_BARANG }}</td>
+                                                <td>{{ $data->NAMA_BARANG }}</td>
+                                                <td>{{ 'Rp. ' . $data->HARGA }}</td>
+                                                <td>{{ $data->STOK . ' ' . $data->SATUAN }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="4" class="text-center">Tidak ada data</td>
+                                            </tr>
+                                        @endforelse
+
                                     </tbody>
                                 </table>
+                                {{ $barang->links() }}
                             </div>
                         </div>
                         <div class="d-md-flex"
                             style="background: #f8f9fc;border-top: 0.3px solid var(--bs-border-color);margin: 8px;margin-top: 0px;">
                             <div class="input-group"><input class="form-control" type="text" id="cari-barang-index"
-                                    autocomplete="on" placeholder="Cari Barang..."><button class="btn btn-primary"
-                                    type="button">Cari</button></div>
+                                    autocomplete="on" placeholder="Cari Barang..."></div>
                         </div>
                     </div>
                 </div>
@@ -125,7 +136,7 @@
                         </div>
                         <div class="card-body">
                             <div class="chart-area"><canvas
-                                    data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Direct&quot;,&quot;Social&quot;,&quot;Referral&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;50&quot;,&quot;30&quot;,&quot;15&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas>
+                                    data-bss-chart="{&quot;type&quot;:&quot;doughnut&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Direct&quot;,&quot;Social&quot;,&quot;Referral&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;510&quot;,&quot;30&quot;,&quot;15&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas>
                             </div>
                             <div class="text-center small mt-4"><span class="me-2"><i
                                         class="fas fa-circle text-primary"></i>&nbsp;Direct</span><span class="me-2"><i

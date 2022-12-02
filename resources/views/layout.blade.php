@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>SINAR TIMUR ERP</title>
+    <title>SINAR TIMUR</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/"><i
+                    <li class="nav-item"><a class="nav-link" href="/barang"><i
                                 class="fas fa-table"></i><span>&nbsp;Barang</span></a></li>
                     <hr class="sidebar-divider">
                 </ul>
@@ -96,7 +96,8 @@
             <!-- Start: Navbar White -->
             <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                 <div class="container-fluid"><button class="btn btn-link d-md-none rounded-circle me-3"
-                        id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button>
+                        id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><span
+                        style="font-weight: bold;" id="time"></span>
                     <ul class="navbar-nav flex-nowrap ms-auto">
                         <li class="nav-item dropdown d-sm-none no-arrow"><a class="dropdown-toggle nav-link"
                                 aria-expanded="false" data-bs-toggle="dropdown" href="#"></a>
@@ -111,6 +112,7 @@
                                 </form>
                             </div>
                         </li>
+
                         {{-- <li class="nav-item dropdown no-arrow mx-1">
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                     aria-expanded="false" data-bs-toggle="dropdown" href="#"><span
@@ -203,11 +205,16 @@
                             <div class="shadow dropdown-list dropdown-menu dropdown-menu-end"
                                 aria-labelledby="alertsDropdown"></div>
                         </li> --}}
+
                         <div class="d-none d-sm-block topbar-divider"></div>
                         <li class="nav-item dropdown no-arrow">
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
                                     aria-expanded="false" data-bs-toggle="dropdown"><span
-                                        class="d-lg-inline me-2 text-gray-600 small"></span></a>
+                                        class="d-lg-inline me-2 text-gray-600 small">
+                                        @if (!Auth::guest())
+                                            {{ Auth::user()->name}}
+                                        @endif
+                                    </span></a>
                                 <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a
                                         class="dropdown-item" href="#"><i
                                             class="fas fa-user fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Profile</a><a
@@ -215,7 +222,7 @@
                                             class="fas fa-cogs fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Login</a><a
                                         class="dropdown-item" href="/register"><i
                                             class="fas fa-list fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Register</a>
-                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i
+                                    <div class="dropdown-divider"></div><a class="dropdown-item" href="/logout"><i
                                             class="fas fa-sign-out-alt fa-sm fa-fw me-2 text-gray-400"></i>&nbsp;Keluar</a>
                                 </div>
                             </div>
