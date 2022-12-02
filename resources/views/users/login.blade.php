@@ -6,12 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Login - Sinar Timur ERP</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap">
     <link rel="stylesheet" href="assets/css/tombolHapus.css">
 </head>
 
-<body class="d-flex justify-content-center align-items-center align-content-center bg-gradient-primary" style="height: 100vh;">
+<body class="d-flex justify-content-center align-items-center align-content-center bg-gradient-primary"
+    style="height: 100vh;">
     <!-- Start: 2 Rows 1+1 Columns -->
     <div class="container-fluid">
         <div class="row row-cols-1 d-flex justify-content-center align-content-center">
@@ -24,10 +26,25 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Log In</h4>
                                     </div>
-                                    <form class="user">
-                                        <div class="mb-3"><input class="form-control form-control-user" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Masukkan Email...." name="email" required="" minlength="1"></div>
-                                        <div class="mb-3"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password" required="" minlength="1"></div><button class="btn btn-primary d-block btn-user w-100" type="submit">Log In</button>
-                                        <div class="text-center"><a href="/register">Belum daftar? Klik disini!</a></div>
+                                    <form action="/login" method="POST">
+                                        @csrf
+                                        <div class="mb-3"><input class="form-control form-control-user" type="email"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Masukkan Email...." name="email" required=""
+                                                minlength="1" autofocus>
+                                            @error('email')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                        <div class="mb-3"><input class="form-control form-control-user"
+                                                type="password" id="exampleInputPassword" placeholder="Password"
+                                                name="password" required="" minlength="1">
+                                            @error('password')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
+                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Log
+                                            In</button>
+                                        </div>
                                         <hr>
                                     </form>
                                 </div>

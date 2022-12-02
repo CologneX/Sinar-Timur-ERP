@@ -49,7 +49,7 @@
         <footer style="margin: 12px;"><button class="btn btn-primary" type="button"
                 data-bs-dismiss="offcanvas">Tutup</button></footer>
     </div>
-    <form action="/" method="POST">
+    <form action="/barang" method="POST">
         @csrf
         <div class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
             <div class="offcanvas-header">
@@ -143,5 +143,5 @@
             </div>
         </div>
     </div> --}}
-    
+
 @endsection

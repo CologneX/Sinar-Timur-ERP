@@ -26,7 +26,7 @@
                                     <div class="text-center">
                                         <h4 class="text-dark mb-4">Register</h4>
                                     </div>
-                                    <form method="POST" action="/pelanggan">
+                                    <form method="POST" action="/register">
                                         @csrf
                                         <div class="mb-3"><input class="form-control form-control-user" type="text"
                                                 id="nameRegister" aria-describedby="nameRegister"
@@ -40,7 +40,7 @@
                                         <div class="mb-3"><input class="form-control form-control-user" type="email"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
                                                 placeholder="Masukkan Email...." name="email" required=""
-                                                minlength="1"value={{ old('email') }}>
+                                                minlength="1" value={{ old('email') }}>
                                             @error('email')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
@@ -60,11 +60,12 @@
                                                 type="password" id="exampleInputPassword"
                                                 placeholder="Masukkan kembali Password" name="password_confirmation"
                                                 required="" minlength="1" value={{ old('password_confirmation') }}>
-                                            @error('password_confirmation')
+                                            @error('password')
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
 
-                                        </div><button class="btn btn-primary d-block btn-user w-100" type="submit">Log
+                                        </div>
+                                        <button class="btn btn-primary d-block btn-user w-100" type="submit">Log
                                             In</button>
                                         <div class="text-center"><a href="/login">Sudah ada akun? Klik disini!</a>
                                         </div>

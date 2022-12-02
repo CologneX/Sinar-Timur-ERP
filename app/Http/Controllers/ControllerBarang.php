@@ -23,6 +23,6 @@ class ControllerBarang extends Controller
             'LOKASI' => 'required'
         ]);
         Barang::create($barangInsert);
-        return redirect('/')->with('message', 'Barang berhasil ditambahkan');
+        return redirect('/barang')->with('message', 'Barang berhasil ditambahkan');
     }
 }

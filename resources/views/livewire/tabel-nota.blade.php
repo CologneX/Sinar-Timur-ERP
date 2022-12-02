@@ -98,7 +98,7 @@
                                                     NOTA</span><input class="form-control" type="text" id="no-nota"
                                                     readonly=""
                                                     style="color: rgb(0,0,0);max-width: 80px; font-weight: bold; text-align: center;"
-                                                    value="{{ $maxID }}"></div>
+                                                    value="{{$maxID}}"></div>
                                             <div class="table-responsive">
                                                 <table class="table table-hover table-bordered">
                                                     <thead>

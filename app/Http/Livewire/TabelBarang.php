@@ -57,7 +57,7 @@ class TabelBarang extends Component
             'STOK' => $this->STOK,
             'LOKASI' => $this->LOKASI,
         ]);
-        return redirect('/')->with('message', 'Barang berhasil diedit');
+        return redirect('/barang')->with('message', 'Barang berhasil diedit');
     }
     public function deleteBarang()
     {
@@ -65,6 +65,6 @@ class TabelBarang extends Component
             'STATUS_DELETE' => 1
         ]);
 
-        return redirect('/')->with('message', 'Barang berhasil dihapus');
+        return redirect('/barang')->with('message', 'Barang berhasil dihapus');
     }
 }
