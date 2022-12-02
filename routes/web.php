@@ -23,6 +23,15 @@ use App\Http\Controllers\ControllerPelanggan;
 |
 */
 
+
+//Register page
+Route::get('/register', [UserController::class, 'Register'])->name('register');
+Route::post('/register', [UserController::class, 'Store']);
+
+//Login page
+Route::get('/login', [UserController::class, 'Login']);
+Route::post('/login', [UserController::class, 'authenticate']);
+
 // Page Barang
 Route::get('/', [ControllerBarang::class, 'showBarang'])->name('barang');
 Route::post('/', [ControllerBarang::class, 'simpanBarang']);
