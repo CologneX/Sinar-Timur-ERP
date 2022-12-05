@@ -5,7 +5,7 @@
             data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i class="fas fa-filter"></i>&nbsp;Filter</button>
     </div>
     <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text"
-            id="cari-transaksi-penjualan" autocomplete="on" placeholder="Cari Transaksi Penjualan..."
+            id="cari-transaksi-penjualan" autocomplete="on" placeholder="Cari Retur Penjualan..."
             wire:model="carireturjual">
         {{-- <button class="btn btn-primary" id="btn-cari-barang-1"
                         type="button">Cari</button> --}}
@@ -15,19 +15,19 @@
             <thead>
                 <tr>
                     <th>ID Retur</th>
-                    <th>ID Transaksi Penjualan</th>
-                    <th>Tanggal</th>
-                    <th>ID_TRANS_RETUR_PENJUALAN</th>
+                    <th>ID Penjualan</th>
+                    <th>Waktu</th>
+                    <th>Kuantitas Retur</th>
                     <th class="text-center"></th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($returJual as $data)
+                @forelse ($returJual as $data)
                     <tr>
                         <td>{{ $data->ID_RETURJUAL }}</td>
                         <td>{{ $data->ID_TRANSJUAL }}</td>
-                        <td>{{ $data->TGL }}</td>
-                        <td>{{ $data->ID_TRANS_RETUR_PENJUALAN}}</td>
+                        <td>{{ $data->TANGGALRETURJUAL }}</td>
+                        <td>{{ $data->KUANTITAS_RETURJUAL}}</td>
                         <td class="flex-grow-0" style="padding: 0px;overflow: visible;">
                             <div class="dropstart"><button class="btn" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="padding-right: 5px;padding-left: 5px;overflow: visible;padding-bottom: 8px;padding-top: 6px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" style="width: 16px;">
                                         <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
@@ -36,7 +36,11 @@
                             </div>
                         </td>
                     </tr>
-                @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="5" class="text-center">Tidak ada data</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
         {{ $returJual->links() }}

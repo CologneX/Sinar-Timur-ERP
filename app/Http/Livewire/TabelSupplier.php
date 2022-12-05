@@ -8,7 +8,7 @@ use Livewire\WithPagination;
 
 class TabelSupplier extends Component
 {
-    public $ID_SUP, $NAMA_SUP, $ALAMAT_SUP;
+    public $ID_SUP, $NAMA_SUP, $ALAMAT_SUP, $URUT_SUPPLIER;
     public $cariSupplier = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -25,9 +25,9 @@ class TabelSupplier extends Component
         $this->NAMA_SUP = '';
         $this->ALAMAT_SUP = '';
     }
-    public function editSupplier(int $ID_SUP)
+    public function editSupplier(int $URUT_SUPPLIER)
     {
-        $supplieredit = Supplier::find($ID_SUP);
+        $supplieredit = Supplier::find($URUT_SUPPLIER);
         if ($supplieredit) {
             $this->ID_SUP = $supplieredit->ID_SUP;
             $this->NAMA_SUP = $supplieredit->NAMA_SUP;

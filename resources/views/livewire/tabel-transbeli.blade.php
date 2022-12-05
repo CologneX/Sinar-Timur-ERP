@@ -6,8 +6,8 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID Jual</th>
-                    <th>ID Pelanggan</th>
+                    <th>ID Beli</th>
+                    <th>ID Supplier</th>
                     <th>Tanggal</th>
                     <th>Total Transaksi</th>
                     <th>Total Barang</th>
@@ -18,10 +18,9 @@
                 @foreach ($transbeli as $data)
                     <tr>
                         <td>{{ $data->ID_TRANSBELI }}</td>
-                        <td>{{ $data->ID_RETURBELI }}</td>
                         <td>{{ $data->ID_SUP }}</td>
                         <td>{{ $data->TGL_TRANSBELI }}</td>
-                        <td>{{ $data->TOTAL_TRANSBELI }}</td>
+                        <td>@money($data->TOTAL_TRANSBELI)</td>
                         <td>{{ $data->TOTAL_ITEMBELI }}</td>
                         <td class="flex-grow-0" style="padding: 0px;overflow: visible;">
                             <div class="dropstart"><button class="btn" aria-expanded="false" data-bs-toggle="dropdown" type="button" style="padding-right: 5px;padding-left: 5px;overflow: visible;padding-bottom: 8px;padding-top: 6px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" style="width: 16px;">

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class ReturJual extends Model
 {
     public $timestamps = false;
+    public $incrementing = false; 
     protected $table = 'RETUR_PENJUALAN';
     protected $fillable = [
         'ID_PELANGGAN', 'ID_BARANG', 'JUMLAH', 'TANGGAL', 'STATUS_DELETE'

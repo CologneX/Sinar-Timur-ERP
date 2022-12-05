@@ -43,7 +43,7 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach ($barangNota as $data)
+                                                @forelse ($barangNota as $data)
                                                     <tr class='clickable-row' data-href='/'>
                                                         <td>{{ $data->ID_BARANG }}</td>
                                                         <td>{{ $data->NAMA_BARANG }}</td>
@@ -79,11 +79,11 @@
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                    {{-- @empty
-                                <tr>
-                                    <td colspan="6" class="text-center">Tidak ada data</td>
-                                </tr> --}}
-                                                @endforeach
+                                                @empty
+                                                    <tr>
+                                                        <td colspan="6" class="text-center">Tidak ada data</td>
+                                                    </tr>
+                                                @endforelse
                                             </tbody>
                                         </table>
                                         {{ $barangNota->links() }}
@@ -98,7 +98,7 @@
                                                     NOTA</span><input class="form-control" type="text" id="no-nota"
                                                     readonly=""
                                                     style="color: rgb(0,0,0);max-width: 80px; font-weight: bold; text-align: center;"
-                                                    value="{{$maxID}}"></div>
+                                                    {{-- value="{{ $maxID }}" --}}></div>
                                             <div class="table-responsive">
                                                 <table class="table table-hover table-bordered">
                                                     <thead>
@@ -111,17 +111,15 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr id="tabel-nota" style="height: 43px;">
-                                                            <td>Bapak</td>
-                                                            <td>2 PCS</td>
-                                                            <td>120.000</td>
-                                                            <td class="text-end">240.000</td>
-                                                            <td style="width: 95.0417px;"><button
-                                                                    class="btn btn-outline-danger" id="tbl-hapus"
-                                                                    type="button"
-                                                                    style="width: 73.6562px;padding: 0px;">Hapus</button>
-                                                            </td>
-                                                        </tr>
+                                                        @foreach ($barangNota as $data)
+                                                            <tr>
+                                                                <td>{{ $data->ID_BARANG }}</td>
+                                                                <td>{{ $data->NAMA_BARANG }}</td>
+                                                                <td>{{ 'Rp. ' . $data->HARGA }}</td>
+                                                                <td>{{ $data->STOK . ' ' . $data->SATUAN }}</td>
+                                                                <td>{{ $data->LOKASI }}</td>
+                                                            </tr>
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -158,4 +156,3 @@
         </div>
     </div>
 </div><!-- End: #TabelBarang -->
-

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Barang;
+use App\Models\Dashboard;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -16,7 +17,7 @@ class ControllerDashboard extends Component
     public function render()
     {
         return view('livewire.controller-dashboard', [
-            'barang' => Barang::where('NAMA_BARANG', 'like', '%' . $this->cariBarang . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10)
+            'barang' => Dashboard::where('NAMA_BARANG', 'like', '%' . $this->cariBarang . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10)
 
         ]);
     }

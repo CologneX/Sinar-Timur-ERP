@@ -16,11 +16,11 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($barang as $data)
+                @forelse ($barang as $data)
                     <tr>
                         <td>{{ $data->ID_BARANG }}</td>
                         <td>{{ $data->NAMA_BARANG }}</td>
-                        <td>{{ 'Rp. '.$data->HARGA }}</td>
+                        <td>@money($data->HARGA)</td>
                         <td>{{ $data->STOK . ' ' . $data->SATUAN }}</td>
                         <td>{{ $data->LOKASI }}</td>
                         <td class="flex-grow-0" style="padding: 0px;overflow: visible;">
@@ -36,20 +36,20 @@
                                     </svg></button>
                                 <div class="dropdown-menu dropdown-menu-dark">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#deleteBarangModal"
-                                        class="dropdown-item" wire:click="editBarang({{ $data->ID_BARANG }})">Hapus
+                                        class="dropdown-item" wire:click="editBarang({{ $data->URUT_BARANG }})">Hapus
                                     </button>
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#updateBarangModal"
-                                        class="dropdown-item" wire:click="editBarang({{ $data->ID_BARANG }})">Edit
+                                        class="dropdown-item" wire:click="editBarang({{ $data->URUT_BARANG }})">Edit
                                     </button>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    {{-- @empty
+                @empty
                     <tr>
                         <td colspan="6" class="text-center">Tidak ada data</td>
-                    </tr> --}}
-                @endforeach
+                    </tr>
+                @endforelse
             </tbody>
         </table>
         {{ $barang->links() }}
@@ -86,26 +86,23 @@
                     <div class="modal-body">
                         <div class="input-group" style="margin-bottom: 10px;"><span
                                 class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
-                                Barang</span><input class="form-control" type="text" wire:model="ID_BARANG"
-                                readonly></div>
+                                Barang</span><input class="form-control" type="text" wire:model="ID_BARANG" readonly>
+                        </div>
                         <div class="input-group" style="margin-bottom: 10px;"><span
                                 class="d-lg-flex justify-content-lg-end input-group-text"
                                 style="width: 130px;">Harga</span><input class="form-control" type="number"
                                 wire:model="HARGA"></div>
                         <div class="input-group" style="margin-bottom: 10px;"><span
                                 class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Nama
-                                Barang</span><input class="form-control" type="text" wire:model="NAMA_BARANG"></div>
+                                Barang</span><input class="form-control" type="text" wire:model="NAMA_BARANG">
+                        </div>
                         <div class="input-group" style="margin-bottom: 10px;"><span
                                 class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Stok
                                 Barang</span><input class="form-control" type="number" wire:model="STOK"></div>
                         <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text"
-                                style="width: 130px;">Lokasi</span><select class="form-select" wire:model="LOKASI">
-                                <option value="Toko" selected="">Toko</option>
-                                <option value="Moyo">Moyo</option>
-                                <option value="Sorpus">Sorpus</option>
-                            </select>
-                        </div>
+                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Lokasi
+                            </span><input class="form-control" type="text" wire:model="LOKASI"></div>
+
                     </div>
                 </form>
                 <div class="modal-footer">

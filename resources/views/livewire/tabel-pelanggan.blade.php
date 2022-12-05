@@ -14,7 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($pelanggan as $data)
+                @forelse ($pelanggan as $data)
                     <tr>
                         <td>{{ $data->ID_PEL }}</td>
                         <td>{{ $data->NAMA_PEL }}</td>
@@ -33,18 +33,22 @@
                                     </svg></button>
                                 <div class="dropdown-menu dropdown-menu-dark">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#deletePelangganModal"
-                                        class="btn dropdown-item" wire:click="editPelanggan({{ $data->ID_PEL }})"
+                                        class="btn dropdown-item" wire:click="editPelanggan({{ $data->URUT_PELANGGAN }})"
                                         href="">Hapus
                                     </button>
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#updatePelangganModal"
-                                        class="btn dropdown-item" wire:click="editPelanggan({{ $data->ID_PEL }})"
+                                        class="btn dropdown-item" wire:click="editPelanggan({{ $data->URUT_PELANGGAN }})"
                                         href="">Edit
                                     </button>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="5" class="text-center">Tidak ada data</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
         {{ $pelanggan->links() }}
@@ -71,7 +75,6 @@
     </div>
     {{-- Modal Edit --}}
 
-    {{-- Edit Pelanggan --}}
     <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="updatePelangganModal"
         aria-labelledby="updatePelangganModal">
         <div class="modal-dialog modal-dialog-centered" role="document">

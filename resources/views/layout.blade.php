@@ -29,18 +29,18 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link" href="/dashboard"><i
+                    <li class="nav-item"><a class="nav-link {{request()->route()->named('dashboard') ? 'active' : '' }}" href="/dashboard"><i
                                 class="fas fa-tachometer-alt"></i><span>&nbsp;Utama</span></a></li>
                     <hr class="sidebar-divider">
                     <div class="sidebar-heading">
                         <p class="mb-0" style="color: #ffffff;">Transaksi</p>
                     </div>
-                    <li class="nav-item"><a class="nav-link" href="/nota"><i
+                    <li class="nav-item"><a class="nav-link {{request()->route()->named('nota') ? 'active' : '' }}" href="/nota"><i
                                 class="fas fa-sticky-note"></i><span>&nbsp;Nota</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link" data-bs-toggle="collapse" aria-expanded="false"
+                        <div><a class="btn btn-link nav-link {{request()->route()->named('transaksiJual')||request()->route()->named('transaksiBeli') ? 'active' : '' }}" data-bs-toggle="collapse" aria-expanded="false"
                                 aria-controls="collapse-1" href="#collapse-1" role="button"><i
                                     class="fas fa-money-bill-wave"></i>&nbsp;<span>Transaksi</span></a>
                             <div class="collapse" id="collapse-1">
@@ -53,7 +53,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link" data-bs-toggle="collapse" aria-expanded="false"
+                        <div><a class="btn btn-link nav-link {{request()->route()->named('returJual')||request()->route()->named('returBeli') ? 'active' : '' }}" data-bs-toggle="collapse" aria-expanded="false"
                                 aria-controls="collapse-3" href="#collapse-3" role="button"><i
                                     class="fas fa-backspace"></i>&nbsp;<span>Retur</span></a>
                             <div class="collapse" id="collapse-3">
@@ -72,7 +72,7 @@
                     </div>
                     <li class="nav-item"></li>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link" data-bs-toggle="collapse" aria-expanded="false"
+                        <div><a class="btn btn-link nav-link {{request()->route()->named('supplier')||request()->route()->named('pelanggan') ? 'active' : '' }}" data-bs-toggle="collapse" aria-expanded="false"
                                 aria-controls="collapse-2" href="#collapse-2" role="button"><i
                                     class="fas fa-users"></i>&nbsp;<span>Supplier &amp; Pelanggan</span></a>
                             <div class="collapse" id="collapse-2">
@@ -84,7 +84,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="/barang"><i
+                    <li class="nav-item"><a class="nav-link {{request()->route()->named('barang') ? 'active' : '' }}" href="/barang"><i
                                 class="fas fa-table"></i><span>&nbsp;Barang</span></a></li>
                     <hr class="sidebar-divider">
                 </ul>
@@ -113,98 +113,6 @@
                             </div>
                         </li>
 
-                        {{-- <li class="nav-item dropdown no-arrow mx-1">
-                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-                                    aria-expanded="false" data-bs-toggle="dropdown" href="#"><span
-                                        class="badge bg-danger badge-counter">3+</span><i
-                                        class="fas fa-bell fa-fw"></i></a>
-                                <div class="dropdown-menu dropdown-list dropdown-menu-end animated--grow-in">
-                                    <h6 class="dropdown-header">alerts center</h6><a
-                                        class="d-flex align-items-center dropdown-item" href="#">
-                                        <div class="me-3">
-                                            <div class="bg-primary icon-circle"><i
-                                                    class="fas fa-file-alt text-white"></i></div>
-                                        </div>
-                                        <div><span class="small text-gray-500">December 12, 2019</span>
-                                            <p>A new monthly report is ready to download!</p>
-                                        </div>
-                                    </a><a class="d-flex align-items-center dropdown-item" href="#">
-                                        <div class="me-3">
-                                            <div class="bg-success icon-circle"><i
-                                                    class="fas fa-donate text-white"></i></div>
-                                        </div>
-                                        <div><span class="small text-gray-500">December 7, 2019</span>
-                                            <p>$290.29 has been deposited into your account!</p>
-                                        </div>
-                                    </a><a class="d-flex align-items-center dropdown-item" href="#">
-                                        <div class="me-3">
-                                            <div class="bg-warning icon-circle"><i
-                                                    class="fas fa-exclamation-triangle text-white"></i></div>
-                                        </div>
-                                        <div><span class="small text-gray-500">December 2, 2019</span>
-                                            <p>Spending Alert: We've noticed unusually high spending for your account.
-                                            </p>
-                                        </div>
-                                    </a><a class="text-center dropdown-item small text-gray-500" href="#">Show
-                                        All Alerts</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
-                                    aria-expanded="false" data-bs-toggle="dropdown" href="#"><span
-                                        class="badge bg-danger badge-counter">7</span><i
-                                        class="fas fa-envelope fa-fw"></i></a>
-                                <div class="dropdown-menu dropdown-menu-end dropdown-list animated--grow-in">
-                                    <h6 class="dropdown-header">alerts center</h6><a
-                                        class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image me-3"><img class="rounded-circle"
-                                                src="avatars/avatar4.jpeg">
-                                            <div class="bg-success status-indicator"></div>
-                                        </div>
-                                        <div class="fw-bold">
-                                            <div class="text-truncate"><span>Hi there! I am wondering if you can help
-                                                    me with a problem I've been having.</span></div>
-                                            <p class="small text-gray-500 mb-0">Emily Fowler - 58m</p>
-                                        </div>
-                                    </a><a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image me-3"><img class="rounded-circle"
-                                                src="avatars/avatar2.jpeg">
-                                            <div class="status-indicator"></div>
-                                        </div>
-                                        <div class="fw-bold">
-                                            <div class="text-truncate"><span>I have the photos that you ordered last
-                                                    month!</span></div>
-                                            <p class="small text-gray-500 mb-0">Jae Chun - 1d</p>
-                                        </div>
-                                    </a><a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image me-3"><img class="rounded-circle"
-                                                src="avatars/avatar3.jpeg">
-                                            <div class="bg-warning status-indicator"></div>
-                                        </div>
-                                        <div class="fw-bold">
-                                            <div class="text-truncate"><span>Last month's report looks great, I am very
-                                                    happy with the progress so far, keep up the good work!</span></div>
-                                            <p class="small text-gray-500 mb-0">Morgan Alvarez - 2d</p>
-                                        </div>
-                                    </a><a class="dropdown-item d-flex align-items-center" href="#">
-                                        <div class="dropdown-list-image me-3"><img class="rounded-circle"
-                                                src="avatars/avatar5.jpeg">
-                                            <div class="bg-success status-indicator"></div>
-                                        </div>
-                                        <div class="fw-bold">
-                                            <div class="text-truncate"><span>Am I a good boy? The reason I ask is
-                                                    because someone told me that people say this to all dogs, even if
-                                                    they aren't good...</span></div>
-                                            <p class="small text-gray-500 mb-0">Chicken the Dog · 2w</p>
-                                        </div>
-                                    </a><a class="dropdown-item text-center small text-gray-500" href="#">Show
-                                        All Alerts</a>
-                                </div>
-                            </div>
-                            <div class="shadow dropdown-list dropdown-menu dropdown-menu-end"
-                                aria-labelledby="alertsDropdown"></div>
-                        </li> --}}
 
                         <div class="d-none d-sm-block topbar-divider"></div>
                         <li class="nav-item dropdown no-arrow">
@@ -212,7 +120,7 @@
                                     aria-expanded="false" data-bs-toggle="dropdown"><span
                                         class="d-lg-inline me-2 text-gray-600 small">
                                         @if (!Auth::guest())
-                                            {{ Auth::user()->name}}
+                                            {{ Auth::user()->name }}
                                         @endif
                                     </span></a>
                                 <div class="dropdown-menu shadow dropdown-menu-end animated--grow-in"><a
@@ -231,15 +139,24 @@
                 </div>
             </nav>
             @yield('content')
-            {{-- {{auth()->user()->name}} --}}
         </div>
+
+
+
         <a class="border rounded d-inline scroll-to-top" data-bss-tooltip="" data-bs-placement="left"
             title="Tambah Transaksi" href="/nota">
             <i class="fas fa-plus" style="font-size: 17px;">
             </i>
         </a>
-
+        {{-- <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C) 2022</span></div>
+            </div>
+        </footer> --}}
     </div>
+
+
+
     <x-flash-message />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>

@@ -13,7 +13,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($supplier as $data)
+                @forelse ($supplier as $data)
                     <tr>
                         <td>{{ $data->ID_SUP }}</td>
                         <td>{{ $data->NAMA_SUP }}</td>
@@ -31,17 +31,22 @@
                                     </svg></button>
                                 <div class="dropdown-menu dropdown-menu-dark">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#deleteSupplierModal"
-                                        class="btn dropdown-item" wire:click="editSupplier({{ $data->ID_SUP }})"
+                                        class="btn dropdown-item" wire:click="editSupplier({{ $data->URUT_SUPPLIER }})"
                                         href="">Hapus
                                     </button>
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#updateSupplierModal"
-                                        class="btn dropdown-item" wire:click="editSupplier({{ $data->ID_SUP }})"
+                                        class="btn dropdown-item" wire:click="editSupplier({{ $data->URUT_SUPPLIER}})"
                                         href="">Edit
                                     </button>
                                 </div>
+                            </div>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="4" class="text-center">Tidak ada data</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
         {{ $supplier->links() }}
@@ -97,7 +102,7 @@
                 <div class="modal-footer">
                     <button class="btn btn-light" wire:click="clearModal" type="button"
                         data-bs-dismiss="modal">Batal</button>
-                    <button class="btn btn-primary" type="submit" wire:click="updatePelanggan">Simpan</button>
+                    <button class="btn btn-primary" type="submit" wire:click="updateSupplier">Simpan</button>
                 </div>
             </div>
         </div>

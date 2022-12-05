@@ -2,20 +2,18 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Pelanggan;
 use Livewire\Component;
+use App\Models\Pelanggan;
 use Livewire\WithPagination;
 
 class TabelPelanggan extends Component
 {
-    public $ID_PEL, $NAMA_PEL, $ALAMAT, $NOTELP;
+    public $ID_PEL, $NAMA_PEL, $ALAMAT, $NOTELP, $URUT_PELANGGAN;
     public $cariPelanggan = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-
-
         return view('livewire.tabel-pelanggan', [
             'pelanggan' => Pelanggan::where('STATUS_DEL', '0')->where('NAMA_PEL', 'like','%'.$this->cariPelanggan.'%')->orderBy('ID_PEL')->paginate(10)
         ]);
@@ -28,8 +26,9 @@ class TabelPelanggan extends Component
         $this->ALAMAT = '';
         $this->NOTELP = '';
     }
-    public function editPelanggan(int $ID_PEL){
-        $pelangganedit= Pelanggan::find($ID_PEL);
+    public function editPelanggan(int $URUT_PELANGGAN)
+    {
+        $pelangganedit= Pelanggan::find($URUT_PELANGGAN);
         if($pelangganedit){
             $this->ID_PEL = $pelangganedit->ID_PEL;
             $this->NAMA_PEL = $pelangganedit->NAMA_PEL;

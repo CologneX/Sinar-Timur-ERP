@@ -51,9 +51,7 @@ Route::post('/pelanggan', [ControllerPelanggan::class, 'simpanPelanggan']);
 Route::get('/supplier', [Supplier::class, 'showSupplier'])->name('supplier')->middleware('auth');
 Route::post('/supplier', [Supplier::class, 'simpanSupplier']);
 
-Route::get('/', function(){
-    return view('dashboard');
-})->name('dashboard')->middleware('auth');
+
 // // Page Pelanggan
 // // Route::get('/pelanggan', [ControllerDaftar::class, 'pelanggan'])->name('pelanggan');
 // // Route::post('/pelanggan', [ControllerDaftar::class, 'insert']);
@@ -73,6 +71,9 @@ Route::get('/returanPenjualan',  [returPenjualan::class, 'showRetur'])->name('re
 Route::post('/returanPenjualan',  [returPenjualan::class, 'showRetur']);
 
 // //page dashboard
+Route::get('/', function () {
+    return view('dashboard');
+})->name('dashboard')->middleware('auth');
 Route::get('/dashboard',  [LivewireControllerDashboard::class, 'render'])->name('dashboard')->middleware('auth');
 
 
