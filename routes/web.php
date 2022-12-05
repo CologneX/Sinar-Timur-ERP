@@ -72,8 +72,9 @@ Route::post('/returanPenjualan',  [returPenjualan::class, 'showRetur']);
 
 // //page dashboard
 Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard')->middleware('auth');
+    return view('livewire.controller-dashboard');
+});
+
 Route::get('/dashboard',  [LivewireControllerDashboard::class, 'render'])->name('dashboard')->middleware('auth');
 
 

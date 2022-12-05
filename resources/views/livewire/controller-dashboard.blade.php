@@ -79,7 +79,7 @@
                         <div class="container-fluid" style="padding-top: 10px;padding-right: 10px;padding-left: 10px;">
                             <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control"
                                     type="text" id="cari-barang" autocomplete="on" placeholder="Cari Barang..."
-                                    wire:model="cariBarang">
+                                    wire:model="caribarang">
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover table-bordered">
