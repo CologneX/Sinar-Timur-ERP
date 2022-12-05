@@ -70,10 +70,14 @@ Route::post('/returanPembelian',  [returPembelian::class, 'showRetur']);
 Route::get('/returanPenjualan',  [returPenjualan::class, 'showRetur'])->name('returJual')->middleware('auth');
 Route::post('/returanPenjualan',  [returPenjualan::class, 'showRetur']);
 
-// //page dashboard
+//page dashboard
+
 Route::get('/', function () {
-    return view('livewire.controller-dashboard');
+    return redirect('/dashboard');
 });
+
+
+
 
 Route::get('/dashboard',  [LivewireControllerDashboard::class, 'render'])->name('dashboard')->middleware('auth');
 
