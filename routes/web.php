@@ -79,7 +79,7 @@ Route::get('/', function () {
 
 
 
-Route::get('/dashboard',  [LivewireControllerDashboard::class, 'render'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard',  [ControllerDashboard::class, 'showDashboard'])->name('dashboard')->middleware('auth');
 
 
 Route::get('/pengguna',  [ControllerPengguna::class, 'showPengguna'])->name('pengguna')->middleware('auth');
