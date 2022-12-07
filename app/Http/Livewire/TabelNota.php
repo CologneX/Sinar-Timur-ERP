@@ -9,21 +9,29 @@ use Illuminate\Support\Facades\DB;
 
 class TabelNota extends Component
 {
-    public $cariBarangNota = '';
+    public $caribarangnota = '';
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-        // $maxID = DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL')+1;
         return view('livewire.tabel-nota', [
-            'barangNota' => Barang::where('NAMA_BARANG', 'like', '%' . $this->cariBarangNota . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
-            // 'maxID' => $maxID,
+            'barang' => Barang::where('NAMA_BARANG', 'like', '%' . $this->caribarangnota . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
+
         ]);
     }
-    public function masukkanBarang()
+    public function pilihBarang(int $ID)
     {
+        $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
+        DB::insert('insert into DETAIL_TRANSAKSI (ID_TRANSJUAL, ID_BARANG, KUANTITAS_JUAL) values (?,?,?)', [ DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), $getID, 3]);
+
 
     }
+
+    public function reloadNota()
+    {
+        // refresh
+    }
+
 
 }

@@ -162,13 +162,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
-    <script>
+    {{-- <script>
         jQuery(document).ready(function($) {
             $(".clickable-row").click(function() {
-                window.location = $(this).data("href");
+                window.location = "wire:click";
             });
         });
-    </script>
+    </script> --}}
     @livewireScripts
 </body>
 

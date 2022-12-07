@@ -2,16 +2,14 @@
 @section('content')
     <div id="content">
         <div class="container">
-            <!-- Start: #TabelTransaksi -->
+            <h3 class="text-dark mb-4" style="font-weight: bold;">Transaksi Penjualan</h3><!-- Start: #TabelTransaksi -->
             <div class="card shadow">
                 <div class="card-body">
-                    <h3 class="text-dark mb-4" style="font-weight: bold;">Transaksi Penjualan</h3>
-                    <div class="d-flex justify-content-end justify-content-xl-end container-fluid"
-                        style="padding-left: 0px;padding-right: 0px;"><button
-                            class="btn btn-primary d-sm-flex justify-content-sm-end align-items-sm-center" type="button"
+                    <div class="d-flex justify-content-end container-fluid" style="padding-left: 0px;padding-right: 0px;">
+                        <button class="btn btn-primary d-sm-flex justify-content-sm-end align-items-sm-center" type="button"
                             data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i
-                                class="fas fa-filter"></i>&nbsp;Filter</button></div>
-
+                                class="fas fa-filter"></i>&nbsp;Filter</button>
+                    </div>
                     @livewire('tabel-transjual')
                 </div>
             </div><!-- End: #TabelTransaksi -->

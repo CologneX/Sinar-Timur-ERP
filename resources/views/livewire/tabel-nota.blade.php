@@ -1,158 +1,125 @@
-<div id="content">
-    <div class="container-fluid">
-        <div class="card shadow">
-            <div class="card-body">
-                <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
-                    <div class="row g-0 d-flex d-lg-flex justify-content-sm-start align-items-lg-center"
-                        style="padding-bottom: 5px;">
-
-                        <div class="col d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-end align-content-center justify-content-sm-end justify-content-md-end justify-content-xl-end"
-                            style="padding-left: 12px;"><button
-                                class="btn btn-outline-primary text-center d-flex justify-content-center align-items-center"
-                                type="button"
-                                style="margin-right: 9px;padding-right: 6px;padding-left: 4px;width: 84px;"
-                                data-bs-target="#tambah-barang" data-bs-toggle="offcanvas"><i
-                                    class="fas fa-plus"></i>&nbsp;Barang</button><button
-                                class="btn btn-outline-primary d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-end align-items-sm-center"
-                                type="button" data-bs-target="#filter-barang" data-bs-toggle="offcanvas"
-                                style="width: 84px;"><i class="fas fa-filter"></i>&nbsp;Filter</button></div>
-                    </div>
-                    <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control"
-                            type="text" id="cari-barang" autocomplete="on" placeholder="Cari Barang..."
-                            wire:model="cariBarangNota">
-                    </div>
-
-                    <div id="content">
-                        <div class="container-fluid">
-                            <h3 class="text-dark mb-4" style="font-weight: bold;">Nota&nbsp;</h3>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12 offset-1 offset-sm-0" style="margin-left: 0px;">
-                                    <!-- Start: #TabelBarang -->
-                                    <div class="table-responsive" style="overflow: auto;">
-                                        <table class="table table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Nama Barang</th>
-                                                    <th>Harga</th>
-                                                    <th>Stok</th>
-                                                    <th>Keterangan</th>
-                                                    <th class="text-center"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @forelse ($barangNota as $data)
-                                                    <tr class='clickable-row' data-href='/'>
-                                                        <td>{{ $data->ID_BARANG }}</td>
-                                                        <td>{{ $data->NAMA_BARANG }}</td>
-                                                        <td>{{ 'Rp. ' . $data->HARGA }}</td>
-                                                        <td>{{ $data->STOK . ' ' . $data->SATUAN }}</td>
-                                                        <td>{{ $data->LOKASI }}</td>
-                                                        <td class="flex-grow-0" style="padding: 0px;overflow: visible;">
-                                                            <div class="dropstart"><button class="btn"
-                                                                    aria-expanded="false" data-bs-toggle="dropdown"
-                                                                    type="button"
-                                                                    style="padding-right: 5px;padding-left: 5px;overflow: visible;padding-bottom: 8px;padding-top: 6px;"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg"
-                                                                        width="1em" height="1em"
-                                                                        fill="currentColor" viewBox="0 0 16 16"
-                                                                        class="bi bi-three-dots-vertical"
-                                                                        style="width: 16px;">
-                                                                        <path
-                                                                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
-                                                                        </path>
-                                                                    </svg></button>
-                                                                <div class="dropdown-menu dropdown-menu-dark">
-                                                                    <button type="button" data-bs-toggle="modal"
-                                                                        data-bs-target="#deleteBarangModal"
-                                                                        class="dropdown-item"
-                                                                        wire:click="editBarang({{ $data->ID_BARANG }})">Hapus
-                                                                    </button>
-                                                                    <button type="button" data-bs-toggle="modal"
-                                                                        data-bs-target="#updateBarangModal"
-                                                                        class="dropdown-item"
-                                                                        wire:click="editBarang({{ $data->ID_BARANG }})">Edit
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                @empty
-                                                    <tr>
-                                                        <td colspan="6" class="text-center">Tidak ada data</td>
-                                                    </tr>
-                                                @endforelse
-                                            </tbody>
-                                        </table>
-                                        {{ $barangNota->links() }}
-                                    </div>
-                                </div>
-                                <div class="col" style="margin-top: 21px;">
-                                    <!-- Start: #TabelTransaksi -->
-                                    <div class="card shadow">
-                                        <div class="card-body">
-                                            <div class="input-group input-group-sm" style="margin-bottom: 9px;"><span
-                                                    class="input-group-text" style="font-weight: bold;">NO
-                                                    NOTA</span><input class="form-control" type="text" id="no-nota"
-                                                    readonly=""
-                                                    style="color: rgb(0,0,0);max-width: 80px; font-weight: bold; text-align: center;"
-                                                    {{-- value="{{ $maxID }}" --}}></div>
-                                            <div class="table-responsive">
-                                                <table class="table table-hover table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>ID Barang</th>
-                                                            <th>Barang</th>
-                                                            <th>QTY</th>
-                                                            <th>Harga</th>
-                                                            <th>Total</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($barangNota as $data)
-                                                            <tr>
-                                                                <td>{{ $data->ID_BARANG }}</td>
-                                                                <td>{{ $data->NAMA_BARANG }}</td>
-                                                                <td>{{ 'Rp. ' . $data->HARGA }}</td>
-                                                                <td>{{ $data->STOK . ' ' . $data->SATUAN }}</td>
-                                                                <td>{{ $data->LOKASI }}</td>
-                                                            </tr>
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <div
-                                                class="input-group d-flex d-md-flex d-lg-flex justify-content-end justify-content-sm-end justify-content-md-end justify-content-lg-end">
-                                                <span class="input-group-text"
-                                                    style="font-weight: bold;font-size: 13px;">GRAND&nbsp;TOTAL</span><input
-                                                    class="form-control" type="text" id="grand-total"
-                                                    style="color: rgb(0,0,0);text-align: right;max-width: 100px;"
-                                                    readonly><button class="btn btn-primary" id="prosesNota"
-                                                    type="submit">Proses</button>
-                                            </div>
-                                        </div>
-                                    </div><!-- End: #TabelTransaksi -->
-                                    <!-- Start: #TabelTransaksi -->
-                                    <div class="card" style="margin-top: 9px;"></div><!-- End: #TabelTransaksi -->
+<div>
+    <div id="content">
+        <div class="container-fluid">
+            <h3 class="text-dark mb-4" style="font-weight: bold;">NOTA&nbsp;</h3>
+        </div><!-- Start: 1 Row 2 Columns -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 offset-1 offset-sm-0" style="margin-left: 0px;">
+                    <!-- Start: #TabelBarang -->
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
+                                <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input
+                                        class="form-control" type="text" autocomplete="on"
+                                        placeholder="Cari Barang..." wire:model="caribarangnota">
                                 </div>
                             </div>
-                        </div><!-- End: 1 Row 2 Columns -->
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Barang</th>
+                                            <th>Barang</th>
+                                            <th>Harga</th>
+                                            <th>Stok</th>
+                                            <th>Lokasi</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse ($barang as $data)
+                                            <tr>
+                                                <td>{{ $data->ID_BARANG }}</td>
+                                                <td>{{ $data->NAMA_BARANG }}</td>
+                                                <td>@money($data->HARGA)</td>
+                                                <td>{{ $data->STOK . ' ' . $data->SATUAN }}</td>
+                                                <td>{{ $data->LOKASI }}</td>
+                                                <td style="padding: 0px;"><button class="btn" type="button"
+                                                        wire:click="pilihBarang({{ $data->URUT_BARANG }})"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512"
+                                                            width="1em" height="1em" fill="currentColor">
+                                                            <path
+                                                                d="M432 256c0 17.69-14.33 32.01-32 32.01H256v144c0 17.69-14.33 31.99-32 31.99s-32-14.3-32-31.99v-144H48c-17.67 0-32-14.32-32-32.01s14.33-31.99 32-31.99H192v-144c0-17.69 14.33-32.01 32-32.01s32 14.32 32 32.01v144h144C417.7 224 432 238.3 432 256z">
+                                                            </path>
+                                                        </svg></button></td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="6" class="text-center">Tidak ada data</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                                {{ $barang->links() }}
+                            </div>
+                        </div>
+                    </div><!-- End: #TabelBarang -->
+                </div>
+                <div class="col" style="margin-top: 21px;">
+                    <!-- Start: #TabelTransaksi -->
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div>
+                                <div class="input-group input-group-sm" style="margin-bottom: 9px;"><span
+                                        class="input-group-text" style="font-weight: bold;">NO NOTA</span><input
+                                        class="form-control" type="text" id="no-nota" readonly=""
+                                        style="max-width: 120px;font-weight: bold;text-align: center;"
+                                        value="{{ DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL') }}"></div>
+                            </div>
+                            @livewire('nota')
+                        </div>
+                    </div><!-- End: #TabelTransaksi -->
+                </div>
+            </div>
+        </div><!-- End: 1 Row 2 Columns -->
+    </div>
+    <footer class="bg-white sticky-footer">
+        <div class="container my-auto">
+            <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C) 2022</span></div>
+        </div>
+        <div></div>
+    </footer>
+    <a class="border rounded d-inline scroll-to-top" data-bs-toggle="offcanvas" data-bss-tooltip=""
+        data-bs-placement="left" title="Tambah Transaksi" href="/transaksiPembelian.html"
+        data-bs-target="#tabel-transaksi"><i class="fas fa-plus" style="font-size: 17px;"></i></a>
+    <div class="modal fade" role="dialog" tabindex="-1" id="qtyBarang">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Barang</h4><button type="button" class="btn-close" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="input-group"><span class="d-flex justify-content-end input-group-text"
+                                    style="width: 130px;">ID Barang</span><input class="border rounded form-control"
+                                    type="text" readonly=""></div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group"><span class="d-flex justify-content-end input-group-text"
+                                    style="width: 130px;">Stok</span><input class="border rounded form-control"
+                                    type="number" readonly=""></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="input-group" style="margin-top: 10px;"><span
+                                class="d-flex justify-content-end input-group-text" style="width: 130px;">Nama
+                                Barang</span>
+                            <textarea class="form-control"></textarea>
+                        </div>
+                        <div class="input-group" style="margin-top: 10px;"><span
+                                class="d-flex justify-content-end input-group-text"
+                                style="width: 130px;">Kuantitas</span><input class="form-control" type="number">
+                        </div>
                     </div>
                 </div>
-
-                <footer class="bg-white sticky-footer">
-                    <div class="container my-auto">
-                        <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C)
-                                2022</span></div>
-                    </div>
-                </footer>
-            </div><a class="border rounded d-inline scroll-to-top" data-bs-toggle="offcanvas" data-bss-tooltip=""
-                data-bs-placement="left" title="Tambah Transaksi" href="/transaksiPembelian.html"
-                data-bs-target="#tabel-transaksi"><i class="fas fa-plus" style="font-size: 17px;"></i>
-            </a>
-
+                <div class="modal-footer"><button class="btn btn-light" type="button"
+                        data-bs-dismiss="modal">Tutup</button><button class="btn btn-primary"
+                        type="button">Masukkan</button>
+                </div>
+            </div>
         </div>
     </div>
-</div><!-- End: #TabelBarang -->
+</div>

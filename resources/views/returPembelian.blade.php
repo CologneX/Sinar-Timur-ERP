@@ -1,22 +1,16 @@
 @extends('layout')
 @section('content')
-    <div id="content">
-        <div class="container">
-            <!-- Start: #TabelTransaksi -->
-            <div class="card shadow">
-                <div class="card-body">
-                    <h3 class="text-dark mb-4" style="font-weight: bold;">Retur Pembelian</h3>
-                    <div class="d-flex justify-content-end justify-content-xl-end container-fluid"
-                        style="padding-left: 0px;padding-right: 0px;"><button
-                            class="btn btn-primary d-sm-flex justify-content-sm-end align-items-sm-center" type="button"
-                            data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i
-                                class="fas fa-filter"></i>&nbsp;Filter</button></div>
-                    @livewire('tabel-retur-beli')
-                </div>
-            </div><!-- End: #TabelTransaksi -->
-        </div>
+<div id="content">
+    <div class="container">
+        <h3 class="text-dark mb-4" style="font-weight: bold;">Retur Pembelian</h3><!-- Start: #TabelTransaksi -->
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="d-flex justify-content-end justify-content-lg-end justify-content-xl-end container-fluid" style="padding-left: 0px;padding-right: 0px;"><button class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button" data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i class="fas fa-plus"></i>&nbsp;Tambah</button></div>
+                @livewire('tabel-retur-beli')
+            </div>
+        </div><!-- End: #TabelTransaksi -->
     </div>
-
+</div>
 
     <footer class="bg-white sticky-footer">
         <div class="container my-auto">
