@@ -29,19 +29,21 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link {{request()->route()->named('dashboard') ? 'active' : '' }}" href="/dashboard"><i
-                                class="fas fa-tachometer-alt"></i><span>&nbsp;Utama</span></a></li>
+                    <li class="nav-item"><a
+                            class="nav-link {{ request()->route()->named('dashboard')? 'active': '' }}"
+                            href="/dashboard"><i class="fas fa-tachometer-alt"></i><span>&nbsp;Utama</span></a></li>
                     <hr class="sidebar-divider">
                     <div class="sidebar-heading">
                         <p class="mb-0" style="color: #ffffff;">Transaksi</p>
                     </div>
-                    <li class="nav-item"><a class="nav-link {{request()->route()->named('nota') ? 'active' : '' }}" href="/nota"><i
-                                class="fas fa-sticky-note"></i><span>&nbsp;Nota</span></a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->route()->named('nota')? 'active': '' }}"
+                            href="/nota"><i class="fas fa-sticky-note"></i><span>&nbsp;Nota</span></a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"></li>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link {{request()->route()->named('transaksiJual')||request()->route()->named('transaksiBeli') ? 'active' : '' }}" data-bs-toggle="collapse" aria-expanded="false"
-                                aria-controls="collapse-1" href="#collapse-1" role="button"><i
+                        <div><a class="btn btn-link nav-link {{ request()->route()->named('transaksiJual') ||request()->route()->named('transaksiBeli')? 'active': '' }}"
+                                data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-1"
+                                href="#collapse-1" role="button"><i
                                     class="fas fa-money-bill-wave"></i>&nbsp;<span>Transaksi</span></a>
                             <div class="collapse" id="collapse-1">
                                 <div class="bg-white border rounded py-2 collapse-inner">
@@ -53,8 +55,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link {{request()->route()->named('returJual')||request()->route()->named('returBeli') ? 'active' : '' }}" data-bs-toggle="collapse" aria-expanded="false"
-                                aria-controls="collapse-3" href="#collapse-3" role="button"><i
+                        <div><a class="btn btn-link nav-link {{ request()->route()->named('returJual') ||request()->route()->named('returBeli')? 'active': '' }}"
+                                data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-3"
+                                href="#collapse-3" role="button"><i
                                     class="fas fa-backspace"></i>&nbsp;<span>Retur</span></a>
                             <div class="collapse" id="collapse-3">
                                 <div class="bg-white border rounded py-2 collapse-inner">
@@ -72,9 +75,10 @@
                     </div>
                     <li class="nav-item"></li>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link {{request()->route()->named('supplier')||request()->route()->named('pelanggan') ? 'active' : '' }}" data-bs-toggle="collapse" aria-expanded="false"
-                                aria-controls="collapse-2" href="#collapse-2" role="button"><i
-                                    class="fas fa-users"></i>&nbsp;<span>Supplier &amp; Pelanggan</span></a>
+                        <div><a class="btn btn-link nav-link {{ request()->route()->named('supplier') ||request()->route()->named('pelanggan')? 'active': '' }}"
+                                data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-2"
+                                href="#collapse-2" role="button"><i class="fas fa-users"></i>&nbsp;<span>Supplier &amp;
+                                    Pelanggan</span></a>
                             <div class="collapse" id="collapse-2">
                                 <div class="bg-white border rounded py-2 collapse-inner">
                                     <h6 class="collapse-header">SUpplier &amp; pelanggan</h6><a class="collapse-item"
@@ -84,8 +88,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link {{request()->route()->named('barang') ? 'active' : '' }}" href="/barang"><i
-                                class="fas fa-table"></i><span>&nbsp;Barang</span></a></li>
+                    <li class="nav-item"><a class="nav-link {{ request()->route()->named('barang')? 'active': '' }}"
+                            href="/barang"><i class="fas fa-table"></i><span>&nbsp;Barang</span></a></li>
                     <hr class="sidebar-divider">
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"

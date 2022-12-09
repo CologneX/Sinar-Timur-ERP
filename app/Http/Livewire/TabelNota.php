@@ -13,6 +13,7 @@ class TabelNota extends Component
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['reloadNota' => '$refresh'];
     public function render()
     {
         return view('livewire.tabel-nota', [
@@ -23,15 +24,17 @@ class TabelNota extends Component
     public function pilihBarang(int $ID)
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
-        DB::insert('insert into DETAIL_TRANSAKSI (ID_TRANSJUAL, ID_BARANG, KUANTITAS_JUAL) values (?,?,?)', [ DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), $getID, 3]);
+        DB::insert('insert into DETAIL_TRANSAKSI (ID_TRANSJUAL, ID_BARANG, KUANTITAS_JUAL) values (?,?,?)', [DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), $getID, 1]);
+        $this->emit('reloadNota');
+
+        // return redirect('/nota')->with('message', 'Transaksi berhasil!');
+
 
 
     }
-
-    public function reloadNota()
+    public function nextTransaksi()
     {
-        // refresh
+        DB::insert('insert into TRANSAKSI_PENJUALAN (ID_PEL, TOTAL_TRANSJUAL, TOTAL_ITEMJUAL) VALUES (?, ?,?)', ['P0001', 0, 0]);
+        return redirect('/nota')->with('message', 'Transaksi berhasil!');
     }
-
-
 }

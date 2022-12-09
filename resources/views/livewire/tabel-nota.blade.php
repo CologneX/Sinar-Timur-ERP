@@ -35,7 +35,9 @@
                                                 <td>@money($data->HARGA)</td>
                                                 <td>{{ $data->STOK . ' ' . $data->SATUAN }}</td>
                                                 <td>{{ $data->LOKASI }}</td>
-                                                <td style="padding: 0px;"><button class="btn" type="button"
+                                                <td style="padding: 0px;"><input type="number" min="1"
+                                                        style="min-width: 25px;max-width: 45px;margin-right: 5px;"><button
+                                                        class="btn btn-link" type="button"
                                                         wire:click="pilihBarang({{ $data->URUT_BARANG }})"><svg
                                                             xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512"
                                                             width="1em" height="1em" fill="currentColor">
@@ -68,6 +70,23 @@
                                         value="{{ DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL') }}"></div>
                             </div>
                             @livewire('nota')
+                            <div class="row">
+                                <div class="col align-items-start align-content-start" style="margin-top: 10px;">
+                                    <div>
+                                        <div class="input-group"><span class="input-group-text"
+                                                style="font-weight: bold;font-size: 13px;">GRAND&nbsp;TOTAL</span><input
+                                                class="form-control" type="text" id="grand-total"
+                                                style="color: rgb(0,0,0);text-align: right;max-width: 145px;"
+                                                value="@money(
+                                                    DB::table('DETAIL_TRANSAKSI')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->sum('SUBTOTAL_DETAILJUAL'),
+                                                )">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end" style="margin-top: 10px;"><button
+                                    class="btn btn-primary" id="prosesNota" wire:click='nextTransaksi'>Proses</button>
+                            </div>
                         </div>
                     </div><!-- End: #TabelTransaksi -->
                 </div>
@@ -83,43 +102,4 @@
     <a class="border rounded d-inline scroll-to-top" data-bs-toggle="offcanvas" data-bss-tooltip=""
         data-bs-placement="left" title="Tambah Transaksi" href="/transaksiPembelian.html"
         data-bs-target="#tabel-transaksi"><i class="fas fa-plus" style="font-size: 17px;"></i></a>
-    <div class="modal fade" role="dialog" tabindex="-1" id="qtyBarang">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Barang</h4><button type="button" class="btn-close" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col">
-                            <div class="input-group"><span class="d-flex justify-content-end input-group-text"
-                                    style="width: 130px;">ID Barang</span><input class="border rounded form-control"
-                                    type="text" readonly=""></div>
-                        </div>
-                        <div class="col">
-                            <div class="input-group"><span class="d-flex justify-content-end input-group-text"
-                                    style="width: 130px;">Stok</span><input class="border rounded form-control"
-                                    type="number" readonly=""></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="input-group" style="margin-top: 10px;"><span
-                                class="d-flex justify-content-end input-group-text" style="width: 130px;">Nama
-                                Barang</span>
-                            <textarea class="form-control"></textarea>
-                        </div>
-                        <div class="input-group" style="margin-top: 10px;"><span
-                                class="d-flex justify-content-end input-group-text"
-                                style="width: 130px;">Kuantitas</span><input class="form-control" type="number">
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button"
-                        data-bs-dismiss="modal">Tutup</button><button class="btn btn-primary"
-                        type="button">Masukkan</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>

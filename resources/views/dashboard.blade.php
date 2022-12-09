@@ -15,22 +15,13 @@
                             <div class="row align-items-center no-gutters">
                                 <div class="col me-2">
                                     <div class="text-uppercase text-primary fw-bold text-xs mb-1">
-                                        <script>
-                                            var today = new Date();
-                                            var dd = String(today.getDate()).padStart(2, '0');
-                                            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                                            var yyyy = today.getFullYear();
-
-                                            today = dd + '-' + mm + '-' + yyyy;
-                                        </script>
-                                        <div>Pendapatan (
-                                            <script>
-                                                document.write(today)
-                                            </script>)
+                                        <div>Pendapatan ({{ date('d-m-Y') }})
                                         </div>
                                     </div>
                                     <div class="text-dark fw-bold h5 mb-0"><span></span>
-                                        <div>Rp. </div>
+                                        <div>@money(
+                                            DB::table('TRANSAKSI_PENJUALAN')->whereDate('TGL_TRANSJUAL', '=', date('Y-m-d'))->sum('TOTAL_TRANSJUAL')
+                                        )</div>
                                     </div>
                                 </div>
                                 <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
@@ -44,22 +35,12 @@
                             <div class="row align-items-center no-gutters">
                                 <div class="col me-2">
                                     <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>
-                                            <script>
-                                                const month = ["Januari", "Febuari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober",
-                                                    "November", "Desember"
-                                                ];
-                                                const d = new Date();
-                                                let name = month[d.getMonth()];
-                                            </script>
 
-                                            <div>Pendapatan (
-                                                <script>
-                                                    document.write(name)
-                                                </script>)
+                                            <div>Pendapatan ({{ date('F') }})
                                             </div>
                                         </span></div>
                                     <div class="text-dark fw-bold h5 mb-0"><span>
-                                            <div>Rp. </div>
+                                            <div>@money(DB::table('TRANSAKSI_PENJUALAN')->whereMonth('TGL_TRANSJUAL', '=', date('m'))->sum('TOTAL_TRANSJUAL'))</div>
                                         </span></div>
                                 </div>
                                 <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -88,18 +69,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <div class="text-uppercase text-primary fw-bold text-xs mb-1">
-                                <script>
-                                    var today = new Date();
-                                    var dd = String(today.getDate()).padStart(2, '0');
-                                    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-                                    var yyyy = today.getFullYear();
-
-                                    today = dd + '-' + mm + '-' + yyyy;
-                                </script>
-                                <div>Transaksi (
-                                    <script>
-                                        document.write(today)
-                                    </script>)
+                                <div>Transaksi ({{date('Y')}})
                                 </div>
                             </div><a class="btn btn-link btn-sm" role="button" href="transaksiPembelian.html"><i
                                     class="fas fa-external-link-alt"></i></a>

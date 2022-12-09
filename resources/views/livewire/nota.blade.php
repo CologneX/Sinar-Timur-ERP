@@ -18,7 +18,7 @@
                     <td>@money($data->SUBTOTAL_DETAILJUAL)</td>
                     <td class="text-center" style="padding: 0px;">
                         <button class="btn" id="tbl-hapus" type="button"
-                            style="padding: 0px;"><svg xmlns="http://www.w3.org/2000/svg"
+                            style="padding: 0px;" wire:click="hapusBarang({{DB::table('BARANG')->where('ID_BARANG', $data->ID_BARANG)->value('URUT_BARANG')}})"><svg xmlns="http://www.w3.org/2000/svg"
                                 viewBox="-32 0 512 512" width="1em" height="1em"
                                 fill="currentColor"
                                 style="margin-top: 9px;">
@@ -37,20 +37,6 @@
 
         </tbody>
     </table>
-    {{ $nota->links() }}
 </div>
-<div class="row">
-    <div class="col align-items-start align-content-start" style="margin-top: 10px;">
-        <div>
-            <div class="input-group"><span class="input-group-text"
-                    style="font-weight: bold;font-size: 13px;">GRAND&nbsp;TOTAL</span><input
-                    class="form-control" type="text" id="grand-total"
-                    style="color: rgb(0,0,0);text-align: right;max-width: 145px;"
-                    value="@money(DB::table('DETAIL_TRANSAKSI')->where('ID_TRANSJUAL',DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->sum('SUBTOTAL_DETAILJUAL'))">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="d-flex justify-content-end" style="margin-top: 10px;"><button
-    class="btn btn-primary" id="prosesNota" wire:click='nextTransaksi'>Proses</button>
-</div>
+
+

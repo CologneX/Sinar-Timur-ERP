@@ -1,17 +1,20 @@
 @extends('layout')
 @section('content')
-
-<div id="content">
-    <div class="container">
-        <h3 class="text-dark mb-4" style="font-weight: bold;">Retur Penjualan</h3><!-- Start: #TabelTransaksi -->
-        <div class="card shadow">
-            <div class="card-body">
-                <div class="d-flex justify-content-end justify-content-xl-end container-fluid" style="padding-left: 0px;padding-right: 0px;"><button class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button" data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i class="fas fa-plus"></i>&nbsp;Tambah</button></div>
-                @livewire('tabel-retur-jual')
-            </div>
-        </div><!-- End: #TabelTransaksi -->
+    <div id="content">
+        <div class="container">
+            <h3 class="text-dark mb-4" style="font-weight: bold;">Retur Penjualan</h3><!-- Start: #TabelTransaksi -->
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="d-flex justify-content-end justify-content-xl-end container-fluid"
+                        style="padding-left: 0px;padding-right: 0px;"><button
+                            class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button"
+                            data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i
+                                class="fas fa-plus"></i>&nbsp;Tambah</button></div>
+                    @livewire('tabel-retur-jual')
+                </div>
+            </div><!-- End: #TabelTransaksi -->
+        </div>
     </div>
-</div>
     <footer class="bg-white sticky-footer">
         <div class="container my-auto">
             <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C) 2022</span></div>
