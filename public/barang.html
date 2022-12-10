@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Dashboard - Brand</title>
+    <title>Table - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee&amp;display=swap">
@@ -21,7 +21,7 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" style="width: 16px;height: 16px;">
+                    <li class="nav-item"><a class="nav-link" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor" style="width: 16px;height: 16px;">
                                 <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
                                 <path d="M511.8 287.6L512.5 447.7C512.6 483.2 483.9 512 448.5 512H128.1C92.75 512 64.09 483.3 64.09 448V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L416 100.7V64C416 46.33 430.3 32 448 32H480C497.7 32 512 46.33 512 64V185L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6L511.8 287.6zM288 288C323.3 288 352 259.3 352 224C352 188.7 323.3 160 288 160C252.7 160 224 188.7 224 224C224 259.3 252.7 288 288 288zM192 416H384C392.8 416 400 408.8 400 400C400 355.8 364.2 320 320 320H256C211.8 320 176 355.8 176 400C176 408.8 183.2 416 192 416z"></path>
                             </svg><span>&nbsp;Utama</span></a></li>
@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="barang.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="width: 16px;height: 16px;">
+                    <li class="nav-item"><a class="nav-link active" href="barang.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1em" height="1em" fill="currentColor" style="width: 16px;height: 16px;">
                                 <!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. -->
                                 <path d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 160H128V96H64V160zM448 96H192V160H448V96zM64 288H128V224H64V288zM448 224H192V288H448V224zM64 416H128V352H64V416zM448 352H192V416H448V352z"></path>
                             </svg><span>&nbsp;Barang</span></a></li>
@@ -120,96 +120,49 @@
             </nav><!-- End: Navbar White -->
             <div id="content">
                 <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Selamat Datang, User</h3>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-xl-6 mb-4">
-                            <div class="card shadow border-start-primary py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-primary fw-bold text-xs mb-1"><span>PENDAPATAN (12-12-2022)</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><div>Rp. 12.345.325
-    
-</div></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-calendar fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
+                    <h3 class="fw-bolder text-dark mb-4" style="color: rgb(0,0,0);">BARANG</h3><!-- Start: #TabelBarang -->
+                    <div class="card shadow">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-end"><button class="btn btn-outline-primary text-center" type="button" style="padding-right: 6px;padding-left: 4px;width: 84px;" data-bs-target="#tambah-barang" data-bs-toggle="offcanvas"><i class="fas fa-plus"></i>&nbsp;Barang</button></div>
+                            <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text" id="cari-barang" autocomplete="on" placeholder="Cari Barang..."></div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Barang</th>
+                                            <th>Satuan</th>
+                                            <th>Harga</th>
+                                            <th>Stok</th>
+                                            <th>Keterangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Contoh</td>
+                                            <td>PCS</td>
+                                            <td>Rp. 12000</td>
+                                            <td>1</td>
+                                            <td>Kondisi Mantap<br></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            <nav class="d-flex justify-content-start">
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                    <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
                         </div>
-                        <div class="col-md-6 col-xl-6 mb-4">
-                            <div class="card shadow border-start-success py-2">
-                                <div class="card-body">
-                                    <div class="row align-items-center no-gutters">
-                                        <div class="col me-2">
-                                            <div class="text-uppercase text-success fw-bold text-xs mb-1"><span>PENDAPATAN (DECEMBER)</span></div>
-                                            <div class="text-dark fw-bold h5 mb-0"><span><div>Rp. 324.523.234</div></span></div>
-                                        </div>
-                                        <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- Start: Chart -->
-                    <div class="row">
-                        <div class="col-lg-7 col-xl-8">
-                            <div class="card shadow mb-4">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h6 class="text-primary fw-bold m-0">Stok Barang</h6><a class="btn btn-link btn-sm" role="button" href="barang.html"><i class="fas fa-external-link-alt"></i></a>
-                                </div>
-                                <div class="container-fluid" style="padding-top: 10px;padding-right: 10px;padding-left: 10px;">
-                                    <div class="input-group"><input class="form-control" type="text" id="cari-barang-index" autocomplete="on" placeholder="Cari Barang..." style="margin-bottom: 5px;"></div>
-                                    <div class="table-responsive">
-                                        <table class="table table-hover table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Nama Barang</th>
-                                                    <th>Satuan</th>
-                                                    <th>Stok</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Contoh</td>
-                                                    <td>PCS</td>
-                                                    <td>1</td>
-                                                </tr>
-                                                <tr></tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div><!-- Start: Basic Card -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="text-primary m-0 fw-bold">PENDAPATAN (2022)</h6>
-                                </div>
-                                <div class="card-body">
-                                    <!-- Start: Bar Chart -->
-                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Januari&quot;,&quot;Februari&quot;,&quot;Maret&quot;,&quot;April&quot;,&quot;Mei&quot;,&quot;Juni&quot;,&quot;Juli&quot;,&quot;Agustus&quot;,&quot;September&quot;,&quot;Oktober&quot;,&quot;November&quot;,&quot;Desember&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Revenue&quot;,&quot;backgroundColor&quot;:&quot;#4e73df&quot;,&quot;borderColor&quot;:&quot;#4e73df&quot;,&quot;data&quot;:[&quot;12.300&quot;,&quot;25&quot;,&quot;32.126&quot;,&quot;50.625&quot;,&quot;40.210&quot;,&quot;31&quot;,&quot;34&quot;,&quot;22&quot;,&quot;33&quot;,&quot;25&quot;,&quot;42&quot;,&quot;100&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;position&quot;:&quot;left&quot;},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;bold&quot;,&quot;display&quot;:true,&quot;text&quot;:&quot;Dalam juta Rupiah&quot;,&quot;position&quot;:&quot;top&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:true,&quot;drawTicks&quot;:false,&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;beginAtZero&quot;:false,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:true,&quot;drawTicks&quot;:false,&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;beginAtZero&quot;:false,&quot;padding&quot;:20}}]}}}"></canvas></div><!-- End: Bar Chart -->
-                                </div>
-                            </div><!-- End: Basic Card -->
-                        </div>
-                        <div class="col-lg-5 col-xl-4">
-                            <div class="card shadow mb-4">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <div class="text-uppercase text-primary fw-bold text-xs mb-1">
-<div>Transaksi (2022)</div></div><a class="btn btn-link btn-sm" role="button" href="transaksiPembelian.html"><i class="fas fa-external-link-alt"></i></a>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-area"><canvas data-bss-chart="{&quot;type&quot;:&quot;pie&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Penjualan&quot;,&quot;Pembelian&quot;,&quot;Retur Beli&quot;,&quot;Retur Jual&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;,&quot;rgb(89,89,89)&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;237&quot;,&quot;37&quot;,&quot;7&quot;,&quot;10&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas></div>
-                                    <div class="text-center small mt-4"><span class="me-2"><i class="fas fa-circle text-primary"></i>&nbsp;Penjualan</span><span class="me-2"><i class="fas fa-circle text-success"></i>&nbsp; Pembelian</span><span class="me-2"><i class="fas fa-circle text-info"></i>&nbsp;Retur Pembelian</span><span><i class="fas fa-circle" style="font-size: 15px;color: #858796;"></i>&nbsp; Retur Penjualan</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- End: Chart -->
+                    </div><!-- End: #TabelBarang -->
                 </div>
             </div>
-            <div class="alert alert-primary border rounded alert-dismissible" role="alert" style="position: fixed;top: 90%;left: 1%;width: 40%;z-index: 9999;"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button><span>Login<strong>&nbsp;</strong>Berhasil</span></div>
             <footer class="bg-white sticky-footer">
                 <div class="container my-auto">
                     <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C) 2022</span></div>
@@ -218,8 +171,82 @@
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" data-bs-toggle="offcanvas" data-bss-tooltip="" data-bs-placement="left" title="Tambah Transaksi" href="/transaksiPembelian.html" data-bs-target="#offcanvas-1"><i class="fas fa-plus" style="font-size: 17px;"></i></a>
     </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="filter-barang" data-bs-scroll="true">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Filter Barang</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Start: Gudang -->
+            <div class="container">
+                <p style="font-weight: bold;">Gudang</p>
+                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label class="form-check-label" for="Sorpus">Sorpus</label></div>
+                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label class="form-check-label" for="Moyo">Moyo</label></div>
+            </div><!-- End: Gudang -->
+        </div>
+        <footer style="margin: 12px;"><button class="btn btn-primary" type="button" data-bs-dismiss="offcanvas">Tutup</button></footer>
+    </div>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Tambah Barang</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Start: Nama Barang -->
+            <div class="container-fluid">
+                <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Nama</span><input class="form-control" type="text" id="input-nama-barang" required=""></div>
+                <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Harga</span><input class="form-control" type="number" id="input-harga-barang" required=""></div>
+                <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Stok</span><input class="form-control" type="number" id="tambah-stok-barang" required=""><span class="input-group-text">@</span><select class="form-select" id="tambah-satuan-barang">
+                        <option value="PCS" selected="">PCS</option>
+                        <option value="KG">KG</option>
+                        <option value="LITER">LITER</option>
+                        <option value="METER">METER</option>
+                    </select></div>
+                <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Kategori</span><select class="form-select" id="select-kategori" required="">
+                        <option value="1">Alat Bangunan</option>
+                        <option value="2">Pertukangan</option>
+                        <option value="3">Elektronik</option>
+                        <option value="4">Otomotif</option>
+                    </select></div>
+            </div><!-- End: Nama Barang -->
+            <!-- Start: Gudang -->
+            <div class="container" id="gudang">
+                <p style="font-weight: bold;">Gudang</p>
+                <div class="form-check"><input class="form-check-input" type="radio" id="check-gudang-sorpus" name="gudang"><label class="form-check-label" for="formCheck-3">Sorpus</label></div>
+                <div class="form-check"><input class="form-check-input" type="radio" id="check-gudang-moyo" name="gudang"><label class="form-check-label" for="formCheck-4">Moyo</label></div>
+            </div><!-- End: Gudang -->
+        </div>
+        <footer style="margin: 12px;text-align: right;"><button class="btn btn-primary" type="button" data-bs-dismiss="offcanvas">Tambah</button></footer>
+    </div>
+    <div class="modal fade" role="dialog" tabindex="-1" id="update-barang">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit</h4><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Start: Nama Barang -->
+                    <div class="container-fluid">
+                        <div class="input-group" style="margin-bottom: 5px;"><span class="input-group-text">ID</span><input class="form-control" type="text" id="edit-id-barang" readonly=""></div>
+                        <div class="input-group" style="margin-bottom: 5px;"><span class="input-group-text">Nama</span><input class="form-control" type="text" id="edit-nama-barang" required=""></div>
+                        <div class="input-group" style="margin-bottom: 5px;"><span class="input-group-text">Harga</span><input class="form-control" type="number" id="edit-harga-barang" required=""></div>
+                        <div class="input-group" style="margin-bottom: 5px;"><span class="input-group-text">Stok</span><input class="form-control" type="number" id="edit-stok-barang" required=""><span class="input-group-text">@</span><select class="form-select" id="edit-satuan-barang">
+                                <option value="PCS">PCS</option>
+                                <option value="KG">KG</option>
+                                <option value="LITER">LITER</option>
+                                <option value="METER">METER</option>
+                            </select></div>
+                        <div class="input-group" style="margin-bottom: 5px;"><span class="input-group-text">Kategori</span><select class="form-select" id="select-kategori-1" required="">
+                                <option value="1">Alat Bangunan</option>
+                                <option value="2">Pertukangan</option>
+                                <option value="3">Elektronik</option>
+                                <option value="4">Otomotif</option>
+                            </select></div>
+                    </div><!-- End: Nama Barang -->
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button><button class="btn btn-primary" type="button">Save</button></div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
 </body>

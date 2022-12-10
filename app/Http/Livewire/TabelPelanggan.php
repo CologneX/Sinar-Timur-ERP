@@ -26,6 +26,22 @@ class TabelPelanggan extends Component
         $this->ALAMAT = '';
         $this->NOTELP = '';
     }
+    public function tambahPelanggan()
+    {
+        $this->validate([
+            'NAMA_PEL' => 'required',
+            'ALAMAT' => 'required',
+            'NOTELP' => 'required',
+        ]);
+        Pelanggan::create([
+            'NAMA_PEL' => $this->NAMA_PEL,
+            'ALAMAT' => $this->ALAMAT,
+            'NOTELP' => $this->NOTELP,
+        ]);
+        $this->resetInput();
+        session()->flash('message', 'Pelanggan berhasil ditambahkan');
+    }
+
     public function editPelanggan(int $URUT_PELANGGAN)
     {
         $pelangganedit= Pelanggan::find($URUT_PELANGGAN);

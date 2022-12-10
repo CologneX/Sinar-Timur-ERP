@@ -25,6 +25,7 @@ class TabelBarang extends Component
 
     public function editBarang(int $URUT_BARANG)
     {
+
         $barang = Barang::find($URUT_BARANG);
         if ($barang) {
             $this->ID_BARANG = $barang->ID_BARANG;

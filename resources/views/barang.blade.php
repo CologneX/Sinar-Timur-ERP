@@ -15,10 +15,12 @@
                                     type="button"
                                     style="margin-right: 9px;padding-right: 6px;padding-left: 4px;width: 84px;"
                                     data-bs-target="#tambah-barang" data-bs-toggle="offcanvas"><i
-                                        class="fas fa-plus"></i>&nbsp;Barang</button><button
+                                        class="fas fa-plus"></i>&nbsp;Barang</button>
+                                        {{-- <button
                                     class="btn btn-outline-primary d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-end align-items-sm-center"
                                     type="button" data-bs-target="#filter-barang" data-bs-toggle="offcanvas"
-                                    style="width: 84px;"><i class="fas fa-filter"></i>&nbsp;Filter</button></div>
+                                    style="width: 84px;"><i class="fas fa-filter"></i>&nbsp;Filter</button> --}}
+                                </div>
                         </div>
 
                     </div>
@@ -81,14 +83,14 @@
                         </select>
                     </div>
 
-                    <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Kategori</span>
+                    {{-- <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Kategori</span>
                         <select class="form-select" id="select-kategori" required="">
                             <option value="1">Alat Bangunan</option>
                             <option value="2">Pertukangan</option>
                             <option value="3">Elektronik</option>
                             <option value="4">Otomotif</option>
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Lokasi</span><input
                             class="form-control" type="text" id="input-lokasi" required="" name="LOKASI">
                     </div>

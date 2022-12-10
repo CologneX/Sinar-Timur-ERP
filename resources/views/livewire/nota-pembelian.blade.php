@@ -1,7 +1,7 @@
 <div>
     <div id="content">
         <div class="container-fluid">
-            <h3 class="text-dark mb-4" style="font-weight: bold;">NOTA&nbsp;</h3>
+            <h3 class="text-dark mb-4" style="font-weight: bold;">Pembelian&nbsp;</h3>
         </div><!-- Start: 1 Row 2 Columns -->
         <div class="container">
             <div class="row">
@@ -12,8 +12,9 @@
                             <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
                                 <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input
                                         class="form-control" type="text" autocomplete="on"
-                                        placeholder="Cari Barang..." wire:model="caribarangnota">
+                                        placeholder="Cari Barang..." wire:model="caribarangnotaBeli">
                                 </div>
+
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -68,9 +69,60 @@
                                         class="input-group-text" style="font-weight: bold;">NO NOTA</span><input
                                         class="form-control" type="text" id="no-nota" readonly=""
                                         style="max-width: 120px;font-weight: bold;text-align: center;"
-                                        value="{{ DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL') }}"></div>
+                                        value="{{ DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') }}"></div>
                             </div>
-                            @livewire('nota')
+                            <div class="input-group">
+                                <span class="input-group-text">Supplier </span>
+                                <select wire:model="ID_SUP" wire:change="Update" class="selectpicker" data-live-search="true">
+                                    @foreach ($Supplier as $data)
+                                        <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>
+                                    @endforeach
+                                </select>
+
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama Barang</th>
+                                            <th>QTY</th>
+                                            <th>Harga</th>
+                                            <th>Subtotal</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse ($notaBarang as $data)
+                                            <tr id="tabel-nota" style="height: 43px;">
+                                                <td>{{ DB::table('BARANG')->where('ID_BARANG', $data->ID_BARANG)->value('NAMA_BARANG') }}
+                                                </td>
+                                                <td>{{ $data->KUANTITAS_BELI }}</td>
+                                                <td>@money($data->HARGA_BELI)</td>
+                                                <td>@money($data->SUBTOTAL_DETAILBELI)</td>
+                                                <td class="text-center" style="padding: 0px;">
+                                                    <button class="btn btn-link" id="tbl-hapus" type="button"
+                                                        style="padding: 0px;color: #ff0000;"
+                                                        wire:click="hapusBarang({{ DB::table('BARANG')->where('ID_BARANG', $data->ID_BARANG)->value('URUT_BARANG') }})"><svg
+                                                            xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512"
+                                                            width="1em" height="1em" fill="currentColor"
+                                                            style="margin-top: 9px;">
+                                                            <path
+                                                                d="M400 288h-352c-17.69 0-32-14.32-32-32.01s14.31-31.99 32-31.99h352c17.69 0 32 14.3 32 31.99S417.7 288 400 288z">
+                                                            </path>
+                                                        </svg>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="6" class="text-center">Nota Kosong</td>
+                                            </tr>
+                                        @endforelse
+
+                                    </tbody>
+                                </table>
+                            </div>
+
                             <div class="row">
                                 <div class="col align-items-start align-content-start" style="margin-top: 10px;">
                                     <div>
@@ -79,7 +131,7 @@
                                                 class="form-control" type="text" id="grand-total"
                                                 style="color: rgb(0,0,0);text-align: right;max-width: 145px;"
                                                 value="@money(
-                                                    DB::table('DETAIL_TRANSAKSI')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->sum('SUBTOTAL_DETAILJUAL'),
+                                                    DB::table('DETAIL_PEMBELIAN')->where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->sum('SUBTOTAL_DETAILBELI'),
                                                 )">
                                         </div>
                                     </div>
@@ -114,28 +166,29 @@
                         <div class="row">
                             <div class="col">
                                 <div class="input-group"><span class="d-flex justify-content-end input-group-text"
-                                        style="width: 130px;">ID Barang</span><input class="border rounded form-control"
-                                        type="text" wire:model="ID_BARANG" readonly></div>
+                                        style="width: 130px;">ID Barang</span><input
+                                        class="border rounded form-control" type="text" wire:model="ID_BARANG"
+                                        readonly></div>
                             </div>
                             <div class="col">
-                                    <div class="input-group"><span class="d-flex justify-content-end input-group-text"
-                                            style="width: 130px;">Stok</span><input class="border rounded form-control"
-                                            type="number" wire:model="STOK" readonly></div>
-                                </div>
+                                <div class="input-group"><span class="d-flex justify-content-end input-group-text"
+                                        style="width: 130px;">Stok</span><input class="border rounded form-control"
+                                        type="number" wire:model="STOK" readonly></div>
+                            </div>
                         </div>
                         <div>
                             <div class="input-group" style="margin-top: 10px;"><span
-                                        class="d-flex justify-content-end input-group-text" style="width: 130px;">Nama
-                                        Barang</span>
-                                    <textarea class="form-control" wire:model="NAMA_BARANG" readonly></textarea>
-                                </div>
+                                    class="d-flex justify-content-end input-group-text" style="width: 130px;">Nama
+                                    Barang</span>
+                                <textarea class="form-control" wire:model="NAMA_BARANG" readonly></textarea>
+                            </div>
                             <div class="input-group" style="margin-top: 10px;"><span
                                     class="d-flex justify-content-end input-group-text"
                                     style="width: 130px;">Kuantitas</span><input class="form-control" type="number"
-                                    wire:model="KUANTITAS_JUAL">
-                                    @error('KUANTITAS_JUAL')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
+                                    wire:model="KUANTITAS_BELI">
+                                @error('KUANTITAS_BELI')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </form>
@@ -147,43 +200,4 @@
         </div>
     </div>
 </div>
-{{-- 
-<div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="updateBarangModal"
-        aria-labelledby="updateBarangModal">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="updateBarangModal">Edit Barang </h4><button type="button"
-                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form wire:submit.prevent="updateBarang">
-                    <div class="modal-body">
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
-                                Barang</span><input class="form-control" type="text" wire:model="ID_BARANG" readonly>
-                        </div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text"
-                                style="width: 130px;">Harga</span><input class="form-control" type="number"
-                                wire:model="HARGA"></div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Nama
-                                Barang</span><input class="form-control" type="text" wire:model="NAMA_BARANG">
-                        </div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Stok
-                                Barang</span><input class="form-control" type="number" wire:model="STOK"></div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Lokasi
-                            </span><input class="form-control" type="text" wire:model="LOKASI"></div>
 
-                    </div>
-                </form>
-                <div class="modal-footer">
-                    <button class="btn btn-light" type="button"
-                        data-bs-dismiss="modal">Batal</button>
-                    <button class="btn btn-primary" type="submit" wire:click="updateBarang">Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div> --}}

@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 
 class TabelTransjual extends Component
 {
+
+    public $tabel = [];
     public $caritransjual = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
@@ -17,9 +19,18 @@ class TabelTransjual extends Component
     {
         return view('livewire.tabel-transjual', [
             'transjual' => transJual::where('ID_TRANSJUAL', 'like', '%' . $this->caritransjual . '%')->where('STATUS_DELETE', '0')->orderBy('ID_TRANSJUAL')->paginate(5),
-            'detailtransjual'=> DB::table('DETAIL_PENJUALAN')
+            'tabel'=>$this->tabel,
 
         ]);
     }
+    public function detailTransjual($urut)
+    {
+        $id = DB::table('TRANSAKSI_PENJUALAN')->where('URUT_TRANSJUAL', $urut)->value('ID_TRANSJUAL');
 
+        $tabel = DB::table('DETAIL_TRANSAKSI')->where('ID_TRANSJUAL', $id)->get();
+        $this->tabel = $tabel;
+
+
+
+    }
 }

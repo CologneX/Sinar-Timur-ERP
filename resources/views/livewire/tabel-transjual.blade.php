@@ -34,13 +34,12 @@
                                         </path>
                                     </svg></button>
                                 <div class="dropdown-menu dropdown-menu-dark">
-                                    <button type="button" class="dropdown-item" data-bs-toggle="modal"
-                                        data-bs-target="#detailTransJualModal"
-                                        wire:click="detailTransjual({{ $data->ID_TRANSJUAL }})">Detail
+                                    <button type="button" class="dropdown-item"
+                                        >Detail
                                     </button>
-                                    <button type="button" data-bs-toggle="modal" data-bs-target="#updateBarangModal"
+                                    <button type="button" data-bs-toggle="modal" data-bs-target="#detailTransJualModal"
                                         class="dropdown-item"
-                                        wire:click="detailTransjual({{ $data->ID_TRANSJUAL }})">Hapus
+                                        wire:click="detailTransjual({{ $data->URUT_TRANSJUAL}})">Hapus
                                     </button>
                                 </div>
                             </div>
@@ -77,18 +76,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @forelse ( $detailtransjual as $data)
+                            @forelse ( $tabel as $items)
                                 <tr>
-                                    <td>{{ $data->ID_BARANG }}</td>
-                                    <td>{{ $data->ID_TRANSJUAL }}</td>
-                                    <td>@money($data->HARGA_JUAL)</td>
-                                    <td>@money($data->SUBTOTAL_DETAILJUAL)</td>
+                                    <td>{{ $items->ID_BARANG }}</td>
+                                    <td>{{ $items->ID_TRANSJUAL }}</td>
+                                    <td>@money($items->HARGA_JUAL)</td>
+                                    <td>@money($items->SUBTOTAL_DETAILJUAL)</td>
                                 </tr>
                             @empty
                                 <tr>
                                     <td colspan="5" class="text-center">Tidak ada data</td>
                                 </tr>
-                            @endforelse --}}
+                            @endforelse
                         </tbody>
                     </table>
                     <div class="modal-footer"><button class="btn btn-light" type="button"

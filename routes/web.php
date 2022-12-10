@@ -11,7 +11,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ControllerBarang;
 use App\Http\Controllers\ControllerDashboard;
 use App\Http\Controllers\ControllerPelanggan;
+use App\Http\Controllers\Pembelian;
 use App\Http\Livewire\ControllerDashboard as LivewireControllerDashboard;
+use App\Http\Livewire\NotaPenjualan;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,4 +87,5 @@ Route::get('/dashboard',  [ControllerDashboard::class, 'showDashboard'])->name('
 Route::get('/pengguna',  [ControllerPengguna::class, 'showPengguna'])->name('pengguna')->middleware('auth');
 
 Route::get('/nota',  [ControllerNota::class, 'showNota'])->name('nota')->middleware('auth');
+Route::get('/pembelian',  [Pembelian::class, 'showPembelian'])->name('pembelian')->middleware('auth');
 // // Login Page

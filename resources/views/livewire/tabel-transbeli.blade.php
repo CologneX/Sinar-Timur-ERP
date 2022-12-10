@@ -8,7 +8,7 @@
                 <tr>
                     <th>ID Beli</th>
                     <th>ID Supplier</th>
-                    <th>Tanggal</th>
+                    <th>Waktu</th>
                     <th>Total Transaksi</th>
                     <th>Total Barang</th>
                     <th class="text-center"></th>

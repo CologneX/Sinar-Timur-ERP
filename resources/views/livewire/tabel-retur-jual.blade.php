@@ -1,9 +1,9 @@
 <div>
-    <div class="d-flex justify-content-end justify-content-xl-end container-fluid"
+    {{-- <div class="d-flex justify-content-end justify-content-xl-end container-fluid"
         style="padding-left: 0px;padding-right: 0px;"><button
             class="btn btn-primary d-sm-flex justify-content-sm-end align-items-sm-center" type="button"
             data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i class="fas fa-filter"></i>&nbsp;Filter</button>
-    </div>
+    </div> --}}
     <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text"
             id="cari-transaksi-penjualan" autocomplete="on" placeholder="Cari Retur Penjualan..."
             wire:model="carireturjual">
