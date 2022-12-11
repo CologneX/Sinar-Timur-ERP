@@ -15,14 +15,14 @@ class TabelNota extends Component
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    protected $listeners = ['refreshComponent' => '$refresh'];
+    // protected $listeners = ['refreshComponent' => '$refresh'];
 
     public function render()
     {
         return view('livewire.tabel-nota', [
             'barang' => DB::table('BARANG')->where('NAMA_BARANG', 'like', '%' . $this->caribarangnota . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
-            'Pelanggan'=>DB::table('PELANGGAN')->where('STATUS_DEL', '0')->orderBy('NAMA_PEL')->get(),
-            'nota'=> DB::table('DETAIL_TRANSAKSI')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->where('STATUS_DELETE', '0')->get(),
+            'Pelanggan' => DB::table('PELANGGAN')->where('STATUS_DEL', '0')->orderBy('NAMA_PEL')->get(),
+            'nota' => DB::table('DETAIL_TRANSAKSI')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->where('STATUS_DELETE', '0')->get(),
         ]);
     }
     public function cariID($URUT_BARANG)
@@ -41,8 +41,8 @@ class TabelNota extends Component
         $this->validate([
             'KUANTITAS_JUAL' => 'required|numeric|min:1|max:' . $this->STOK,
         ]);
-        DB::table('DETAIL_TRANSAKSI')->insert(['ID_TRANSJUAL' =>DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_JUAL' => $this->KUANTITAS_JUAL]);
-        $this->emit('refreshComponent');
+        DB::table('DETAIL_TRANSAKSI')->insert(['ID_TRANSJUAL' => DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_JUAL' => $this->KUANTITAS_JUAL]);
+        // $this->emit('refreshComponent');
 
     }
     public function nextTransaksi()
@@ -54,11 +54,10 @@ class TabelNota extends Component
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
         DB::table('DETAIL_TRANSAKSI')->where('ID_BARANG', $getID)->delete();
-        $this->emit('refreshComponent');
+        // $this->emit('refreshComponent');
     }
     public function Update()
     {
         DB::table('TRANSAKSI_PENJUALAN')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->update(['ID_PEL' => $this->ID_PEL]);
     }
-
 }

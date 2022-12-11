@@ -151,8 +151,6 @@
                                 </form>
                             </div>
                         </li>
-
-
                         <div class="d-none d-sm-block topbar-divider"></div>
                         <li class="nav-item dropdown no-arrow">
                             <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link"
@@ -179,19 +177,12 @@
             </nav>
             @yield('content')
         </div>
-
-
-
         <a class="border rounded d-inline scroll-to-top" data-bss-tooltip="" data-bs-placement="left"
             title="Tambah Transaksi" href="/nota">
             <i class="fas fa-plus" style="font-size: 17px;">
             </i>
         </a>
-        {{-- <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C) 2022</span></div>
-            </div>
-        </footer> --}}
+
     </div>
 
 
@@ -202,13 +193,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
     <script src="assets/js/theme.js"></script>
-    {{-- <script>
-        jQuery(document).ready(function($) {
-            $(".clickable-row").click(function() {
-                window.location = "wire:click";
-            });
-        });
-    </script> --}}
+    <script src="switch.js"></script>
     @livewireScripts
 </body>
 
