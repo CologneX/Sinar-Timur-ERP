@@ -62,7 +62,7 @@ class TabelPelanggan extends Component
     }
     public function updatePelanggan()
     {
-        Pelanggan::where('ID_PEL', $this->ID_PEL)->update([
+        DB::table('PELANGGAN')->where('ID_PEL', $this->ID_PEL)->update([
             'NAMA_PEL' => $this->NAMA_PEL,
             'ALAMAT' => $this->ALAMAT,
             'NOTELP' => $this->NOTELP,
@@ -70,7 +70,7 @@ class TabelPelanggan extends Component
         return redirect('/pelanggan')->with('message', 'Pelanggan berhasil diedit');
     }
     public function deletePelanggan(){
-        Pelanggan::where('ID_PEL', $this->ID_PEL)->update([
+        DB::table('PELANGGAN')->where('ID_PEL', $this->ID_PEL)->update([
             'STATUS_DEL' => 1
         ]);
 

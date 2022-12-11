@@ -19,14 +19,12 @@ class TabelBarang extends Component
 
         return view('livewire.tabel-barang', [
             'barang' => DB::table('BARANG')->where('NAMA_BARANG', 'like', '%' . $this->cariBarang . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10)
-
         ]);
     }
 
 
     public function editBarang(int $URUT_BARANG)
     {
-
         $barang = Barang::find($URUT_BARANG);
         if ($barang) {
             $this->ID_BARANG = $barang->ID_BARANG;
@@ -50,7 +48,6 @@ class TabelBarang extends Component
     {
         $this->resetInput();
     }
-
     public function updateBarang()
     {
         Barang::where('ID_BARANG', $this->ID_BARANG)->update([
@@ -66,7 +63,6 @@ class TabelBarang extends Component
         Barang::where('ID_BARANG', $this->ID_BARANG)->update([
             'STATUS_DELETE' => 1
         ]);
-
         return redirect('/barang')->with('message', 'Barang berhasil dihapus');
     }
 }
