@@ -16,7 +16,7 @@ class NotaPembelian extends Component
     public $caribarangnotaBeli = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    // protected $listeners = ['refreshComponent' => '$refresh'];
+    // protected $listeners = ['refreshComponent' => 'render'];
 
     public function render()
     {
