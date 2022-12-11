@@ -23,11 +23,19 @@
                         <td>@money($data->TOTAL_TRANSBELI)</td>
                         <td>{{ $data->TOTAL_ITEMBELI }}</td>
                         <td class="flex-grow-0" style="padding: 0px;overflow: visible;">
-                            <div class="dropstart"><button wire:click="detailTransbeli({{$data->URUT_TRANSBELI}})" class="btn" data-bs-toggle="modal"
-                                data-bs-target="#detailTransBeliModal" type="button" style="padding-right: 5px;padding-left: 5px;overflow: visible;padding-bottom: 8px;padding-top: 6px;"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-three-dots-vertical" style="width: 16px;">
-                                        <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
+                            <div class="dropstart"><button wire:click="detailTransbeli({{ $data->URUT_TRANSBELI }})"
+                                    class="btn" data-bs-toggle="modal" data-bs-target="#detailTransBeliModal"
+                                    type="button"
+                                    style="padding-right: 5px;padding-left: 5px;overflow: visible;padding-bottom: 8px;padding-top: 6px;"><svg
+                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                        fill="currentColor" viewBox="0 0 16 16" class="bi bi-three-dots-vertical"
+                                        style="width: 16px;">
+                                        <path
+                                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
+                                        </path>
                                     </svg></button>
-                                    <div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item" href="#">Ubah</a><a class="dropdown-item" href="#">Hapus</a></div>
+                                <div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item"
+                                        href="#">Ubah</a><a class="dropdown-item" href="#">Hapus</a></div>
                             </div>
                         </td>
                     </tr>
@@ -61,7 +69,8 @@
                                 @forelse ($tabel as $items)
                                     <tr>
                                         <td>{{ $items->ID_BARANG }}</td>
-                                        <td>{{ $items->ID_TRANSBELI }}</td>
+                                        <td> {{ DB::table('BARANG')->where('ID_BARANG', $items->ID_BARANG)->value('NAMA_BARANG') }}
+                                        </td>
                                         <td>{{ $items->KUANTITAS_BELI }}</td>
                                         <td>@money($items->HARGA_BELI)</td>
                                         <td>@money($items->SUBTOTAL_DETAILBELI)</td>

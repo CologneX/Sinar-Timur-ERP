@@ -23,6 +23,11 @@ class TabelReturJual extends Component
     }
     public function simpanData()
     {
+        // $this->validate([
+        //     'KUANTITAS_RETURJUAL' => 'required|min:1|max:'. DB::table('TRANSJUAL_BARANG')->where('ID_TRANSJUAL', $this->ID_TRANSJUAL)->where('ID_BARANG', $this->ID_BARANG)->
+        //     'ID_TRANSJUAL' => 'required',
+        //     'ID_BARANG' => 'required',
+        // ]);
         DB::table('RETUR_PENJUALAN')->insert(['KUANTITAS_RETURJUAL' => $this->KUANTITAS_RETURJUAL, 'ID_TRANSJUAL' => $this->ID_TRANSJUAL, 'ID_BARANG_RETURJUAL' => $this->ID_BARANG]);
         redirect()->to('/returanPenjualan')->with('message', 'Retur Penjualan Berhasil!');
     }

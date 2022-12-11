@@ -70,7 +70,7 @@
                                 @forelse ($tabel as $items)
                                     <tr>
                                         <td>{{ $items->ID_BARANG }}</td>
-                                        <td>{{ $items->ID_TRANSJUAL }}</td>
+                                        <td> {{DB::table('BARANG')->where('ID_BARANG',$items->ID_BARANG)->value('NAMA_BARANG')}}</td>
                                         <td>{{ $items->KUANTITAS_JUAL }}</td>
                                         <td>@money($items->HARGA_JUAL)</td>
                                         <td>@money($items->SUBTOTAL_DETAILJUAL)</td>
