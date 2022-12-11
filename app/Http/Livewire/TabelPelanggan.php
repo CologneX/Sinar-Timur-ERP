@@ -18,7 +18,7 @@ class TabelPelanggan extends Component
         return view('livewire.tabel-pelanggan', [
             'pelanggan' => DB::table('PELANGGAN')->where('STATUS_DEL', '0')->where('NAMA_PEL', 'like','%'.$this->cariPelanggan.'%')->orderBy('ID_PEL')->paginate(10)
         ]);
-        // ->orwhere('ID_PEL', 'like','%'.$this->cariPelanggan.'%')
+
     }
     public function resetInput()
     {
@@ -45,7 +45,7 @@ class TabelPelanggan extends Component
 
     public function editPelanggan(int $URUT_PELANGGAN)
     {
-        $pelangganedit= Pelanggan::find($URUT_PELANGGAN);
+        $pelangganedit= DB::table('PELANGGAN')->find($URUT_PELANGGAN);
         if($pelangganedit){
             $this->ID_PEL = $pelangganedit->ID_PEL;
             $this->NAMA_PEL = $pelangganedit->NAMA_PEL;
