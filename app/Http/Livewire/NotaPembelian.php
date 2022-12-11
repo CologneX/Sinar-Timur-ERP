@@ -16,6 +16,8 @@ class NotaPembelian extends Component
     public $caribarangnotaBeli = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $listeners = ['refreshComponent' => '$refresh'];
+
     public function render()
     {
 
@@ -47,11 +49,14 @@ class NotaPembelian extends Component
         DB::table('DETAIL_PEMBELIAN')->insert(['ID_TRANSBELI' => DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_BELI' => $this->KUANTITAS_BELI]);
         // DB::insert('insert into DETAIL_TRANSAKSI (ID_TRANSJUAL, ID_BARANG, KUANTITAS_JUAL) values (?,?,?)', [DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), $this->ID_BARANG, $this->KUANTITAS_JUAL]);
         // $this->emit('reloadNota');
+        $this->emit('refreshComponent');
     }
     public function hapusBarang(string $ID)
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
         DB::table('DETAIL_PEMBELIAN')->where('ID_BARANG', $getID)->delete();
+        $this->emit('refreshComponent');
+
     }
     public function nextTransaksi()
     {

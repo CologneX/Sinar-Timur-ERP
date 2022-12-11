@@ -15,7 +15,7 @@ class TabelNota extends Component
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    protected $listeners = ['reloadNota' => '$refresh'];
+    protected $listeners = ['refreshComponent' => '$refresh'];
 
     public function render()
     {
@@ -42,7 +42,7 @@ class TabelNota extends Component
             'KUANTITAS_JUAL' => 'required|numeric|min:1|max:' . $this->STOK,
         ]);
         DB::table('DETAIL_TRANSAKSI')->insert(['ID_TRANSJUAL' =>DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_JUAL' => $this->KUANTITAS_JUAL]);
-        $this->emit('reloadNota');
+        $this->emit('refreshComponent');
 
     }
     public function nextTransaksi()
@@ -54,7 +54,7 @@ class TabelNota extends Component
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
         DB::table('DETAIL_TRANSAKSI')->where('ID_BARANG', $getID)->delete();
-        $this->emit('reloadNota');
+        $this->emit('refreshComponent');
     }
     public function Update()
     {

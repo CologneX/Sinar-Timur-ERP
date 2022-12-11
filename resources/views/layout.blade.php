@@ -47,7 +47,7 @@
                                 <path
                                     d="M400 32h-352C21.49 32 0 53.49 0 80v352C0 458.5 21.49 480 48 480h245.5c16.97 0 33.25-6.744 45.26-18.75l90.51-90.51C441.3 358.7 448 342.5 448 325.5V80C448 53.49 426.5 32 400 32zM64 96h320l-.001 224H320c-17.67 0-32 14.33-32 32v64H64V96z">
                                 </path>
-                            </svg><span>&nbsp;Nota</span></a><a
+                            </svg><span>&nbsp;Penjualan</span></a><a
                             class="nav-link {{ request()->route()->named('pembelian')? 'active': '' }}"
                             href="/pembelian"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -64 640 640"
                                 width="1em" height="1em" fill="currentColor"

@@ -1,9 +1,7 @@
 <div>
     <div id="content">
-        <div class="container-fluid">
-            <h3 class="text-dark mb-4" style="font-weight: bold;">Pembelian&nbsp;</h3>
-        </div><!-- Start: 1 Row 2 Columns -->
         <div class="container">
+            <h2 class="text-dark mb-4" style="font-weight: bold;">Pembelian&nbsp;</h2>
             <div class="row">
                 <div class="col-12 offset-1 offset-sm-0" style="margin-left: 0px;">
                     <!-- Start: #TabelBarang -->
@@ -60,7 +58,7 @@
                         </div>
                     </div><!-- End: #TabelBarang -->
                 </div>
-                <div wire:ignore class="col" style="margin-top: 21px;">
+                <div class="col" style="margin-top: 21px;">
                     <!-- Start: #TabelTransaksi -->
                     <div class="card shadow">
                         <div class="card-body">
@@ -71,14 +69,13 @@
                                         style="max-width: 120px;font-weight: bold;text-align: center;"
                                         value="{{ DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') }}"></div>
                             </div>
-                            <div class="input-group">
-                                <span class="input-group-text">Pelanggan </span>
+                            <div wire:ignore class="input-group">
+                                <span class="input-group-text">Supplier </span>
                                 <select wire:model="ID_SUP" wire:change="Update" class="selectpicker" data-live-search="true">
                                     @foreach ($Supplier as $data)
                                         <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>
                                     @endforeach
                                 </select>
-
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">

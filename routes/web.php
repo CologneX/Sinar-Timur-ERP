@@ -53,10 +53,6 @@ Route::get('/supplier', [Supplier::class, 'showSupplier'])->name('supplier')->mi
 Route::post('/supplier', [Supplier::class, 'simpanSupplier']);
 
 
-// // Page Pelanggan
-// // Route::get('/pelanggan', [ControllerDaftar::class, 'pelanggan'])->name('pelanggan');
-// // Route::post('/pelanggan', [ControllerDaftar::class, 'insert']);
-
 // page transaksi
 Route::get('/transaksiPenjualan',  [transJual::class, 'showTransaksi'])->name('transaksiJual')->middleware('auth');
 Route::post('/transaksiPenjualan',  [transJual::class, 'showTransaksi']);
@@ -78,10 +74,7 @@ Route::get('/', function () {
 });
 
 
-
-
 Route::get('/dashboard',  [ControllerDashboard::class, 'showDashboard'])->name('dashboard')->middleware('auth');
-
 
 Route::get('/pengguna',  [ControllerPengguna::class, 'showPengguna'])->name('pengguna')->middleware('auth');
 

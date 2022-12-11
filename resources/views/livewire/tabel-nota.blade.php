@@ -1,9 +1,7 @@
 <div>
     <div id="content">
-        <div class="container-fluid">
-            <h3 class="text-dark mb-4" style="font-weight: bold;">NOTA&nbsp;</h3>
-        </div><!-- Start: 1 Row 2 Columns -->
         <div class="container">
+            <h2 class="text-dark mb-4" style="font-weight: bold;">Penjualan&nbsp;</h2>
             <div class="row">
                 <div class="col-12 offset-1 offset-sm-0" style="margin-left: 0px;">
                     <!-- Start: #TabelBarang -->
@@ -57,10 +55,9 @@
                                 {{ $barang->links() }}
                             </div>
                         </div>
-                    </div><!-- End: #TabelBarang -->
+                    </div>
                 </div>
-                <div wire:ignore class="col" style="margin-top: 21px;">
-                    <!-- Start: #TabelTransaksi -->
+                <div class="col" style="margin-top: 21px;">
                     <div class="card shadow">
                         <div class="card-body">
                             <div>
@@ -70,15 +67,14 @@
                                         style="max-width: 120px;font-weight: bold;text-align: center;"
                                         value="{{ DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL') }}"></div>
                             </div>
-                            <div class="input-group">
-                                <span class="input-group-text">Supplier </span>
+                            <div wire:ignore class="input-group">
+                                <span class="input-group-text">Pelanggan </span>
                                 <select wire:model="ID_PEL" wire:change="Update" class="selectpicker"
                                     data-live-search="true">
                                     @foreach ($Pelanggan as $data)
                                         <option value="{{ $data->ID_PEL }}">{{ $data->NAMA_PEL }}</option>
                                     @endforeach
                                 </select>
-
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">
@@ -146,6 +142,7 @@
             </div>
         </div><!-- End: 1 Row 2 Columns -->
     </div>
+
     <footer class="bg-white sticky-footer">
         <div class="container my-auto">
             <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C) 2022</span></div>
@@ -154,7 +151,7 @@
     </footer>
 
 
-    <div wire:ignore class="modal fade" role="dialog" tabindex="-1" id="qtyBarang" aria-labelledby="qtyBarang">
+    <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="qtyBarang" aria-labelledby="qtyBarang">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -195,7 +192,7 @@
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button"
                         data-bs-dismiss="modal">Tutup</button><button class="btn btn-primary" type="button"
-                        wire:click="pilihBarang">Masukkan</button></div>
+                        wire:click="pilihBarang" wire:click="$emit('refreshComponent')">Masukkan</button></div>
             </div>
         </div>
     </div>
