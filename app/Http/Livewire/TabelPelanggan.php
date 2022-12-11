@@ -18,7 +18,6 @@ class TabelPelanggan extends Component
         return view('livewire.tabel-pelanggan', [
             'pelanggan' => DB::table('PELANGGAN')->where('STATUS_DEL', '0')->where('NAMA_PEL', 'like','%'.$this->cariPelanggan.'%')->orderBy('ID_PEL')->paginate(10)
         ]);
-
     }
     public function resetInput()
     {
@@ -54,7 +53,6 @@ class TabelPelanggan extends Component
         }else{
             return redirect()->to('/pelanggan');
         }
-
     }
     public function clearModal()
     {
