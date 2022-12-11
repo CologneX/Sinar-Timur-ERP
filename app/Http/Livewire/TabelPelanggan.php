@@ -44,7 +44,7 @@ class TabelPelanggan extends Component
 
     public function editPelanggan(int $URUT_PELANGGAN)
     {
-        $pelangganedit= DB::table('PELANGGAN')->find($URUT_PELANGGAN);
+        $pelangganedit= Pelanggan::find($URUT_PELANGGAN);
         if($pelangganedit){
             $this->ID_PEL = $pelangganedit->ID_PEL;
             $this->NAMA_PEL = $pelangganedit->NAMA_PEL;
