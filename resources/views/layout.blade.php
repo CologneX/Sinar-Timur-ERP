@@ -13,7 +13,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" />
 </head>
 
 <body>
@@ -47,7 +48,7 @@
                                     d="M400 32h-352C21.49 32 0 53.49 0 80v352C0 458.5 21.49 480 48 480h245.5c16.97 0 33.25-6.744 45.26-18.75l90.51-90.51C441.3 358.7 448 342.5 448 325.5V80C448 53.49 426.5 32 400 32zM64 96h320l-.001 224H320c-17.67 0-32 14.33-32 32v64H64V96z">
                                 </path>
                             </svg><span>&nbsp;Nota</span></a><a
-                            class="nav-link {{ request()->route()->named('nota')? 'active': '' }}"
+                            class="nav-link {{ request()->route()->named('pembelian')? 'active': '' }}"
                             href="/pembelian"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -64 640 640"
                                 width="1em" height="1em" fill="currentColor"
                                 style="font-size: 13px;width: 16px;height: 16px;">
@@ -55,8 +56,6 @@
                                     d="M96 96C96 60.65 124.7 32 160 32H576C611.3 32 640 60.65 640 96V320C640 355.3 611.3 384 576 384H160C124.7 384 96 355.3 96 320V96zM160 320H224C224 284.7 195.3 256 160 256V320zM160 96V160C195.3 160 224 131.3 224 96H160zM576 256C540.7 256 512 284.7 512 320H576V256zM512 96C512 131.3 540.7 160 576 160V96H512zM368 128C323.8 128 288 163.8 288 208C288 252.2 323.8 288 368 288C412.2 288 448 252.2 448 208C448 163.8 412.2 128 368 128zM48 360C48 399.8 80.24 432 120 432H520C533.3 432 544 442.7 544 456C544 469.3 533.3 480 520 480H120C53.73 480 0 426.3 0 360V120C0 106.7 10.75 96 24 96C37.25 96 48 106.7 48 120V360z">
                                 </path>
                             </svg><span>&nbsp;Pembelian</span></a></li>
-                    <li class="nav-item"></li>
-                    <li class="nav-item"></li>
                     <li class="nav-item">
                         <div><a class="btn btn-link nav-link {{ request()->route()->named('transaksiJual') ||request()->route()->named('transaksiBeli')? 'active': '' }}"
                                 data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-1"
@@ -71,7 +70,7 @@
                                 <div class="bg-white border rounded py-2 collapse-inner">
                                     <h6 class="collapse-header">Riwayat Transaksi</h6><a class="collapse-item"
                                         href="/transaksiPenjualan">Penjualan</a><a class="collapse-item"
-                                        href="/transsaksiPembelian">Pembelian</a>
+                                        href="/transaksiPembelian">Pembelian</a>
                                 </div>
                             </div>
                         </div>
@@ -95,12 +94,10 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"></li>
                     <hr class="sidebar-divider">
                     <div class="sidebar-heading">
                         <p class="mb-0" style="color: var(--bs-accordion-bg);">DAFTAR</p>
                     </div>
-                    <li class="nav-item"></li>
                     <li class="nav-item">
                         <div><a class="btn btn-link nav-link {{ request()->route()->named('supplier') ||request()->route()->named('pelanggan')? 'active': '' }}"
                                 data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-2"

@@ -12,8 +12,7 @@ use App\Http\Controllers\ControllerBarang;
 use App\Http\Controllers\ControllerDashboard;
 use App\Http\Controllers\ControllerPelanggan;
 use App\Http\Controllers\Pembelian;
-use App\Http\Livewire\ControllerDashboard as LivewireControllerDashboard;
-use App\Http\Livewire\NotaPenjualan;
+
 
 /*
 |--------------------------------------------------------------------------

@@ -20,7 +20,7 @@ class NotaPembelian extends Component
     {
 
         return view('livewire.nota-pembelian', [
-            'barang' => Barang::where('NAMA_BARANG', 'like', '%' . $this->caribarangnotaBeli . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
+            'barang' => DB::table('BARANG')->where('NAMA_BARANG', 'like', '%' . $this->caribarangnotaBeli . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
             'notaBarang' => DetailPembelian::where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->where('STATUS_DELETE', '0')->get(),
             'Supplier' => Supplier::where('STATUS_DELETE', '0')->get(),
         ]);

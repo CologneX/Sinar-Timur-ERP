@@ -60,7 +60,7 @@
                         </div>
                     </div><!-- End: #TabelBarang -->
                 </div>
-                <div class="col" style="margin-top: 21px;">
+                <div wire:ignore class="col" style="margin-top: 21px;">
                     <!-- Start: #TabelTransaksi -->
                     <div class="card shadow">
                         <div class="card-body">
@@ -72,7 +72,7 @@
                                         value="{{ DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') }}"></div>
                             </div>
                             <div class="input-group">
-                                <span class="input-group-text">Supplier </span>
+                                <span class="input-group-text">Pelanggan </span>
                                 <select wire:model="ID_SUP" wire:change="Update" class="selectpicker" data-live-search="true">
                                     @foreach ($Supplier as $data)
                                         <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>

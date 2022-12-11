@@ -3,6 +3,10 @@
         <button class="btn btn-primary d-flex d-sm-flex align-items-center" type="button"
             data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i class="fas fa-filter"></i>&nbsp;Filter</button>
     </div> --}}
+    <div class="d-flex justify-content-end justify-content-lg-end justify-content-xl-end container-fluid"
+        style="padding-left: 0px;padding-right: 0px;"><button
+            class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button" data-bs-target="#menu-add"
+            data-bs-toggle="modal"><i class="fas fa-plus"></i>&nbsp;Tambah</button></div>
     <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text"
             id="cari-transaksi-pembelian" autocomplete="on" placeholder="Cari Returan Pembelian..."
             wire:model="carireturbeli">
@@ -14,8 +18,8 @@
                 <tr>
                     <th>ID Retur</th>
                     <th>ID Beli</th>
-                    <th>ID Barang</th>
-                    <th>Nama Barang</th>
+                    <th>Barang</th>
+                    <th>Waktu/th>
                     <th>Jumlah</th>
                     <th class="text-center"></th>
                 </tr>
@@ -53,5 +57,47 @@
         </table>
         {{ $returbeli->links() }}
     </div>
-
+    <div wire:ignore class="modal fade" role="dialog" tabindex="-1" id="menu-add">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Tambah Retur Pembelian</h4><button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="input-group" style="margin-bottom: 10px;"><span
+                                    class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
+                                    Pembelian</span><select wire:model="ID_TRANSBELI" class="selectpicker"
+                                    data-live-search="true">
+                                    @foreach ($transaksi as $data)
+                                        <option value="{{ $data->ID_TRANSBELI }}">{{ $data->ID_TRANSBELI }}</option>
+                                    @endforeach
+                                </select></div>
+                        </div>
+                        <div class="col">
+                            <div class="input-group" style="margin-bottom: 10px;"><span
+                                    class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;"
+                                    >Kuantitas</span><input wire:model="KUANTITAS_RETURBELI" class="form-control"
+                                    type="number"></div>
+                        </div>
+                    </div>
+                    <div class="input-group" style="margin-bottom: 10px;"><span
+                            class="d-lg-flex justify-content-lg-end input-group-text"
+                            style="width: 130px;">Barang</span>
+                        <select wire:model="ID_BARANG" class="selectpicker" data-live-search="true">
+                            @foreach ($barang as $data)
+                                <option value="{{ $data->ID_BARANG }}">{{ $data->NAMA_BARANG }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer"><button class="btn btn-light" type="button"
+                        data-bs-dismiss="modal">Batal</button><button class="btn btn-primary" type="button"
+                        wire:click="simpanData">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
