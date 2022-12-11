@@ -33,18 +33,18 @@
                                     </svg></button>
                                 <div class="dropdown-menu dropdown-menu-dark">
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#deletePelangganModal"
-                                        class="btn dropdown-item" wire:click="editPelanggan({{ $data->URUT_PELANGGAN }})"
-                                        href="">Hapus
+                                        class="btn dropdown-item"
+                                        wire:click="editPelanggan({{ $data->URUT_PELANGGAN }})" href="">Hapus
                                     </button>
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#updatePelangganModal"
-                                        class="btn dropdown-item" wire:click="editPelanggan({{ $data->URUT_PELANGGAN }})"
-                                        href="">Edit
+                                        class="btn dropdown-item"
+                                        wire:click="editPelanggan({{ $data->URUT_PELANGGAN }})" href="">Edit
                                     </button>
                                 </div>
                             </div>
                         </td>
                     </tr>
-                    @empty
+                @empty
                     <tr>
                         <td colspan="5" class="text-center">Tidak ada data</td>
                     </tr>
@@ -109,62 +109,36 @@
             </div>
         </div>
     </div>
-{{--
-    <form method="POST" action="/pelanggan">
-        @csrf --}}
-        {{-- <div class="offcanvas offcanvas-end" tabindex="-1" id="tambah-pelanggan" data-bs-scroll="true">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title">Tambah Pelanggan</h5><button type="button" class="btn-close text-reset"
-                    data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <!-- Start: Nama Barang -->
-                <div class="container-fluid">
-                    <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Nama</span><input
-                            class="form-control" type="text" id="input-nama-pelanggan" required="" name="NAMA_PEL">
-                    </div>
-                    <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">No
-                            Telp</span><input class="form-control" type="text" id="input-notelp-pelanggan"
-                            name="NOTELP"></div>
-                    <div class="input-group" style="margin-bottom: 15px;"><span class="input-group-text">Alamat</span>
-                        <textarea class="form-control" id="input-alamat-pelanggan" required="" name="ALAMAT"></textarea>
-                    </div>
-                </div><!-- End: Nama Barang -->
-            </div>
-            <footer style="margin: 12px;"><button class="btn btn-primary" type="submit"
-                    data-bs-dismiss="offcanvas">Tambah</button>
-            </footer>
-        </div> --}}
-        <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="tambah-pelanggan">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Tambah Pelanggan</h4><button type="button" class="btn-close"
-                            data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Start: Nama Barang -->
-                        <div class="container-fluid">
-                            <div class="input-group" style="margin-bottom: 15px;"><span
-                                    class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
-                                    style="width: 100px;">Nama</span><input class="form-control" type="text"
-                                    id="input-nama-pelanggan" required="" name="NAMA_PEL" wire:model="NAMA_PEL"></div>
-                            <div class="input-group" style="margin-bottom: 15px;"><span
-                                    class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
-                                    style="width: 100px;">No Telp</span><input class="form-control" type="text"
-                                    id="input-notelp-pelanggan" required="" name="NOTELP" wire:model="NOTELP"></div>
-                            <div class="input-group" style="margin-bottom: 15px;"><span
-                                    class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
-                                    style="width: 100px;">Alamat</span>
-                                <textarea class="form-control" name="ALAMAT" id="input-alamat-pelanggan" wire:model="ALAMAT"></textarea>
-                            </div>
-                        </div><!-- End: Nama Barang -->
-                    </div>
-                    <div class="modal-footer"><button class="btn btn-primary" type="button" wire:click="tambahPelanggan"
-                            data-bs-dismiss="tambah-pelanggan">Tambah</button></div>
+
+    <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="tambah-pelanggan">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Tambah Pelanggan</h4><button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                <div class="modal-body">
+                    <!-- Start: Nama Barang -->
+                    <div class="container-fluid">
+                        <div class="input-group" style="margin-bottom: 15px;"><span
+                                class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
+                                style="width: 100px;">Nama</span><input class="form-control" type="text"
+                                id="input-nama-pelanggan" required="" name="NAMA_PEL" wire:model="NAMA_PEL">
+                        </div>
+                        <div class="input-group" style="margin-bottom: 15px;"><span
+                                class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
+                                style="width: 100px;">No Telp</span><input class="form-control" type="text"
+                                id="input-notelp-pelanggan" required="" name="NOTELP" wire:model="NOTELP"></div>
+                        <div class="input-group" style="margin-bottom: 15px;"><span
+                                class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
+                                style="width: 100px;">Alamat</span>
+                            <textarea class="form-control" name="ALAMAT" id="input-alamat-pelanggan" wire:model="ALAMAT"></textarea>
+                        </div>
+                    </div><!-- End: Nama Barang -->
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary" type="button"
+                        wire:click="tambahPelanggan" data-bs-dismiss="tambah-pelanggan">Tambah</button></div>
             </div>
         </div>
-    {{-- </form> --}}
+    </div>
 </div>
-

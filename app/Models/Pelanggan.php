@@ -13,7 +13,6 @@ class Pelanggan extends Model
     public $timestamps = false;
     protected $table = 'PELANGGAN';
     protected $fillable = [
-        'ID_PEL','NAMA_PEL', 'ALAMAT', 'NOTELP'
+        'NAMA_PEL', 'ALAMAT', 'NOTELP'
     ];
 }
-
