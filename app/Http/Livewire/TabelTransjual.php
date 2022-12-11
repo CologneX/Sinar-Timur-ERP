@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-use App\Models\transJual;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 
@@ -17,9 +16,7 @@ class TabelTransjual extends Component
     public function render()
     {
         return view('livewire.tabel-transjual', [
-            'transjual' => transJual::where('ID_TRANSJUAL', 'like', '%' . $this->caritransjual . '%')->where('STATUS_DELETE', '0')->orderBy('ID_TRANSJUAL')->paginate(10),
-            // 'tabel'=>$this->tabel,
-
+            'transjual' => DB::table('TRANSAKSI_PENJUALAN')->where('ID_TRANSJUAL', 'like', '%' . $this->caritransjual . '%')->where('STATUS_DELETE', '0')->orderBy('ID_TRANSJUAL')->paginate(10),
         ]);
     }
     public function detailTransjual($URUT_TRANSJUAL)

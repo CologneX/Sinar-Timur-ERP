@@ -20,8 +20,8 @@ class TabelNota extends Component
     public function render()
     {
         return view('livewire.tabel-nota', [
-            'barang' => Barang::where('NAMA_BARANG', 'like', '%' . $this->caribarangnota . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
-            'Pelanggan'=>Pelanggan::where('STATUS_DEL', '0')->orderBy('NAMA_PEL')->get(),
+            'barang' => DB::table('BARANG')->where('NAMA_BARANG', 'like', '%' . $this->caribarangnota . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
+            'Pelanggan'=>DB::table('PELANGGAN')->where('STATUS_DEL', '0')->orderBy('NAMA_PEL')->get(),
             'nota'=> DB::table('DETAIL_TRANSAKSI')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->where('STATUS_DELETE', '0')->get(),
         ]);
     }

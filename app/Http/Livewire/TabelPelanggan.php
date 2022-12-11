@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Pelanggan;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class TabelPelanggan extends Component
 {
@@ -15,7 +16,7 @@ class TabelPelanggan extends Component
     public function render()
     {
         return view('livewire.tabel-pelanggan', [
-            'pelanggan' => Pelanggan::where('STATUS_DEL', '0')->where('NAMA_PEL', 'like','%'.$this->cariPelanggan.'%')->orderBy('ID_PEL')->paginate(10)
+            'pelanggan' => DB::table('PELANGGAN')->where('STATUS_DEL', '0')->where('NAMA_PEL', 'like','%'.$this->cariPelanggan.'%')->orderBy('ID_PEL')->paginate(10)
         ]);
         // ->orwhere('ID_PEL', 'like','%'.$this->cariPelanggan.'%')
     }

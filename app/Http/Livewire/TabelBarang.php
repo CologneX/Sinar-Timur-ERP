@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Barang;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class TabelBarang extends Component
 {
@@ -17,7 +18,7 @@ class TabelBarang extends Component
     {
 
         return view('livewire.tabel-barang', [
-            'barang' => Barang::where('NAMA_BARANG', 'like', '%' . $this->cariBarang . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10)
+            'barang' => DB::table('BARANG')->where('NAMA_BARANG', 'like', '%' . $this->cariBarang . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10)
 
         ]);
     }

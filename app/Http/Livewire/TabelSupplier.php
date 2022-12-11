@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Supplier;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\DB;
 
 class TabelSupplier extends Component
 {
@@ -15,8 +16,7 @@ class TabelSupplier extends Component
     public function render()
     {
         return view('livewire.tabel-supplier', [
-            'supplier' => Supplier::where('STATUS_DELETE','0')->Where('NAMA_SUP', 'like', '%' . $this->cariSupplier . '%')->orderBy('ID_SUP')->paginate(10)
-            // where('ALAMAT_SUP', 'like', '%' . $this->cariSupplier . '%')->
+            'supplier' => DB::table('SUPPLIER')->where('STATUS_DELETE','0')->Where('NAMA_SUP', 'like', '%' . $this->cariSupplier . '%')->orderBy('ID_SUP')->paginate(10)
         ]);
     }
     public function resetInput()
