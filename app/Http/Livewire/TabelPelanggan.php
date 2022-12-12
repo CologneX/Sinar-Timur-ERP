@@ -16,7 +16,7 @@ class TabelPelanggan extends Component
     public function render()
     {
         return view('livewire.tabel-pelanggan', [
-            'pelanggan' => DB::table('PELANGGAN')->where('STATUS_DEL', '0')->where('NAMA_PEL', 'like','%'.$this->cariPelanggan.'%')->orderBy('ID_PEL')->paginate(10)
+            'pelanggan' => DB::table('PELANGGAN')->where('STATUS_DEL', '0')->where('NAMA_PEL', 'like', '%' . $this->cariPelanggan . '%')->orderBy('ID_PEL')->paginate(10)
         ]);
     }
     public function resetInput()
@@ -33,7 +33,7 @@ class TabelPelanggan extends Component
             'ALAMAT' => 'required',
             'NOTELP' => 'required',
         ]);
-        Pelanggan::create([
+        DB::table('PELANGGAN')->insert([
             'NAMA_PEL' => $this->NAMA_PEL,
             'ALAMAT' => $this->ALAMAT,
             'NOTELP' => $this->NOTELP,
@@ -44,13 +44,13 @@ class TabelPelanggan extends Component
 
     public function editPelanggan(int $URUT_PELANGGAN)
     {
-        $pelangganedit= Pelanggan::find($URUT_PELANGGAN);
-        if($pelangganedit){
+        $pelangganedit = DB::table('PELANGGAN')->where('URUT_PELANGGAN', $URUT_PELANGGAN)->first();
+        if ($pelangganedit) {
             $this->ID_PEL = $pelangganedit->ID_PEL;
             $this->NAMA_PEL = $pelangganedit->NAMA_PEL;
             $this->ALAMAT = $pelangganedit->ALAMAT;
             $this->NOTELP = $pelangganedit->NOTELP;
-        }else{
+        } else {
             return redirect()->to('/pelanggan');
         }
     }
@@ -67,7 +67,8 @@ class TabelPelanggan extends Component
         ]);
         return redirect('/pelanggan')->with('message', 'Pelanggan berhasil diedit');
     }
-    public function deletePelanggan(){
+    public function deletePelanggan()
+    {
         DB::table('PELANGGAN')->where('ID_PEL', $this->ID_PEL)->update([
             'STATUS_DEL' => 1
         ]);
