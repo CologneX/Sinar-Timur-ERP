@@ -30,7 +30,9 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link {{ request()->route()->named('dashboard')? 'active': '' }}"
+                    <li class="nav-item"><a class="nav-link
+                        {{-- {{ request()->route()->named('dashboard')? 'active': '' }} --}}
+                        "
                             href="/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576"
                                 width="1em" height="1em" fill="currentColor" style="width: 16px;height: 16px;">
                                 <path
@@ -41,14 +43,18 @@
                     <div class="sidebar-heading">
                         <p class="mb-0" style="color: #ffffff;">Transaksi</p>
                     </div>
-                    <li class="nav-item"><a class="nav-link {{ request()->route()->named('nota')? 'active': '' }}"
+                    <li class="nav-item"><a class="nav-link
+                        {{-- {{ request()->route()->named('nota')? 'active': '' }} --}}
+                        "
                             href="/nota"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512"
                                 width="1em" height="1em" fill="currentColor" style="width: 16px;height: 16px;">
                                 <path
                                     d="M400 32h-352C21.49 32 0 53.49 0 80v352C0 458.5 21.49 480 48 480h245.5c16.97 0 33.25-6.744 45.26-18.75l90.51-90.51C441.3 358.7 448 342.5 448 325.5V80C448 53.49 426.5 32 400 32zM64 96h320l-.001 224H320c-17.67 0-32 14.33-32 32v64H64V96z">
                                 </path>
                             </svg><span>&nbsp;Penjualan</span></a><a
-                            class="nav-link {{ request()->route()->named('pembelian')? 'active': '' }}"
+                            class="nav-link
+                            {{-- {{ request()->route()->named('pembelian')? 'active': '' }} --}}
+                            "
                             href="/pembelian"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -64 640 640"
                                 width="1em" height="1em" fill="currentColor"
                                 style="font-size: 13px;width: 16px;height: 16px;">
@@ -57,7 +63,9 @@
                                 </path>
                             </svg><span>&nbsp;Pembelian</span></a></li>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link {{ request()->route()->named('transaksiJual') ||request()->route()->named('transaksiBeli')? 'active': '' }}"
+                        <div><a class="btn btn-link nav-link
+                            {{-- {{ request()->route()->named('transaksiJual') ||request()->route()->named('transaksiBeli')? 'active': '' }} --}}
+                            "
                                 data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-1"
                                 href="#collapse-1" role="button"><svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor"
@@ -76,7 +84,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link {{ request()->route()->named('returJual') ||request()->route()->named('returBeli')? 'active': '' }}"
+                        <div><a class="btn btn-link nav-link
+                            {{-- {{ request()->route()->named('returJual') ||request()->route()->named('returBeli')? 'active': '' }} --}}
+                            "
                                 data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-3"
                                 href="#collapse-3" role="button"><svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor"
@@ -99,7 +109,9 @@
                         <p class="mb-0" style="color: var(--bs-accordion-bg);">DAFTAR</p>
                     </div>
                     <li class="nav-item">
-                        <div><a class="btn btn-link nav-link {{ request()->route()->named('supplier') ||request()->route()->named('pelanggan')? 'active': '' }}"
+                        <div><a class="btn btn-link nav-link
+                            {{-- {{ request()->route()->named('supplier') ||request()->route()->named('pelanggan')? 'active': '' }} --}}
+                            "
                                 data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapse-2"
                                 href="#collapse-2" role="button"><svg xmlns="http://www.w3.org/2000/svg"
                                     viewBox="0 -64 640 640" width="1em" height="1em" fill="currentColor"
@@ -117,7 +129,9 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link {{ request()->route()->named('barang')? 'active': '' }}"
+                    <li class="nav-item"><a class="nav-link
+                        {{-- {{ request()->route()->named('barang')? 'active': '' }} --}}
+                        "
                             href="/barang"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
                                 width="1em" height="1em" fill="currentColor" style="width: 16px;height: 16px;">
                                 <path

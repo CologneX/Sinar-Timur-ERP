@@ -70,7 +70,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Retur Pembelian</h4><button type="button" class="btn-close"
+                    <h4 class="modal-title">Tambah Retur Penjualan</h4><button type="button" class="btn-close"
                         data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -78,7 +78,7 @@
                         <div class="col-12 col-lg-6">
                             <div class="input-group" style="margin-bottom: 10px;"><span
                                     class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
-                                    Pembelian</span><select wire:model="ID_TRANSJUAL" class="selectpicker"
+                                    Penjualan</span><select wire:model="ID_TRANSJUAL" class="selectpicker"
                                     data-live-search="true">
                                     @foreach ($transaksi as $data)
                                         <option value="{{ $data->ID_TRANSJUAL }}">{{ $data->ID_TRANSJUAL }}</option>
