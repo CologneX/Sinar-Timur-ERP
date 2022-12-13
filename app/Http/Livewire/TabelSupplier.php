@@ -19,6 +19,18 @@ class TabelSupplier extends Component
             'supplier' => DB::table('SUPPLIER')->where('STATUS_DELETE','0')->Where('NAMA_SUP', 'like', '%' . $this->cariSupplier . '%')->orderBy('ID_SUP')->paginate(10)
         ]);
     }
+    public function simpanSupplier()
+    {
+        $this->validate([
+            'NAMA_SUP' => 'required',
+            'ALAMAT_SUP' => 'required',
+        ]);
+        DB::table('SUPPLIER')->insert([
+            'NAMA_SUP' => $this->NAMA_SUP,
+            'ALAMAT_SUP' => $this->ALAMAT_SUP,
+        ]);
+        $this->resetInput();
+    }
     public function resetInput()
     {
         $this->ID_SUP = '';

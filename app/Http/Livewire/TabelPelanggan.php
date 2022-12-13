@@ -19,13 +19,6 @@ class TabelPelanggan extends Component
             'pelanggan' => DB::table('PELANGGAN')->where('STATUS_DEL', '0')->where('NAMA_PEL', 'like', '%' . $this->cariPelanggan . '%')->orderBy('ID_PEL')->paginate(10)
         ]);
     }
-    public function resetInput()
-    {
-        $this->ID_PEL = '';
-        $this->NAMA_PEL = '';
-        $this->ALAMAT = '';
-        $this->NOTELP = '';
-    }
     public function tambahPelanggan()
     {
         $this->validate([
@@ -39,11 +32,17 @@ class TabelPelanggan extends Component
             'NOTELP' => $this->NOTELP,
         ]);
         $this->resetInput();
-        echo '<script type="text/javascript">',
-        'closeModal();',
-        '</script>';
+
 
     }
+    public function resetInput()
+    {
+        $this->ID_PEL = '';
+        $this->NAMA_PEL = '';
+        $this->ALAMAT = '';
+        $this->NOTELP = '';
+    }
+
 
     public function editPelanggan(int $URUT_PELANGGAN)
     {

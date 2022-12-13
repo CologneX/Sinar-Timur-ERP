@@ -35,7 +35,7 @@
                                         href="">Hapus
                                     </button>
                                     <button type="button" data-bs-toggle="modal" data-bs-target="#updateSupplierModal"
-                                        class="btn dropdown-item" wire:click="editSupplier({{ $data->URUT_SUPPLIER}})"
+                                        class="btn dropdown-item" wire:click="editSupplier({{ $data->URUT_SUPPLIER }})"
                                         href="">Edit
                                     </button>
                                 </div>
@@ -103,6 +103,44 @@
                     <button class="btn btn-light" wire:click="clearModal" type="button"
                         data-bs-dismiss="modal">Batal</button>
                     <button class="btn btn-primary" type="submit" wire:click="updateSupplier">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div wire:ignore.self class="modal" role="dialog" tabindex="-1" id="tambahSupplier">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Tambah Supplier</h4><button type="button" class="btn-close"
+                        data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Start: Nama Barang -->
+                    <div class="container-fluid">
+
+
+                        <div class="input-group" style="margin-bottom: 15px;"><span
+                                class="input-group-text">Nama</span><input class="form-control" type="text"
+                                wire:model="NAMA_SUP">
+                        </div>
+                        @error('NAMA_SUP')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+
+                        <div class="input-group" style="margin-bottom: 15px;"><span
+                                class="input-group-text">Alamat</span><input class="form-control" type="text"
+                                wire:model="ALAMAT_SUP">
+                        </div>
+                        @error('ALAMAT_SUP')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        <div class="modal-footer"><button class="btn btn-primary" type="submit"
+                                wire:click="simpanSupplier">Tambah</button>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
         </div>
