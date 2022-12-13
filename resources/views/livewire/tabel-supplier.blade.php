@@ -2,6 +2,9 @@
     <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text"
             id="cari-barang" autocomplete="on" placeholder="Cari Supplier..." wire:model="cariSupplier">
     </div>
+    <div>
+        <x-flash-message />
+    </div>
     <div class="table-responsive" style="overflow: auto;">
         <table class="table table-hover">
             <thead>

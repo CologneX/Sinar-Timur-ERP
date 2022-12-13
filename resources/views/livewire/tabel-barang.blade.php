@@ -2,7 +2,9 @@
     <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text"
             id="cari-barang" autocomplete="on" placeholder="Cari Barang..." wire:model="cariBarang">
     </div>
-
+    <div>
+        <x-flash-message />
+    </div>
     <div class="table-responsive" style="overflow: auto;">
         <table class="table table-hover">
             <thead>
@@ -113,5 +115,42 @@
             </div>
         </div>
     </div>
-
+    {{-- Modal Tambah --}}
+    <div wire:ignore.self class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title">Tambah Barang</h5><button type="button" class="btn-close text-reset"
+                data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <!-- Start: Nama Barang -->
+            <div class="container-fluid">
+                <div class="input-group" style="margin-bottom: 15px;"><span
+                        class="input-group-text">Nama</span><input class="form-control" type="text"
+                        id="input-nama-barang" required="" wire:model="NAMA_BARANG">
+                </div>
+                <div class="input-group" style="margin-bottom: 15px;"><span
+                        class="input-group-text">Harga</span><input class="form-control" type="number"
+                        id="input-harga-barang" required="" wire:model="HARGA">
+                </div>
+                <div class="input-group" style="margin-bottom: 15px;"><span
+                        class="input-group-text">Stok</span><input class="form-control" type="number"
+                        id="tambah-stok-barang" required="" wire:model="STOK"><span
+                        class="input-group-text">@</span>
+                    <select class="form-select" id="SATUAN" wire:model="SATUAN">
+                        <option value="PCS" selected="">PCS</option>
+                        <option value="KG">KG</option>
+                        <option value="LITER">LITER</option>
+                        <option value="METER">METER</option>
+                    </select>
+                </div>
+                <div class="input-group" style="margin-bottom: 15px;"><span
+                        class="input-group-text">Lokasi</span><input class="form-control" type="text"
+                        id="input-lokasi" required="" name="LOKASI">
+                </div>
+            </div>
+        </div>
+        <footer style="margin: 12px;text-align: right;"><button class="btn btn-primary" type="submit"
+                data-bs-dismiss="offcanvas">Tambah</button>
+        </footer>
+    </div>
 </div>

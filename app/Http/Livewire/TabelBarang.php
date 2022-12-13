@@ -6,10 +6,11 @@ use App\Models\Barang;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 
 class TabelBarang extends Component
 {
-    public $ID_BARANG, $NAMA_BARANG, $HARGA, $STOK, $LOKASI, $URUT_BARANG;
+    public $ID_BARANG, $NAMA_BARANG, $HARGA, $STOK, $LOKASI, $URUT_BARANG, $SATUAN;
     public $cariBarang = '';
 
     use WithPagination;
@@ -22,6 +23,25 @@ class TabelBarang extends Component
         ]);
     }
 
+    public function simpanBarang()
+    {
+        $this->validate([
+            'NAMA_BARANG' => 'required',
+            'HARGA' => 'required',
+            'STOK' => 'required',
+            'SATUAN' => 'required',
+            'LOKASI' => 'required'
+        ]);
+        DB::table('BARANG')->insert([
+            'NAMA_BARANG' => $this->NAMA_BARANG,
+            'HARGA' => $this->HARGA,
+            'STOK' => $this->STOK,
+            'SATUAN' => $this->SATUAN,
+            'LOKASI' => $this->LOKASI
+        ]);
+        $this->resetInput();
+        session()->flash('message', 'Barang sukses di tambahkan!');
+    }
 
     public function editBarang(int $URUT_BARANG)
     {
@@ -35,6 +55,7 @@ class TabelBarang extends Component
         } else {
             return redirect()->to('/barang');
         }
+
     }
     public function resetInput()
     {
@@ -56,13 +77,13 @@ class TabelBarang extends Component
             'STOK' => $this->STOK,
             'LOKASI' => $this->LOKASI,
         ]);
-        return redirect('/barang')->with('message', 'Barang berhasil diedit');
+        session()->flash('message', 'Barang sukses di update!');
     }
     public function deleteBarang()
     {
         Barang::where('ID_BARANG', $this->ID_BARANG)->update([
             'STATUS_DELETE' => 1
         ]);
-        return redirect('/barang')->with('message', 'Barang berhasil dihapus');
+        session()->flash('message', 'Barang sukses di hapus!');
     }
 }

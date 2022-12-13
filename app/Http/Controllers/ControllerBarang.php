@@ -13,16 +13,16 @@ class ControllerBarang extends Controller
         return view('barang');
     }
 
-    public function simpanBarang(Request $request)
-    {
-        $barangInsert = $request->validate([
-            'NAMA_BARANG' => 'required',
-            'HARGA' => 'required',
-            'STOK' => 'required',
-            'SATUAN' => 'required',
-            'LOKASI' => 'required'
-        ]);
-        Barang::create($barangInsert);
-        return redirect('/barang')->with('message', 'Barang berhasil ditambahkan');
-    }
+    // public function simpanBarang(Request $request)
+    // {
+    //     $barangInsert = $request->validate([
+    //         'NAMA_BARANG' => 'required',
+    //         'HARGA' => 'required',
+    //         'STOK' => 'required',
+    //         'SATUAN' => 'required',
+    //         'LOKASI' => 'required'
+    //     ]);
+    //     Barang::create($barangInsert);
+    //     return redirect('/barang')->with('message', 'Barang berhasil ditambahkan');
+    // }
 }

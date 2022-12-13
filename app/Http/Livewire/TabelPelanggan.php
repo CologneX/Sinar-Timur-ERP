@@ -31,6 +31,7 @@ class TabelPelanggan extends Component
             'NOTELP' => $this->NOTELP,
         ]);
         $this->resetInput();
+        session()->flash('message', 'Pelanggan berhasil ditambahkan.');
     }
     public function resetInput()
     {
@@ -51,10 +52,6 @@ class TabelPelanggan extends Component
             return redirect()->to('/pelanggan');
         }
     }
-    public function clearModal()
-    {
-        $this->resetInput();
-    }
     public function updatePelanggan()
     {
         DB::table('PELANGGAN')->where('ID_PEL', $this->ID_PEL)->update([
@@ -62,7 +59,8 @@ class TabelPelanggan extends Component
             'ALAMAT' => $this->ALAMAT,
             'NOTELP' => $this->NOTELP,
         ]);
-        return redirect('/pelanggan')->with('message', 'Pelanggan berhasil diedit');
+        $this->resetInput();
+        session()->flash('message', 'Pelanggan berhasil diupdate.');
     }
     public function deletePelanggan()
     {
@@ -70,6 +68,6 @@ class TabelPelanggan extends Component
             'STATUS_DEL' => 1
         ]);
 
-        return redirect('/pelanggan')->with('message', 'Pelanggan berhasil dihapus');
+        session()->flash('message', 'Pelanggan berhasil dihapus.');
     }
 }

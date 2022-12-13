@@ -30,6 +30,7 @@ class TabelSupplier extends Component
             'ALAMAT_SUP' => $this->ALAMAT_SUP,
         ]);
         $this->resetInput();
+        session()->flash('message', 'Supplier berhasil ditambahkan.');
     }
     public function resetInput()
     {
@@ -58,7 +59,8 @@ class TabelSupplier extends Component
             'NAMA_SUP' => $this->NAMA_SUP,
             'ALAMAT_SUP' => $this->ALAMAT_SUP,
         ]);
-        return redirect('/supplier')->with('message', 'Supplier berhasil diedit');
+        session()->flash('message', 'Supplier berhasil diedit.');
+        // return redirect('/supplier')->with('message', 'Supplier berhasil diedit');
     }
     public function deleteSupplier()
     {
@@ -66,6 +68,8 @@ class TabelSupplier extends Component
             'STATUS_DELETE' => 1
         ]);
 
-        return redirect('/supplier')->with('message', 'Supplier berhasil dihapus');
+        // return redirect('/supplier')->with('message', 'Supplier berhasil dihapus');
+        session()->flash('message', 'Supplier berhasil dihapus.');
+
     }
 }
