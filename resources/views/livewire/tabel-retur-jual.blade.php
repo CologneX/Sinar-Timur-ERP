@@ -4,6 +4,9 @@
             class="btn btn-primary d-sm-flex justify-content-sm-end align-items-sm-center" type="button"
             data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i class="fas fa-filter"></i>&nbsp;Filter</button>
     </div> --}}
+    <div>
+        <x-flash-message />
+    </div>
     <div class="d-flex justify-content-end justify-content-lg-end justify-content-xl-end container-fluid"
         style="padding-left: 0px;padding-right: 0px;"><button
             class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button" data-bs-target="#menu-add"
@@ -68,12 +71,13 @@
         </table>
         {{ $returJual->links() }}
     </div>
+
     <div wire:ignore class="modal fade" role="dialog" tabindex="-1" id="menu-add">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Tambah Retur Penjualan</h4><button type="button" class="btn-close"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
+                        data-bs-dismiss="modal" aria-label="Close" wire:click="resetInput"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">

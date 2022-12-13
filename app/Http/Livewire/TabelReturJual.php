@@ -21,16 +21,21 @@ class TabelReturJual extends Component
             'barang' => DB::table('BARANG')->get(),
         ]);
     }
+    public function resetInput()
+    {
+        $this->KUANTITAS_RETURJUAL = '';
+
+    }
     public function simpanData()
     {
-        // $this->validate([
-        //     'KUANTITAS_RETURJUAL' => 'required|min:1|max:'. DB::table('TRANSJUAL_BARANG')->where('ID_TRANSJUAL', $this->ID_TRANSJUAL)->where('ID_BARANG', $this->ID_BARANG)->
-        //     'ID_TRANSJUAL' => 'required',
-        //     'ID_BARANG' => 'required',
-        // ]);
-
+        $this->validate([
+            'KUANTITAS_RETURJUAL' => 'required|min:1|max:'. DB::table('TRANSJUAL_BARANG')->where('ID_TRANSJUAL', $this->ID_TRANSJUAL)->where('ID_BARANG', $this->ID_BARANG)->value('KUANTITAS_JUAL'),
+            'ID_TRANSJUAL' => 'required',
+            'ID_BARANG' => 'required',
+        ]);
 
         DB::table('RETUR_PENJUALAN')->insert(['KUANTITAS_RETURJUAL' => $this->KUANTITAS_RETURJUAL, 'ID_TRANSJUAL' => $this->ID_TRANSJUAL, 'ID_BARANG_RETURJUAL' => $this->ID_BARANG]);
-        redirect()->to('/returanPenjualan')->with('message', 'Retur Penjualan Berhasil!');
+        session()->flash('message', 'Retur dengan ID Penjualan'.$this->ID_TRANSBELI.'berhasil ditambahkan');
+        $this->resetInput();
     }
 }

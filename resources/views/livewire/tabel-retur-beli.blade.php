@@ -3,6 +3,9 @@
         <button class="btn btn-primary d-flex d-sm-flex align-items-center" type="button"
             data-bs-target="#tabel-transaksi" data-bs-toggle="offcanvas"><i class="fas fa-filter"></i>&nbsp;Filter</button>
     </div> --}}
+    <div>
+        <x-flash-message />
+    </div>
     <div class="d-flex justify-content-end justify-content-lg-end justify-content-xl-end container-fluid"
         style="padding-left: 0px;padding-right: 0px;"><button
             class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button" data-bs-target="#menu-add"
@@ -10,7 +13,6 @@
     <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text"
             id="cari-transaksi-pembelian" autocomplete="on" placeholder="Cari Returan Pembelian..."
             wire:model="carireturbeli">
-        {{-- <button class="btn btn-primary" id="btn-cari-barang" type="button">Cari</button>b --}}
     </div>
     <div class="table-responsive" style="overflow: auto;">
         <table class="table table-hover">
@@ -69,7 +71,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Retur Pembelian</h4><button type="button" class="btn-close"
+                    <h4 class="modal-title">Tambah Retur Pembelian</h4><button type="button" wire:click="resetInput" class="btn-close"
                         data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

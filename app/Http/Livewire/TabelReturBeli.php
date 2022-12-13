@@ -23,10 +23,13 @@ class TabelReturBeli extends Component
 
         ]);
     }
+
+    public function resetInput()
+    {
+        $this->KUANTITAS_RETURBELI = '';
+    }
     public function simpanData()
     {
-        // dd($this->ID_BARANG, $this->ID_TRANSBELI, $this->KUANTITAS_RETURBELI);
-        //validate data before insert
         $this->validate([
             'KUANTITAS_RETURBELI' => 'required|numeric|min:1|max:'. DB::table('DETAIL_PEMBELIAN')->where('ID_TRANSBELI', $this->ID_TRANSBELI)->where('ID_BARANG', $this->ID_BARANG)->value('KUANTITAS_BELI'),
             'ID_TRANSBELI' => 'required',
@@ -35,8 +38,8 @@ class TabelReturBeli extends Component
 
 
         DB::table('RETUR_PEMBELIAN')->insert(['KUANTITAS_RETURBELI' => $this->KUANTITAS_RETURBELI, 'ID_TRANSBELI' => $this->ID_TRANSBELI, 'ID_BARANG_RETURNBELI' => $this->ID_BARANG]);
-        redirect()->to('/returanPembelian')->with('message', 'Retur Pembelian Berhasil!');
-
-
+        session()->flash('message', 'Retur dengan ID Pembelian'.$this->ID_TRANSBELI.'berhasil ditambahkan');
+        $this->resetInput();
     }
+
 }
