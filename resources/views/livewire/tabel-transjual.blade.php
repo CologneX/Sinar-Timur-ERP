@@ -61,9 +61,9 @@
                                 <tr>
                                     <th>ID Barang</th>
                                     <th>Nama Barang</th>
-                                    <th>Harga</th>
                                     <th>Kuantitas</th>
-                                    <th>Jumlah</th>
+                                    <th>Harga</th>
+                                    <th>Subtotal</th>
                                 </tr>
                             </thead>
                             <tbody>
