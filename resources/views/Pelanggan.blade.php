@@ -11,7 +11,6 @@
                             type="button" data-bs-toggle="modal" data-bs-target="#tambah-pelanggan"><i
                                 class="fas fa-plus"></i>&nbsp;Tambah</button></div>
                     @livewire('tabel-pelanggan')
-
                 </div>
             </div><!-- End: #TabelPelanggan -->
         </div>
@@ -22,7 +21,4 @@
         </div>
         <div></div>
     </footer>
-
-
-
 @endsection
