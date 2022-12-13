@@ -1,4 +1,4 @@
-<div>
+{{-- <div>
     <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text"
             id="cari-barang" autocomplete="on" placeholder="Cari Pelanggan..." wire:model="cariPelanggan">
     </div>
@@ -52,10 +52,10 @@
             </tbody>
         </table>
         {{ $pelanggan->links() }}
-    </div>
+    </div> --}}
 
     {{-- Modal Hapus --}}
-    <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="deletePelangganModal"
+    {{-- <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="deletePelangganModal"
         aria-labelledby="deletePelangganModal">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -72,10 +72,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- Modal Edit --}}
 
-    <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="updatePelangganModal"
+    {{-- <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="updatePelangganModal"
         aria-labelledby="updatePelangganModal">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -141,9 +141,4 @@
             </div>
         </div>
     </div>
-    <script>
-        function closeModal() {
-            $('#tambah-pelanggan').modal('hide');
-        }
-    </script>
-</div>
+</div> --}}
