@@ -2,7 +2,7 @@
 @section('content')
     <div id="content">
         <div class="container">
-            <h3 class="text-dark mb-4" style="font-weight: bold;">Retur Pembelian</h3><!-- Start: #TabelTransaksi -->
+            <h2 class="text-dark mb-4" style="font-weight: bold;">Retur Pembelian</h2><!-- Start: #TabelTransaksi -->
             <div class="card shadow">
                 <div class="card-body">
                     @livewire('tabel-retur-beli')

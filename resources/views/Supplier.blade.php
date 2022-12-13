@@ -2,7 +2,7 @@
 @section('content')
     <div id="content">
         <div class="container-fluid">
-            <h3 class="fw-bold text-dark mb-4" style="color: rgb(0,0,0);">Supplier</h3><!-- Start: #TabelBarang -->
+            <h2 class="fw-bold text-dark mb-4" style="color: rgb(0,0,0);">Supplier</h2><!-- Start: #TabelBarang -->
             <div class="card shadow" id="tabel-pelanggan-1">
                 <div class="card-body">
                     <div class="table-responsive">
@@ -23,5 +23,5 @@
         <div></div>
     </footer>
 
-   
+
 @endsection

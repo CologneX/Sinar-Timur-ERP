@@ -2,7 +2,7 @@
 @section('content')
     <div id="content">
         <div class="container-fluid">
-            <h3 class="fw-bold text-dark mb-4" style="color: rgb(0,0,0);">BARANG</h3><!-- Start: #TabelBarang -->
+            <h2 class="fw-bold text-dark mb-4" style="color: rgb(0,0,0);">Barang</h2><!-- Start: #TabelBarang -->
             <div class="card shadow">
                 <div class="card-body">
                     <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
@@ -16,13 +16,12 @@
                                     style="margin-right: 9px;padding-right: 6px;padding-left: 4px;width: 84px;"
                                     data-bs-target="#tambah-barang" data-bs-toggle="offcanvas"><i
                                         class="fas fa-plus"></i>&nbsp;Barang</button>
-                                        {{-- <button
+                                {{-- <button
                                     class="btn btn-outline-primary d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-end align-items-sm-center"
                                     type="button" data-bs-target="#filter-barang" data-bs-toggle="offcanvas"
                                     style="width: 84px;"><i class="fas fa-filter"></i>&nbsp;Filter</button> --}}
-                                </div>
+                            </div>
                         </div>
-
                     </div>
                     @livewire('tabel-barang')
                 </div>
@@ -37,25 +36,6 @@
     <a class="border rounded d-inline scroll-to-top" data-bs-toggle="offcanvas" data-bss-tooltip="" data-bs-placement="left"
         title="Tambah Transaksi" href="/transaksiPembelian.html" data-bs-target="#tabel-transaksi"><i class="fas fa-plus"
             style="font-size: 17px;"></i></a>
-
-    {{-- <div class="offcanvas offcanvas-end" tabindex="-1" id="filter-barang" data-bs-scroll="true">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Filter Barang</h5><button type="button" class="btn-close text-reset"
-                data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <!-- Start: Gudang -->
-            <div class="container">
-                <p style="font-weight: bold;">Gudang</p>
-                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-1"><label
-                        class="form-check-label" for="Sorpus">Sorpus</label></div>
-                <div class="form-check"><input class="form-check-input" type="radio" id="formCheck-2"><label
-                        class="form-check-label" for="Moyo">Moyo</label></div>
-            </div><!-- End: Gudang -->
-        </div>
-        <footer style="margin: 12px;"><button class="btn btn-primary" type="button"
-                data-bs-dismiss="offcanvas">Tutup</button></footer>
-    </div> --}}
     <form action="/barang" method="POST">
         @csrf
         <div class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
