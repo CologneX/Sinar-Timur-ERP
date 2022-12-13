@@ -54,7 +54,6 @@ class TabelNota extends Component
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
         DB::table('DETAIL_TRANSAKSI')->where('ID_BARANG', $getID)->delete();
-        // $this->emit('refreshComponent');
     }
     public function Update()
     {

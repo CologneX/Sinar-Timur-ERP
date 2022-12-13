@@ -19,7 +19,7 @@
                     <th>ID Retur</th>
                     <th>ID Beli</th>
                     <th>Barang</th>
-                    <th>Waktu/th>
+                    <th>Waktu</th>
                     <th>Jumlah</th>
                     <th class="text-center"></th>
                 </tr>
@@ -82,13 +82,18 @@
                                     @foreach ($transaksi as $data)
                                         <option value="{{ $data->ID_TRANSBELI }}">{{ $data->ID_TRANSBELI }}</option>
                                     @endforeach
-                                </select></div>
+                                </select>
+                            </div>
                         </div>
                         <div class="col">
                             <div class="input-group" style="margin-bottom: 10px;"><span
                                     class="d-lg-flex justify-content-lg-end input-group-text"
                                     style="width: 130px;">Kuantitas</span><input wire:model="KUANTITAS_RETURBELI"
-                                    class="form-control" type="number"></div>
+                                    class="form-control" type="number">
+                            </div>
+                            @error('KUANTITAS_RETURBELI')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="input-group" style="margin-bottom: 10px;"><span

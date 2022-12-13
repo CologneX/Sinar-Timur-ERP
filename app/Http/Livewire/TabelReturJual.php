@@ -28,6 +28,8 @@ class TabelReturJual extends Component
         //     'ID_TRANSJUAL' => 'required',
         //     'ID_BARANG' => 'required',
         // ]);
+
+
         DB::table('RETUR_PENJUALAN')->insert(['KUANTITAS_RETURJUAL' => $this->KUANTITAS_RETURJUAL, 'ID_TRANSJUAL' => $this->ID_TRANSJUAL, 'ID_BARANG_RETURJUAL' => $this->ID_BARANG]);
         redirect()->to('/returanPenjualan')->with('message', 'Retur Penjualan Berhasil!');
     }

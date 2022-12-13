@@ -20,6 +20,7 @@
                 <tr>
                     <th>ID Retur</th>
                     <th>ID Penjualan</th>
+                    <th>Barang</th>
                     <th>Waktu</th>
                     <th>Kuantitas Retur</th>
                     <th class="text-center"></th>
@@ -30,6 +31,7 @@
                     <tr>
                         <td>{{ $data->ID_RETURJUAL }}</td>
                         <td>{{ $data->ID_TRANSJUAL }}</td>
+                        <td>{{ DB::table('BARANG')->where('ID_BARANG', $data->ID_BARANG_RETURJUAL)->value('NAMA_BARANG')}}</td>
                         <td>{{ $data->TANGGALRETURJUAL }}</td>
                         <td>{{ $data->KUANTITAS_RETURJUAL }}</td>
                         <td class="justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center"
@@ -83,13 +85,20 @@
                                     @foreach ($transaksi as $data)
                                         <option value="{{ $data->ID_TRANSJUAL }}">{{ $data->ID_TRANSJUAL }}</option>
                                     @endforeach
-                                </select></div>
+                                </select>
+
+                            </div>
+
                         </div>
                         <div class="col">
                             <div class="input-group" style="margin-bottom: 10px;"><span
                                     class="d-lg-flex justify-content-lg-end input-group-text"
                                     style="width: 130px;">Kuantitas</span><input wire:model="KUANTITAS_RETURJUAL"
-                                    class="form-control" type="number"></div>
+                                    class="form-control" type="number">
+                            </div>
+                            @error('KUANTITAS_RETURJUAL')
+                                <span class="error">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="input-group" style="margin-bottom: 10px;"><span
@@ -100,7 +109,9 @@
                                 <option value="{{ $data->ID_BARANG }}">{{ $data->NAMA_BARANG }}</option>
                             @endforeach
                         </select>
+
                     </div>
+
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button"
                         data-bs-dismiss="modal">Batal</button><button class="btn btn-primary" type="button"

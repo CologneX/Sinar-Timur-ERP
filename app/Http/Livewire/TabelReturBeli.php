@@ -13,6 +13,7 @@ class TabelReturBeli extends Component
     public $carireturbeli = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+
     public function render()
     {
         return view('livewire.tabel-retur-beli', [
@@ -25,8 +26,17 @@ class TabelReturBeli extends Component
     public function simpanData()
     {
         // dd($this->ID_BARANG, $this->ID_TRANSBELI, $this->KUANTITAS_RETURBELI);
+        //validate data before insert
+        $this->validate([
+            'KUANTITAS_RETURBELI' => 'required|numeric|min:1|max:'. DB::table('DETAIL_PEMBELIAN')->where('ID_TRANSBELI', $this->ID_TRANSBELI)->where('ID_BARANG', $this->ID_BARANG)->value('KUANTITAS_BELI'),
+            'ID_TRANSBELI' => 'required',
+            'ID_BARANG' => 'required',
+        ]);
+
+
         DB::table('RETUR_PEMBELIAN')->insert(['KUANTITAS_RETURBELI' => $this->KUANTITAS_RETURBELI, 'ID_TRANSBELI' => $this->ID_TRANSBELI, 'ID_BARANG_RETURNBELI' => $this->ID_BARANG]);
         redirect()->to('/returanPembelian')->with('message', 'Retur Pembelian Berhasil!');
+
 
     }
 }
