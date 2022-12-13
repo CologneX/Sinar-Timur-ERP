@@ -136,7 +136,7 @@
                         class="input-group-text">Stok</span><input class="form-control" type="number"
                         id="tambah-stok-barang" required="" wire:model="STOK"><span
                         class="input-group-text">@</span>
-                    <select class="form-select" id="SATUAN" wire:model="SATUAN">
+                    <select class="form-select" wire:model="SATUAN">
                         <option value="PCS" selected="">PCS</option>
                         <option value="KG">KG</option>
                         <option value="LITER">LITER</option>
@@ -145,7 +145,7 @@
                 </div>
                 <div class="input-group" style="margin-bottom: 15px;"><span
                         class="input-group-text">Lokasi</span><input class="form-control" type="text"
-                        id="input-lokasi" required="" name="LOKASI">
+                        id="input-lokasi" required="" wire:model="LOKASI">
                 </div>
             </div>
         </div>

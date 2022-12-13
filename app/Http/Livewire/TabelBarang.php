@@ -65,10 +65,6 @@ class TabelBarang extends Component
         $this->STOK = '';
         $this->LOKASI = '';
     }
-    public function clearModal()
-    {
-        $this->resetInput();
-    }
     public function updateBarang()
     {
         Barang::where('ID_BARANG', $this->ID_BARANG)->update([
@@ -77,6 +73,7 @@ class TabelBarang extends Component
             'STOK' => $this->STOK,
             'LOKASI' => $this->LOKASI,
         ]);
+        $this->resetInput();
         session()->flash('message', 'Barang sukses di update!');
     }
     public function deleteBarang()
@@ -84,6 +81,7 @@ class TabelBarang extends Component
         Barang::where('ID_BARANG', $this->ID_BARANG)->update([
             'STATUS_DELETE' => 1
         ]);
+        $this->resetInput();
         session()->flash('message', 'Barang sukses di hapus!');
     }
 }
