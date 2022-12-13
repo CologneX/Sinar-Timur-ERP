@@ -30,7 +30,8 @@
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link
+                    <li class="nav-item"><a
+                            class="nav-link
                         {{-- {{ request()->route()->named('dashboard')? 'active': '' }} --}}
                         "
                             href="/dashboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576"
@@ -43,7 +44,8 @@
                     <div class="sidebar-heading">
                         <p class="mb-0" style="color: #ffffff;">Transaksi</p>
                     </div>
-                    <li class="nav-item"><a class="nav-link
+                    <li class="nav-item"><a
+                            class="nav-link
                         {{-- {{ request()->route()->named('nota')? 'active': '' }} --}}
                         "
                             href="/nota"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 0 512 512"
@@ -129,7 +131,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-item"><a class="nav-link
+                    <li class="nav-item"><a
+                            class="nav-link
                         {{-- {{ request()->route()->named('barang')? 'active': '' }} --}}
                         "
                             href="/barang"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
