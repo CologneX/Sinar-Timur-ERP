@@ -13,21 +13,19 @@ class ControllerPelanggan extends Controller
     public function showPelanggan()
     {
 
-        return view(
-            'pelanggan'
-        );
+        return view('pelanggan');
     }
 
-    public function simpanPelanggan(HttpRequest $request)
-    {
+    // public function simpanPelanggan(HttpRequest $request)
+    // {
 
-        $pelangganInsert = $request->validate([
-            'NAMA_PEL' => 'required',
-            'ALAMAT' => 'required',
-            'NOTELP' => 'required',
-        ]);
-        Pelanggan::create($pelangganInsert);
-        return redirect('/pelanggan')->with('message', 'Pelanggan berhasil ditambahkan');
-    }
+    //     $pelangganInsert = $request->validate([
+    //         'NAMA_PEL' => 'required',
+    //         'ALAMAT' => 'required',
+    //         'NOTELP' => 'required',
+    //     ]);
+    //     Pelanggan::create($pelangganInsert);
+    //     return redirect('/pelanggan')->with('message', 'Pelanggan berhasil ditambahkan');
+    // }
 
 }

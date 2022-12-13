@@ -123,16 +123,16 @@
                         <div class="input-group" style="margin-bottom: 15px;"><span
                                 class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
                                 style="width: 100px;">Nama</span><input class="form-control" type="text"
-                                id="input-nama-pelanggan" required="" name="NAMA_PEL" wire:model="NAMA_PEL">
+                                id="input-nama-pelanggan" required="" wire:model="NAMA_PEL">
                         </div>
                         <div class="input-group" style="margin-bottom: 15px;"><span
                                 class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
                                 style="width: 100px;">No Telp</span><input class="form-control" type="text"
-                                id="input-notelp-pelanggan" required="" name="NOTELP" wire:model="NOTELP"></div>
+                                id="input-notelp-pelanggan" required="" wire:model="NOTELP"></div>
                         <div class="input-group" style="margin-bottom: 15px;"><span
                                 class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
                                 style="width: 100px;">Alamat</span>
-                            <textarea class="form-control" name="ALAMAT" id="input-alamat-pelanggan" wire:model="ALAMAT"></textarea>
+                            <textarea class="form-control" id="input-alamat-pelanggan" wire:model="ALAMAT"></textarea>
                         </div>
                     </div><!-- End: Nama Barang -->
                 </div>
