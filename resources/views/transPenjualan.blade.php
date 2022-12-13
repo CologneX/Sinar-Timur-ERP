@@ -2,7 +2,7 @@
 @section('content')
     <div id="content">
         <div class="container">
-            <h3 class="text-dark mb-4" style="font-weight: bold;">Transaksi Penjualan</h3><!-- Start: #TabelTransaksi -->
+            <h2 class="text-dark mb-4" style="font-weight: bold;">Transaksi Penjualan</h2><!-- Start: #TabelTransaksi -->
             <div class="card shadow">
                 <div class="card-body">
                     {{-- <div class="d-flex justify-content-end container-fluid" style="padding-left: 0px;padding-right: 0px;">
