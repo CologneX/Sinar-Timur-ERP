@@ -150,7 +150,7 @@
             </div>
         </div>
         <footer style="margin: 12px;text-align: right;"><button class="btn btn-primary" type="submit"
-                data-bs-dismiss="offcanvas">Tambah</button>
+                data-bs-dismiss="offcanvas" wire:click="simpanBarang">Tambah</button>
         </footer>
     </div>
 </div>
