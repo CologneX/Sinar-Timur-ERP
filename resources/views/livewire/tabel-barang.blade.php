@@ -108,7 +108,7 @@
                     </div>
                 </form>
                 <div class="modal-footer">
-                    <button class="btn btn-light" wire:click="clearModal" type="button"
+                    <button class="btn btn-light" wire:click="resetInput" type="button"
                         data-bs-dismiss="modal">Batal</button>
                     <button class="btn btn-primary" type="submit" wire:click="updateBarang">Simpan</button>
                 </div>
