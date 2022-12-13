@@ -137,8 +137,13 @@
                     </div><!-- End: Nama Barang -->
                 </div>
                 <div class="modal-footer"><button class="btn btn-primary" type="button"
-                        wire:click="tambahPelanggan" data-bs-dismiss="tambah-pelanggan">Tambah</button></div>
+                        wire:click="tambahPelanggan">Tambah</button></div>
             </div>
         </div>
     </div>
+    <script>
+        function closeModal() {
+            $('#tambah-pelanggan').modal('hide');
+        }
+    </script>
 </div>

@@ -39,7 +39,10 @@ class TabelPelanggan extends Component
             'NOTELP' => $this->NOTELP,
         ]);
         $this->resetInput();
-        session()->flash('message', 'Pelanggan berhasil ditambahkan');
+        echo '<script type="text/javascript">',
+        'closeModal();',
+        '</script>';
+
     }
 
     public function editPelanggan(int $URUT_PELANGGAN)
