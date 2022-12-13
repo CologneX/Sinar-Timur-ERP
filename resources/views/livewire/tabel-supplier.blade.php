@@ -84,7 +84,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="updateSupplierModal">Edit Pelanggan</h4><button type="button"
-                        class="btn-close" data-bs-dismiss="modal" wire:click="clearModal" aria-label="Close"></button>
+                        class="btn-close" data-bs-dismiss="modal" wire:click="resetInput" aria-label="Close"></button>
                 </div>
                 <form wire:submit.prevent="updateSupplier">
                     <div class="modal-body">
@@ -115,14 +115,12 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Supplier</h4><button type="button" class="btn-close"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title">Tambah Supplier</h4><button type="button" wire:click="resetInput"
+                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Start: Nama Barang -->
                     <div class="container-fluid">
-
-
                         <div class="input-group" style="margin-bottom: 15px;"><span
                                 class="input-group-text">Nama</span><input class="form-control" type="text"
                                 wire:model="NAMA_SUP">
@@ -141,8 +139,6 @@
                         <div class="modal-footer"><button class="btn btn-primary" type="submit"
                                 wire:click="simpanSupplier">Tambah</button>
                         </div>
-
-
                     </div>
                 </div>
             </div>

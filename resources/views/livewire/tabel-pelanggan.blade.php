@@ -83,7 +83,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="updatePelangganModal">Edit Pelanggan</h4><button type="button"
-                        class="btn-close" data-bs-dismiss="modal" wire:click="clearModal" aria-label="Close"></button>
+                        class="btn-close" data-bs-dismiss="modal" wire:click="resetInput" aria-label="Close"></button>
                 </div>
                 <form wire:submit.prevent="updatePelanggan">
                     <div class="modal-body">
@@ -116,7 +116,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Pelanggan</h4><button type="button" class="btn-close"
+                    <h4 class="modal-title">Tambah Pelanggan</h4><button type="button" wire:click="resetInput" class="btn-close"
                         data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

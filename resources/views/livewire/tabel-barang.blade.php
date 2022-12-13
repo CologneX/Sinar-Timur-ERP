@@ -82,7 +82,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="updateBarangModal">Edit Barang</h4><button type="button"
-                        class="btn-close" data-bs-dismiss="modal" wire:click="clearModal" aria-label="Close"></button>
+                        class="btn-close" data-bs-dismiss="modal" wire:click="resetInput" aria-label="Close"></button>
                 </div>
                 <form wire:submit.prevent="updateBarang">
                     <div class="modal-body">
@@ -118,8 +118,8 @@
     {{-- Modal Tambah --}}
     <div wire:ignore.self class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title">Tambah Barang</h5><button type="button" class="btn-close text-reset"
-                data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h5 class="offcanvas-title">Tambah Barang</h5><button type="button" wire:click="resetInput"
+                class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <!-- Start: Nama Barang -->
@@ -150,7 +150,7 @@
             </div>
         </div>
         <footer style="margin: 12px;text-align: right;"><button class="btn btn-primary" type="submit"
-                data-bs-dismiss="offcanvas" wire:click="simpanBarang">Tambah</button>
+                wire:click="simpanBarang">Tambah</button>
         </footer>
     </div>
 </div>
