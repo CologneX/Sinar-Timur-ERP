@@ -18,6 +18,7 @@ class TabelBarang extends Component
     protected $messages = [
         'NAMA_BARANG.required' => 'Nama Barang tidak boleh kosong',
         'HARGA.numeric' => 'Harga harus berupa angka',
+        'HARGA.min' => 'Harga tidak boleh kurang dari 0',
         'HARGA.required' => 'Harga tidak boleh kosong',
         'STOK.required' => 'Stok tidak boleh kosong',
         'STOK.min' => 'Stok tidak boleh kurang dari 0',
@@ -37,8 +38,8 @@ class TabelBarang extends Component
     {
         $this->validate([
             'NAMA_BARANG' => 'required',
-            'HARGA' => 'required',
-            'STOK' => 'required|min:0',
+            'HARGA' => 'required|numeric|min:0',
+            'STOK' => 'required|min:0|numeric',
             'SATUAN' => 'required',
             'LOKASI' => 'required'
         ]);
