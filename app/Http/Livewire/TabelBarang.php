@@ -20,6 +20,7 @@ class TabelBarang extends Component
         'HARGA.numeric' => 'Harga harus berupa angka',
         'HARGA.required' => 'Harga tidak boleh kosong',
         'STOK.required' => 'Stok tidak boleh kosong',
+        'STOK.min' => 'Stok tidak boleh kurang dari 0',
         'STOK.numeric' => 'Stok harus berupa angka',
         'ID_BARANG.required' => 'ID Barang tidak boleh kosong',
         'LOKASI.required' => 'Lokasi tidak boleh kosong',
@@ -37,7 +38,7 @@ class TabelBarang extends Component
         $this->validate([
             'NAMA_BARANG' => 'required',
             'HARGA' => 'required',
-            'STOK' => 'required',
+            'STOK' => 'required|min:0',
             'SATUAN' => 'required',
             'LOKASI' => 'required'
         ]);
@@ -75,6 +76,12 @@ class TabelBarang extends Component
     }
     public function updateBarang()
     {
+        $this->validate([
+            'NAMA_BARANG' => 'required',
+            'HARGA' => 'required',
+            'STOK' => 'required|min:0',
+            'LOKASI' => 'required'
+        ]);
         Barang::where('ID_BARANG', $this->ID_BARANG)->update([
             'NAMA_BARANG' => $this->NAMA_BARANG,
             'HARGA' => $this->HARGA,
