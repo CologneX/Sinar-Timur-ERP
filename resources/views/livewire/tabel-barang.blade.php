@@ -96,29 +96,28 @@
                     <h4 class="modal-title" id="updateBarangModal">Edit Barang</h4><button type="button"
                         class="btn-close" data-bs-dismiss="modal" wire:click="resetInput" aria-label="Close"></button>
                 </div>
-                <form wire:submit.prevent="updateBarang">
-                    <div class="modal-body">
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
-                                Barang</span><input class="form-control" type="text" wire:model="ID_BARANG" readonly>
-                        </div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text"
-                                style="width: 130px;">Harga</span><input class="form-control" type="number"
-                                wire:model="HARGA"></div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Nama
-                                Barang</span><input class="form-control" type="text" wire:model="NAMA_BARANG">
-                        </div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Stok
-                                Barang</span><input class="form-control" type="number" wire:model="STOK"></div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Lokasi
-                            </span><input class="form-control" type="text" wire:model="LOKASI"></div>
 
+                <div class="modal-body">
+                    <div class="input-group" style="margin-bottom: 10px;"><span
+                            class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
+                            Barang</span><input class="form-control" type="text" wire:model="ID_BARANG" readonly>
                     </div>
-                </form>
+                    <div class="input-group" style="margin-bottom: 10px;"><span
+                            class="d-lg-flex justify-content-lg-end input-group-text"
+                            style="width: 130px;">Harga</span><input class="form-control" type="number"
+                            wire:model="HARGA"></div>
+                    <div class="input-group" style="margin-bottom: 10px;"><span
+                            class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Nama
+                            Barang</span><input class="form-control" type="text" wire:model="NAMA_BARANG">
+                    </div>
+                    <div class="input-group" style="margin-bottom: 10px;"><span
+                            class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Stok
+                            Barang</span><input class="form-control" type="number" wire:model="STOK"></div>
+                    <div class="input-group" style="margin-bottom: 10px;"><span
+                            class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Lokasi
+                        </span><input class="form-control" type="text" wire:model="LOKASI"></div>
+
+                </div>
                 <div class="modal-footer">
                     <button class="btn btn-light" wire:click="resetInput" type="button"
                         data-bs-dismiss="modal">Batal</button>
@@ -149,7 +148,7 @@
                         id="tambah-stok-barang" required="" wire:model="STOK"><span
                         class="input-group-text">@</span>
                     <select class="form-select" wire:model="SATUAN">
-                        <option value="PCS" selected="">PCS</option>
+                        <option value="PCS" selected="PCS">PCS</option>
                         <option value="KG">KG</option>
                         <option value="LITER">LITER</option>
                         <option value="METER">METER</option>
