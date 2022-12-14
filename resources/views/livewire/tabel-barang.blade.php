@@ -128,7 +128,7 @@
         </div>
     </div>
     {{-- Modal Tambah --}}
-    <div wire:ignore.self class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
+    <div wire:ignore class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Tambah Barang</h5><button type="button" wire:click="resetInput"
                 class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -161,7 +161,7 @@
                 </div>
             </div>
         </div>
-        <footer style="margin: 12px;text-align: right;"><button class="btn btn-primary" type="submit"
+        <footer style="margin: 12px;text-align: right;"><button class="btn btn-primary" type="button"
                 wire:click="simpanBarang">Tambah</button>
         </footer>
     </div>
