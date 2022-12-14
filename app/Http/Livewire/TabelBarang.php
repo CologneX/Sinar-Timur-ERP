@@ -36,7 +36,13 @@ class TabelBarang extends Component
 
     public function simpanBarang()
     {
-
+        $this->validate([
+            'NAMA_BARANG' => 'required',
+            'HARGA' => 'required|numeric|min:0',
+            'STOK' => 'required|min:0|numeric',
+            'SATUAN' => 'required',
+            'LOKASI' => 'required'
+        ]);
         DB::table('BARANG')->insert([
             'NAMA_BARANG' => $this->NAMA_BARANG,
             'HARGA' => $this->HARGA,
