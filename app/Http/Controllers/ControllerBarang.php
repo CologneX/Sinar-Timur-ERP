@@ -11,5 +11,5 @@ class ControllerBarang extends Controller
     public function showBarang()
     {
         return view('barang');
-}
+    }
 }
