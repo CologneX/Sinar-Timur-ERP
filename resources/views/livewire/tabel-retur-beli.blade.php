@@ -6,6 +6,15 @@
     <div>
         <x-flash-message />
     </div>
+    @error('KUANTITAS_RETURBELI')
+        <x-flash-error :message="$message" />
+    @enderror
+    @error('ID_TRANSBELI')
+        <x-flash-error :message="$message" />
+    @enderror
+    @error('ID_BARANG')
+        <x-flash-error :message="$message" />
+    @enderror
     <div class="d-flex justify-content-end justify-content-lg-end justify-content-xl-end container-fluid"
         style="padding-left: 0px;padding-right: 0px;"><button
             class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button" data-bs-target="#menu-add"
@@ -71,8 +80,8 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Retur Pembelian</h4><button type="button" wire:click="resetInput" class="btn-close"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title">Tambah Retur Pembelian</h4><button type="button" wire:click="resetInput"
+                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -93,9 +102,6 @@
                                     style="width: 130px;">Kuantitas</span><input wire:model="KUANTITAS_RETURBELI"
                                     class="form-control" type="number">
                             </div>
-                            @error('KUANTITAS_RETURBELI')
-                                <span class="error">{{ $message }}</span>
-                            @enderror
                         </div>
                     </div>
                     <div class="input-group" style="margin-bottom: 10px;"><span

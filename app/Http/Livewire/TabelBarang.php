@@ -15,6 +15,15 @@ class TabelBarang extends Component
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $messages = [
+        'NAMA_BARANG.required' => 'Nama Barang tidak boleh kosong',
+        'HARGA.numeric' => 'Harga harus berupa angka',
+        'HARGA.required' => 'Harga tidak boleh kosong',
+        'STOK.required' => 'Stok tidak boleh kosong',
+        'STOK.numeric' => 'Stok harus berupa angka',
+        'ID_BARANG.required' => 'ID Barang tidak boleh kosong',
+        'LOKASI.required' => 'Lokasi tidak boleh kosong',
+    ];
     public function render()
     {
 
@@ -55,7 +64,6 @@ class TabelBarang extends Component
         } else {
             return redirect()->to('/barang');
         }
-
     }
     public function resetInput()
     {

@@ -12,6 +12,13 @@ class TabelPelanggan extends Component
     public $cariPelanggan = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $messages = [
+        'NAMA_PEL.required' => 'Nama Pelanggan tidak boleh kosong',
+        'NOTELP.numeric' => 'No Telp harus berupa angka',
+        'ALAMAT.required' => 'Alamat tidak boleh kosong',
+        'NOTELP.required' => 'No Telp tidak boleh kosong',
+
+    ];
     public function render()
     {
         return view('livewire.tabel-pelanggan', [
@@ -23,7 +30,7 @@ class TabelPelanggan extends Component
         $this->validate([
             'NAMA_PEL' => 'required',
             'ALAMAT' => 'required',
-            'NOTELP' => 'required',
+            'NOTELP' => 'required|numeric',
         ]);
         DB::table('PELANGGAN')->insert([
             'NAMA_PEL' => $this->NAMA_PEL,
@@ -54,12 +61,18 @@ class TabelPelanggan extends Component
     }
     public function updatePelanggan()
     {
+        $this->validate([
+            'NAMA_PEL' => 'required',
+            'ALAMAT' => 'required',
+            'NOTELP' => 'required|numeric',
+        ]);
         DB::table('PELANGGAN')->where('ID_PEL', $this->ID_PEL)->update([
             'NAMA_PEL' => $this->NAMA_PEL,
             'ALAMAT' => $this->ALAMAT,
             'NOTELP' => $this->NOTELP,
         ]);
         $this->resetInput();
+        $this->dispatchBrowserEvent('postUpdated');
         session()->flash('message', 'Pelanggan berhasil diupdate.');
     }
     public function deletePelanggan()

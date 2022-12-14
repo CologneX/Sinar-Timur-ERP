@@ -5,6 +5,13 @@
     <div>
         <x-flash-message />
     </div>
+    @error('ALAMAT_SUP')
+        <x-flash-error :message="$message" />
+    @enderror
+
+    @error('NAMA_SUP')
+        <x-flash-error :message="$message" />
+    @enderror
     <div class="table-responsive" style="overflow: auto;">
         <table class="table table-hover">
             <thead>
@@ -103,7 +110,7 @@
                     </div>
                 </form>
                 <div class="modal-footer">
-                    <button class="btn btn-light" wire:click="clearModal" type="button"
+                    <button class="btn btn-light" wire:click="resetInput" type="button"
                         data-bs-dismiss="modal">Batal</button>
                     <button class="btn btn-primary" type="submit" wire:click="updateSupplier">Simpan</button>
                 </div>
@@ -125,17 +132,13 @@
                                 class="input-group-text">Nama</span><input class="form-control" type="text"
                                 wire:model="NAMA_SUP">
                         </div>
-                        @error('NAMA_SUP')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+
 
                         <div class="input-group" style="margin-bottom: 15px;"><span
                                 class="input-group-text">Alamat</span><input class="form-control" type="text"
                                 wire:model="ALAMAT_SUP">
                         </div>
-                        @error('ALAMAT_SUP')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+
                         <div class="modal-footer"><button class="btn btn-primary" type="submit"
                                 wire:click="simpanSupplier">Tambah</button>
                         </div>

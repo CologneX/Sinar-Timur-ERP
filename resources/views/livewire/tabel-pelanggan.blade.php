@@ -5,6 +5,15 @@
     <div>
         <x-flash-message />
     </div>
+    @error('NAMA_PEL')
+        <x-flash-error :message="$message" />
+    @enderror
+    @error('ALAMAT')
+        <x-flash-error :message="$message" />
+    @enderror
+    @error('NOTELP')
+        <x-flash-error :message="$message" />
+    @enderror
     <div class="table-responsive" style="overflow: auto;">
         <table class="table table-hover">
             <thead>
@@ -100,11 +109,11 @@
                                 wire:model="ALAMAT"></div>
                         <div class="input-group" style="margin-bottom: 10px;"><span
                                 class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">No
-                                Telepon</span><input class="form-control" type="number" wire:model="NOTELP"></div>
+                                Telepon</span><input class="form-control" type="text" wire:model="NOTELP"></div>
                     </div>
                 </form>
                 <div class="modal-footer">
-                    <button class="btn btn-light" wire:click="clearModal" type="button"
+                    <button class="btn btn-light" wire:click="resetInput" type="button"
                         data-bs-dismiss="modal">Batal</button>
                     <button class="btn btn-primary" type="submit" wire:click="updatePelanggan">Simpan</button>
                 </div>
@@ -116,8 +125,8 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Pelanggan</h4><button type="button" wire:click="resetInput" class="btn-close"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 class="modal-title">Tambah Pelanggan</h4><button type="button" wire:click="resetInput"
+                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Start: Nama Barang -->

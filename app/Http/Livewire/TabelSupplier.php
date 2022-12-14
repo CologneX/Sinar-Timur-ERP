@@ -13,6 +13,10 @@ class TabelSupplier extends Component
     public $cariSupplier = '';
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+    protected $messages = [
+        'ALAMAT_SUP.required' => 'Alamat tidak boleh kosong',
+        'NAMA_SUP.required' => 'Nama Supplier tidak boleh kosong',
+    ];
     public function render()
     {
         return view('livewire.tabel-supplier', [
@@ -48,10 +52,6 @@ class TabelSupplier extends Component
         } else {
             return redirect()->to('/supplier');
         }
-    }
-    public function clearModal()
-    {
-        $this->resetInput();
     }
     public function updateSupplier()
     {

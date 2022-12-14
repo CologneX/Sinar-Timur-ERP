@@ -20,7 +20,7 @@
                                     </div>
                                     <div class="text-dark fw-bold h5 mb-0"><span></span>
                                         <div>@money(
-                                            DB::table('TRANSAKSI_PENJUALAN')->whereDate('TGL_TRANSJUAL', '=', date('Y-m-d'))->sum('TOTAL_TRANSJUAL')
+                                            DB::table('TRANSAKSI_PENJUALAN')->whereDate('TGL_TRANSJUAL', '=', date('Y-m-d'))->sum('TOTAL_TRANSJUAL'),
                                         )</div>
                                     </div>
                                 </div>
@@ -40,7 +40,9 @@
                                             </div>
                                         </span></div>
                                     <div class="text-dark fw-bold h5 mb-0"><span>
-                                            <div>@money(DB::table('TRANSAKSI_PENJUALAN')->whereMonth('TGL_TRANSJUAL', '=', date('m'))->sum('TOTAL_TRANSJUAL'))</div>
+                                            <div>@money(
+                                                DB::table('TRANSAKSI_PENJUALAN')->whereMonth('TGL_TRANSJUAL', '=', date('m'))->sum('TOTAL_TRANSJUAL'),
+                                            )</div>
                                         </span></div>
                                 </div>
                                 <div class="col-auto"><i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -60,7 +62,7 @@
                         <div class="card-body">
                             <!-- Start: Bar Chart -->
                             <div class="chart-area"><canvas
-                                    data-bss-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Januari&quot;,&quot;Februari&quot;,&quot;Maret&quot;,&quot;April&quot;,&quot;Mei&quot;,&quot;Juni&quot;,&quot;Juli&quot;,&quot;Agustus&quot;,&quot;September&quot;,&quot;Oktober&quot;,&quot;November&quot;,&quot;Desember&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Revenue&quot;,&quot;backgroundColor&quot;:&quot;#4e73df&quot;,&quot;borderColor&quot;:&quot;#4e73df&quot;,&quot;data&quot;:[&quot;12.300&quot;,&quot;25&quot;,&quot;32.126&quot;,&quot;50.625&quot;,&quot;40.210&quot;,&quot;31&quot;,&quot;34&quot;,&quot;22&quot;,&quot;33&quot;,&quot;25&quot;,&quot;42&quot;,&quot;100&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;position&quot;:&quot;left&quot;},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;bold&quot;,&quot;display&quot;:true,&quot;text&quot;:&quot;Dalam juta Rupiah&quot;,&quot;position&quot;:&quot;top&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:true,&quot;drawTicks&quot;:false,&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;beginAtZero&quot;:false,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:true,&quot;drawTicks&quot;:false,&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;beginAtZero&quot;:false,&quot;padding&quot;:20}}]}}}"></canvas>
+                                    data-bss-chart="{&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Januari&quot;,&quot;Februari&quot;,&quot;Maret&quot;,&quot;April&quot;,&quot;Mei&quot;,&quot;Juni&quot;,&quot;Juli&quot;,&quot;Agustus&quot;,&quot;September&quot;,&quot;Oktober&quot;,&quot;November&quot;,&quot;Desember&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Revenue&quot;,&quot;backgroundColor&quot;:&quot;#4e73df&quot;,&quot;borderColor&quot;:&quot;#4e73df&quot;,&quot;data&quot;:[&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;0&quot;,&quot;12.500&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;},&quot;position&quot;:&quot;left&quot;},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;bold&quot;,&quot;display&quot;:true,&quot;text&quot;:&quot;Dalam juta Rupiah&quot;,&quot;position&quot;:&quot;top&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:true,&quot;drawTicks&quot;:false,&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;beginAtZero&quot;:false,&quot;padding&quot;:20}}],&quot;yAxes&quot;:[{&quot;gridLines&quot;:{&quot;color&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;zeroLineColor&quot;:&quot;rgb(234, 236, 244)&quot;,&quot;drawBorder&quot;:true,&quot;drawTicks&quot;:false,&quot;drawOnChartArea&quot;:true},&quot;ticks&quot;:{&quot;fontColor&quot;:&quot;#858796&quot;,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;beginAtZero&quot;:false,&quot;padding&quot;:20}}]}}}"></canvas>
                             </div><!-- End: Bar Chart -->
                         </div>
                     </div><!-- End: Basic Card -->
@@ -69,14 +71,14 @@
                     <div class="card shadow mb-4">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <div class="text-uppercase text-primary fw-bold text-xs mb-1">
-                                <div>Transaksi ({{date('Y')}})
+                                <div>Transaksi ({{ date('Y') }})
                                 </div>
                             </div><a class="btn btn-link btn-sm" role="button" href="transaksiPembelian.html"><i
                                     class="fas fa-external-link-alt"></i></a>
                         </div>
                         <div class="card-body">
                             <div class="chart-area"><canvas
-                                    data-bss-chart="{&quot;type&quot;:&quot;pie&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Penjualan&quot;,&quot;Pembelian&quot;,&quot;Retur Beli&quot;,&quot;Retur Jual&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;,&quot;rgb(89,89,89)&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;237&quot;,&quot;37&quot;,&quot;7&quot;,&quot;10&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas>
+                                    data-bss-chart="{&quot;type&quot;:&quot;pie&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;Penjualan&quot;,&quot;Pembelian&quot;,&quot;Retur Beli&quot;,&quot;Retur Jual&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;&quot;,&quot;backgroundColor&quot;:[&quot;#4e73df&quot;,&quot;#1cc88a&quot;,&quot;#36b9cc&quot;,&quot;rgb(89,89,89)&quot;],&quot;borderColor&quot;:[&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;,&quot;#ffffff&quot;],&quot;data&quot;:[&quot;{{ DB::table('TRANSAKSI_PENJUALAN')->count('URUT_TRANSJUAL') }}&quot;,&quot;{{ DB::table('TRANSAKSI_PEMBELIAN')->count('URUT_TRANSBELI') }}&quot;,&quot;{{ DB::table('RETUR_PEMBELIAN')->count('URUT_RETURBELI') }}&quot;,&quot;{{ DB::table('RETUR_PENJUALAN')->count('URUT_RETURJUAL') }}&quot;]}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:false,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}}"></canvas>
                             </div>
                             <div class="text-center small mt-4"><span class="me-2"><i
                                         class="fas fa-circle text-primary"></i>&nbsp;Penjualan</span><span class="me-2"><i
@@ -84,7 +86,8 @@
                                     Pembelian</span><span class="me-2"><i class="fas fa-circle text-info"></i>&nbsp;Retur
                                     Pembelian</span><span><i class="fas fa-circle"
                                         style="font-size: 15px;color: #858796;"></i>&nbsp;
-                                    Retur Penjualan</span></div>
+                                    Retur Penjualan</span>
+                            </div>
                         </div>
                     </div>
                 </div>

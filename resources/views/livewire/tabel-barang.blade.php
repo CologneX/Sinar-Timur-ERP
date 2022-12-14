@@ -5,6 +5,18 @@
     <div>
         <x-flash-message />
     </div>
+    @error('NAMA_BARANG')
+        <x-flash-error :message="$message" />
+    @enderror
+    @error('HARGA')
+        <x-flash-error :message="$message" />
+    @enderror
+    @error('STOK')
+        <x-flash-error :message="$message" />
+    @enderror
+    @error('LOKASI')
+        <x-flash-error :message="$message" />
+    @enderror
     <div class="table-responsive" style="overflow: auto;">
         <table class="table table-hover">
             <thead>
