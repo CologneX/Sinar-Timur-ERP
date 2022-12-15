@@ -1,10 +1,12 @@
 <div>
     <div id="content">
-
-        @error('KUANTITAS_BELI')
-            <x-flash-error :message="$message" />
-        @enderror
         <div class="container">
+            @error('KUANTITAS_BELI')
+                <x-flash-error :message="$message" />
+            @enderror
+            @error('ID_SUP')
+                <x-flash-error :message="$message" />
+            @enderror
             <h2 class="text-dark mb-4" style="font-weight: bold;">Pembelian&nbsp;</h2>
             <div class="row">
                 <div class="col-12 offset-1 offset-sm-0" style="margin-left: 0px;">
@@ -74,9 +76,10 @@
                                         value="{{ DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') }}"></div>
                             </div>
                             <div wire:ignore class="input-group">
+
                                 <span class="input-group-text">Supplier </span>
-                                <select wire:model="ID_SUP" wire:change="Update" class="selectpicker"
-                                    data-live-search="true">
+                                <select wire:model="ID_SUP" wire:change="" class="selectpicker" data-live-search="true"
+                                    placeholder="Pilih Supplier">
                                     @foreach ($supplier as $data)
                                         <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>
                                     @endforeach
@@ -156,7 +159,7 @@
     </footer>
 
 
-    <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="qtyBarang" aria-labelledby="qtyBarang">
+    <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="qtyBarang">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

@@ -1,9 +1,12 @@
 <div>
     <div id="content">
-        @error('KUANTITAS_JUAL')
-            <x-flash-error :message="$message" />
-        @enderror
         <div class="container">
+            @error('ID_PEL')
+                <x-flash-error :message="$message" />
+            @enderror
+            @error('KUANTITAS_JUAL')
+                <x-flash-error :message="$message" />
+            @enderror
             <h2 class="text-dark mb-4" style="font-weight: bold;">Penjualan&nbsp;</h2>
             <div class="row">
                 <div class="col-12 offset-1 offset-sm-0" style="margin-left: 0px;">
@@ -72,12 +75,13 @@
                             </div>
                             <div wire:ignore class="input-group">
                                 <span class="input-group-text">Pelanggan </span>
-                                <select wire:model="ID_PEL" wire:change="Update" class="selectpicker"
-                                    data-live-search="true">
+                                <select wire:model="ID_PEL" class="selectpicker" data-live-search="true"
+                                    placeholder="Pilih Pelanggan">
                                     @foreach ($Pelanggan as $data)
                                         <option value="{{ $data->ID_PEL }}">{{ $data->NAMA_PEL }}</option>
                                     @endforeach
                                 </select>
+
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-hover">

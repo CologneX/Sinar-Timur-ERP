@@ -22,6 +22,7 @@ class TabelNota extends Component
         'KUANTITAS_JUAL.numeric' => 'Kuantitas harus berupa angka',
         'KUANTITAS_JUAL.min' => 'Kuantitas Jual minimal 1',
         'KUANTITAS_JUAL.max' => 'Kuantitas Jual melebihi stok barang',
+        'ID_PEL.required' => 'Pilih Pelanggan terlebih dahulu',
     ];
 
     public function render()
@@ -49,21 +50,24 @@ class TabelNota extends Component
             'KUANTITAS_JUAL' => 'required|numeric|min:1|max:' . $this->STOK,
         ]);
         DB::table('DETAIL_TRANSAKSI')->insert(['ID_TRANSJUAL' => DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_JUAL' => $this->KUANTITAS_JUAL]);
-        // $this->emit('refreshComponent');
+        $this->emit('refreshComponent');
 
     }
     public function nextTransaksi()
     {
+        $this->validate([
+            'ID_PEL' => 'required',
+        ]);
+
+        DB::table('TRANSAKSI_PENJUALAN')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->update(['ID_PEL' => $this->ID_PEL]);
+
         DB::table('TRANSAKSI_PENJUALAN')->insert(['ID_PEL' => 'P0001', 'TOTAL_TRANSJUAL' => 0, 'TOTAL_ITEMJUAL' => 0]);
-        return redirect('/nota')->with('message', 'Transaksi berhasil!');
     }
     public function hapusBarang(string $ID)
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
         DB::table('DETAIL_TRANSAKSI')->where('ID_BARANG', $getID)->delete();
+        $this->emit('refreshComponent');
     }
-    public function Update()
-    {
-        DB::table('TRANSAKSI_PENJUALAN')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->update(['ID_PEL' => $this->ID_PEL]);
-    }
+
 }

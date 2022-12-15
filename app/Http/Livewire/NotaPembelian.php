@@ -17,12 +17,13 @@ class NotaPembelian extends Component
     public $supplier = [];
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    // protected $listeners = ['refreshComponent' => 'render'];
+    protected $listeners = ['refreshComponent' => 'render'];
     //custom validation message
     protected $messages = [
         'KUANTITAS_BELI.required' => 'Kuantitas tidak boleh kosong',
         'KUANTITAS_BELI.numeric' => 'Kuantitas harus berupa angka',
         'KUANTITAS_BELI.min' => 'Kuantitas Beli minimal 1',
+        'ID_SUP.required' => 'Pilih Supplier terlebih dahulu',
     ];
 
 
@@ -49,20 +50,20 @@ class NotaPembelian extends Component
             'KUANTITAS_BELI' => 'required|numeric|min:1',
         ]);
         DB::table('DETAIL_PEMBELIAN')->insert(['ID_TRANSBELI' => DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_BELI' => $this->KUANTITAS_BELI]);
-        // $this->emit('refreshComponent');
+        $this->emit('refreshComponent');
     }
     public function hapusBarang(string $ID)
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
         DB::table('DETAIL_PEMBELIAN')->where('ID_BARANG', $getID)->delete();
-        // $this->emit('refreshComponent');
+        $this->emit('refreshComponent');
     }
     public function nextTransaksi()
     {
-        DB::table('TRANSAKSI_PEMBELIAN')->insert(['ID_SUP' => 'S0001', 'TOTAL_TRANSBELI' => 0, 'TOTAL_ITEMBELI' => 0]);
-    }
-    public function Update()
-    {
+        $this->validate([
+            'ID_SUP' => 'required',
+        ]);
         DB::table('TRANSAKSI_PEMBELIAN')->where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->update(['ID_SUP' => $this->ID_SUP]);
+        DB::table('TRANSAKSI_PEMBELIAN')->insert(['ID_SUP' => 'S0001', 'TOTAL_TRANSBELI' => 0, 'TOTAL_ITEMBELI' => 0]);
     }
 }
