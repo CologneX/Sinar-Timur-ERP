@@ -1,5 +1,8 @@
 <div>
     <div id="content">
+        @error('KUANTITAS_JUAL')
+            <x-flash-error :message="$message" />
+        @enderror
         <div class="container">
             <h2 class="text-dark mb-4" style="font-weight: bold;">Penjualan&nbsp;</h2>
             <div class="row">
@@ -151,12 +154,12 @@
     </footer>
 
 
-    <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="qtyBarang" aria-labelledby="qtyBarang">
+    <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="qtyBarang">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title" id="qtyBarang">Barang</h4><button type="button" class="btn-close"
-                        data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 wire:ignore class="modal-title" id="qtyBarang">Barang</h4><button type="button"
+                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -183,9 +186,8 @@
                                     class="d-flex justify-content-end input-group-text"
                                     style="width: 130px;">Kuantitas</span><input class="form-control" type="number"
                                     wire:model="KUANTITAS_JUAL">
-                                @error('KUANTITAS_JUAL')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+
+
                             </div>
                         </div>
                     </form>

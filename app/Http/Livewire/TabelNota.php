@@ -16,6 +16,13 @@ class TabelNota extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     // protected $listeners = ['refreshComponent' => '$refresh'];
+    //custom error messahe
+    protected $messages = [
+        'KUANTITAS_JUAL.required' => 'Kuantitas harus diisi',
+        'KUANTITAS_JUAL.numeric' => 'Kuantitas harus berupa angka',
+        'KUANTITAS_JUAL.min' => 'Kuantitas Jual minimal 1',
+        'KUANTITAS_JUAL.max' => 'Kuantitas Jual melebihi stok barang',
+    ];
 
     public function render()
     {

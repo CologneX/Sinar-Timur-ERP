@@ -18,6 +18,13 @@ class NotaPembelian extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     // protected $listeners = ['refreshComponent' => 'render'];
+    //custom validation message
+    protected $messages = [
+        'KUANTITAS_BELI.required' => 'Kuantitas tidak boleh kosong',
+        'KUANTITAS_BELI.numeric' => 'Kuantitas harus berupa angka',
+        'KUANTITAS_BELI.min' => 'Kuantitas Beli minimal 1',
+    ];
+
 
     public function render()
     {
@@ -26,7 +33,6 @@ class NotaPembelian extends Component
             'notaBarang' => DetailPembelian::where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->where('STATUS_DELETE', '0')->get(),
             $this->supplier = Supplier::where('STATUS_DELETE', '0')->get(),
         ]);
-
     }
     public function cariID($URUT_BARANG)
     {
@@ -40,7 +46,7 @@ class NotaPembelian extends Component
     public function pilihBarang()
     {
         $this->validate([
-            'KUANTITAS_BELI' => 'required|numeric|min:1|',
+            'KUANTITAS_BELI' => 'required|numeric|min:1',
         ]);
         DB::table('DETAIL_PEMBELIAN')->insert(['ID_TRANSBELI' => DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_BELI' => $this->KUANTITAS_BELI]);
         // $this->emit('refreshComponent');

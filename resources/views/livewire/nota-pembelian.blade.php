@@ -1,5 +1,9 @@
 <div>
     <div id="content">
+
+        @error('KUANTITAS_BELI')
+            <x-flash-error :message="$message" />
+        @enderror
         <div class="container">
             <h2 class="text-dark mb-4" style="font-weight: bold;">Pembelian&nbsp;</h2>
             <div class="row">
@@ -71,7 +75,8 @@
                             </div>
                             <div wire:ignore class="input-group">
                                 <span class="input-group-text">Supplier </span>
-                                <select wire:model="ID_SUP" wire:change="Update" class="selectpicker" data-live-search="true">
+                                <select wire:model="ID_SUP" wire:change="Update" class="selectpicker"
+                                    data-live-search="true">
                                     @foreach ($supplier as $data)
                                         <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>
                                     @endforeach
@@ -183,9 +188,6 @@
                                     class="d-flex justify-content-end input-group-text"
                                     style="width: 130px;">Kuantitas</span><input class="form-control" type="number"
                                     wire:model="KUANTITAS_BELI">
-                                @error('KUANTITAS_BELI')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
                             </div>
                         </div>
                     </form>
@@ -197,4 +199,3 @@
         </div>
     </div>
 </div>
-
