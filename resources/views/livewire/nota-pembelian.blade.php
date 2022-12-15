@@ -7,6 +7,9 @@
             @error('ID_SUP')
                 <x-flash-error :message="$message" />
             @enderror
+            <div>
+                <x-flash-message />
+            </div>
             <h2 class="text-dark mb-4" style="font-weight: bold;">Pembelian&nbsp;</h2>
             <div class="row">
                 <div class="col-12 offset-1 offset-sm-0" style="margin-left: 0px;">

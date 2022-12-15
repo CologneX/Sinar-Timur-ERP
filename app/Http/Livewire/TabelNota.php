@@ -15,7 +15,7 @@ class TabelNota extends Component
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    // protected $listeners = ['refreshComponent' => '$refresh'];
+    protected $listeners = ['refreshComponent' => '$refresh'];
     //custom error messahe
     protected $messages = [
         'KUANTITAS_JUAL.required' => 'Kuantitas harus diisi',
@@ -51,17 +51,22 @@ class TabelNota extends Component
         ]);
         DB::table('DETAIL_TRANSAKSI')->insert(['ID_TRANSJUAL' => DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_JUAL' => $this->KUANTITAS_JUAL]);
         $this->emit('refreshComponent');
-
     }
     public function nextTransaksi()
     {
+
+
+        $count = DB::table('DETAIL_PEMBELIAN')->where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->count();
         $this->validate([
             'ID_PEL' => 'required',
         ]);
+        if ($count > 1) {
+            DB::table('TRANSAKSI_PENJUALAN')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->update(['ID_PEL' => $this->ID_PEL]);
 
-        DB::table('TRANSAKSI_PENJUALAN')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->update(['ID_PEL' => $this->ID_PEL]);
-
-        DB::table('TRANSAKSI_PENJUALAN')->insert(['ID_PEL' => 'P0001', 'TOTAL_TRANSJUAL' => 0, 'TOTAL_ITEMJUAL' => 0]);
+            DB::table('TRANSAKSI_PENJUALAN')->insert(['ID_PEL' => 'P0001', 'TOTAL_TRANSJUAL' => 0, 'TOTAL_ITEMJUAL' => 0]);
+            session()->flash('message', 'Transaksi' . DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL') . 'Berhasil');
+            $this->emit('refreshComponent');
+        }
     }
     public function hapusBarang(string $ID)
     {
@@ -69,5 +74,4 @@ class TabelNota extends Component
         DB::table('DETAIL_TRANSAKSI')->where('ID_BARANG', $getID)->delete();
         $this->emit('refreshComponent');
     }
-
 }

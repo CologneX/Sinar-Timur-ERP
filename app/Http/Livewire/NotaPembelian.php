@@ -15,6 +15,7 @@ class NotaPembelian extends Component
     public $ID_BARANG, $KUANTITAS_BELI, $ID_SUP;
     public $caribarangnotaBeli = '';
     public $supplier = [];
+    public $count;
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['refreshComponent' => 'render'];
@@ -24,6 +25,7 @@ class NotaPembelian extends Component
         'KUANTITAS_BELI.numeric' => 'Kuantitas harus berupa angka',
         'KUANTITAS_BELI.min' => 'Kuantitas Beli minimal 1',
         'ID_SUP.required' => 'Pilih Supplier terlebih dahulu',
+        'count.min' => 'Pilih barang terlebih dahulu',
     ];
 
 
@@ -60,10 +62,16 @@ class NotaPembelian extends Component
     }
     public function nextTransaksi()
     {
+        $this->count = DB::table('DETAIL_PEMBELIAN')->where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->count();
         $this->validate([
             'ID_SUP' => 'required',
         ]);
-        DB::table('TRANSAKSI_PEMBELIAN')->where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->update(['ID_SUP' => $this->ID_SUP]);
-        DB::table('TRANSAKSI_PEMBELIAN')->insert(['ID_SUP' => 'S0001', 'TOTAL_TRANSBELI' => 0, 'TOTAL_ITEMBELI' => 0]);
+        if ($this->count > 1) {
+            DB::table('TRANSAKSI_PEMBELIAN')->where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->update(['ID_SUP' => $this->ID_SUP]);
+            DB::table('TRANSAKSI_PEMBELIAN')->insert(['ID_SUP' => 'S0001', 'TOTAL_TRANSBELI' => 0, 'TOTAL_ITEMBELI' => 0]);
+            session()->flash('message', 'Transaksi' . DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') . 'Berhasil');
+
+            $this->emit('refreshComponent');
+        }
     }
 }
