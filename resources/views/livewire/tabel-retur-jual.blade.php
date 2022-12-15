@@ -13,8 +13,8 @@
     @enderror
     <div class="d-flex justify-content-end justify-content-lg-end justify-content-xl-end container-fluid"
         style="padding-left: 0px;padding-right: 0px;"><button
-            class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button"
-            data-bs-target="#menu-add" data-bs-toggle="modal"><i class="fas fa-plus"></i>&nbsp;Tambah</button></div>
+            class="btn btn-outline-primary d-flex d-sm-flex align-items-center" type="button" data-bs-target="#menu-add"
+            data-bs-toggle="modal"><i class="fas fa-plus"></i>&nbsp;Tambah</button></div>
     <div class="input-group" style="margin-top: 3px;margin-bottom: 5px;"><input class="form-control" type="text"
             id="cari-transaksi-penjualan" autocomplete="on" placeholder="Cari Retur Penjualan..."
             wire:model="carireturjual">
@@ -75,8 +75,8 @@
                                         class="d-lg-flex justify-content-lg-end input-group-text"
                                         style="width: 130px;">ID
                                         Penjualan</span><select name="ID_TRANSJUAL" wire:model="ID_TRANSJUAL"
-                                        class="selectpicker" data-live-search="true">
-                                        <option value=''>Pilih ID Penjualan</option>
+                                        class="selectpicker" data-live-search="true" placeholder="Pilih ID Penjualan">
+
                                         @foreach ($transaksi as $data)
                                             <option value="{{ $data->ID_TRANSJUAL }}">{{ $data->ID_TRANSJUAL }}</option>
                                         @endforeach
@@ -88,27 +88,19 @@
                                         class="d-lg-flex justify-content-lg-end input-group-text"
                                         style="width: 130px;">Kuantitas</span><input wire:model="KUANTITAS_RETURJUAL"
                                         class="form-control" type="number">
-
                                 </div>
-
                             </div>
-
-
                         </div>
-
-
-                        <div class="input-group" style="margin-bottom: 10px;"><span
+                        <div class="input-group" style="margin-bottom: 10px;" id="barangBeli"><span
                                 class="d-lg-flex justify-content-lg-end input-group-text"
                                 style="width: 130px;">Barang</span>
                             <select wire:model="ID_BARANG" name="ID_BARANG" class="selectpicker"
-                                data-live-search="true">
-                                {{-- <option value="">Pilih barang</option> --}}
+                                data-container="#barangBeli" data-live-search="true" placeholder="Pilih ID Barang">
                                 @foreach ($barangBeli as $ID_BARANG)
                                     <option value="{{ $ID_BARANG->ID_BARANG }}">{{ $ID_BARANG->ID_BARANG }}</option>
                                 @endforeach
                             </select>
                         </div>
-
                     </div>
                     <div class="modal-footer"><button class="btn btn-light" type="button"
                             data-bs-dismiss="modal">Batal</button><button class="btn btn-primary" type="button"

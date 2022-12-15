@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\ReturBeli;
 use Livewire\WithPagination;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\DB;
 
 class TabelReturBeli extends Component
@@ -16,9 +17,10 @@ class TabelReturBeli extends Component
         'KUANTITAS_RETURBELI.required' => 'Kuantitas Retur Beli tidak boleh kosong',
         'KUANTITAS_RETURBELI.numeric' => 'Kuantitas Retur Beli harus berupa angka',
         'KUANTITAS_RETURBELI.max' => 'Kuantitas Retur Beli harus dibawah :max',
-        'KUANTITAS_RETURBELI.min' => 'Kuantitas Retur Beli harus dibawah :min',
+        'KUANTITAS_RETURBELI.min' => 'Kuantitas Retur Beli harus diatas :min',
         'ID_TRANSBELI.required' => 'ID Transaksi Pembelian tidak boleh kosong',
         'ID_BARANG.required' => 'ID Barang tidak boleh kosong',
+        'ID_BARANG.in' => 'ID Barang tidak ada dalam pembelian',
     ];
 
     protected $paginationTheme = 'bootstrap';
@@ -27,7 +29,7 @@ class TabelReturBeli extends Component
     {
         return view('livewire.tabel-retur-beli', [
             'returbeli' => ReturBeli::where('ID_RETURBELI', 'like', '%' . $this->carireturbeli . '%')->where('STATUS_DELETE', '0')->orWhere('ID_TRANSBELI', 'like', '%' . $this->carireturbeli . '%')->orderBy('ID_RETURBELI')->paginate(10),
-            'transaksi'=> DB::table('TRANSAKSI_PEMBELIAN')->get(),
+            'transaksi' => DB::table('TRANSAKSI_PEMBELIAN')->get(),
             'barang' => DB::table('DETAIL_PEMBELIAN')->get(),
 
         ]);
@@ -43,13 +45,10 @@ class TabelReturBeli extends Component
         $this->validate([
             'KUANTITAS_RETURBELI' => 'required|numeric|min:1|max:' . $this->max,
             'ID_TRANSBELI' => 'required',
-            'ID_BARANG' => 'required',
+            'ID_BARANG' => 'required|' . Rule::in(DB::table('DETAIL_PEMBELIAN')->where('ID_TRANSBELI', $this->ID_TRANSBELI)->pluck('ID_BARANG')->toArray()),
         ]);
-
-
         DB::table('RETUR_PEMBELIAN')->insert(['KUANTITAS_RETURBELI' => $this->KUANTITAS_RETURBELI, 'ID_TRANSBELI' => $this->ID_TRANSBELI, 'ID_BARANG_RETURNBELI' => $this->ID_BARANG]);
-        session()->flash('message', 'Retur dengan ID Pembelian'.$this->ID_TRANSBELI.'berhasil ditambahkan');
+        session()->flash('message', 'Retur dengan ID Pembelian ' . $this->ID_TRANSBELI . ' berhasil ditambahkan');
         $this->resetInput();
     }
-
 }
