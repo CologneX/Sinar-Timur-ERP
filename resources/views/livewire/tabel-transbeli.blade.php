@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($transbeli as $data)
+                @forelse ($transbeli as $data)
                     <tr>
                         <td>{{ $data->ID_TRANSBELI }}</td>
                         <td>{{ $data->ID_SUP }}</td>
@@ -39,7 +39,11 @@
                             </div>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="6" class="text-center">Tidak ada data</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
         {{ $transbeli->links() }}
