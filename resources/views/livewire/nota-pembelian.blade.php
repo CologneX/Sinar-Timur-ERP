@@ -72,7 +72,7 @@
                             <div wire:ignore class="input-group">
                                 <span class="input-group-text">Supplier </span>
                                 <select wire:model="ID_SUP" wire:change="Update" class="selectpicker" data-live-search="true">
-                                    @foreach ($Supplier as $data)
+                                    @foreach ($supplier as $data)
                                         <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>
                                     @endforeach
                                 </select>

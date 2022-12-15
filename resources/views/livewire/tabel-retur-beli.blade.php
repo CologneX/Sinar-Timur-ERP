@@ -109,7 +109,7 @@
                             style="width: 130px;">Barang</span>
                         <select wire:model="ID_BARANG" class="selectpicker" data-live-search="true">
                             @foreach ($barang as $data)
-                                <option value="{{ $data->ID_BARANG }}">{{ $data->NAMA_BARANG }}</option>
+                                <option value="{{ $data->ID_BARANG }}">{{ $data->ID_BARANG }}</option>
                             @endforeach
                         </select>
                     </div>

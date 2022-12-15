@@ -14,6 +14,7 @@ class NotaPembelian extends Component
 {
     public $ID_BARANG, $KUANTITAS_BELI, $ID_SUP;
     public $caribarangnotaBeli = '';
+    public $supplier = [];
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     // protected $listeners = ['refreshComponent' => 'render'];
@@ -23,8 +24,9 @@ class NotaPembelian extends Component
         return view('livewire.nota-pembelian', [
             'barang' => DB::table('BARANG')->where('NAMA_BARANG', 'like', '%' . $this->caribarangnotaBeli . '%')->where('STATUS_DELETE', '0')->orderBy('NAMA_BARANG')->paginate(10),
             'notaBarang' => DetailPembelian::where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->where('STATUS_DELETE', '0')->get(),
-            'Supplier' => Supplier::where('STATUS_DELETE', '0')->get(),
+            $this->supplier = Supplier::where('STATUS_DELETE', '0')->get(),
         ]);
+
     }
     public function cariID($URUT_BARANG)
     {
