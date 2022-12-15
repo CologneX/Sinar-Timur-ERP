@@ -97,7 +97,7 @@
                             <select wire:model="ID_BARANG" name="ID_BARANG" class="selectpicker"
                                 data-container="#barangBeli" data-live-search="true" placeholder="Pilih ID Barang">
                                 @foreach ($barangBeli as $ID_BARANG)
-                                    <option value="{{ $ID_BARANG->ID_BARANG }}">{{ $ID_BARANG->ID_BARANG }}</option>
+                                    <option value="{{ $ID_BARANG->ID_BARANG }}">{{ DB::table('BARANG')->where('ID_BARANG',$data->ID_BARANG)->value('NAMA_BARANG') }}</option>
                                 @endforeach
                             </select>
                         </div>
