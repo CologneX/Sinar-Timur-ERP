@@ -73,5 +73,6 @@ class NotaPembelian extends Component
 
             $this->emit('refreshComponent');
         }
+
     }
 }

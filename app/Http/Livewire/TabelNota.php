@@ -56,7 +56,7 @@ class TabelNota extends Component
     {
 
 
-        $count = DB::table('DETAIL_PENJUALAN')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->count();
+        $count = DB::table('DETAIL_TRANSAKSI')->where('ID_TRANSJUAL', DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'))->count();
         $this->validate([
             'ID_PEL' => 'required',
         ]);
