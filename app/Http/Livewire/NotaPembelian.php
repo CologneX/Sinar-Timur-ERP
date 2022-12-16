@@ -20,7 +20,7 @@ class NotaPembelian extends Component
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['refreshComponent' => 'render'];
     //custom validation message
-    
+
     protected $messages = [
         'KUANTITAS_BELI.required' => 'Kuantitas tidak boleh kosong',
         'KUANTITAS_BELI.numeric' => 'Kuantitas harus berupa angka',
@@ -67,13 +67,14 @@ class NotaPembelian extends Component
         $this->validate([
             'ID_SUP' => 'required',
         ]);
-        if ($this->count > 1) {
+
+        
             DB::table('TRANSAKSI_PEMBELIAN')->where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->update(['ID_SUP' => $this->ID_SUP]);
             DB::table('TRANSAKSI_PEMBELIAN')->insert(['ID_SUP' => 'S0001', 'TOTAL_TRANSBELI' => 0, 'TOTAL_ITEMBELI' => 0]);
             session()->flash('message', 'Transaksi ' . DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') . ' Berhasil');
             $this->KUANTITAS_BELI = '';
             $this->emit('refreshComponent');
-        }
+
 
     }
 }

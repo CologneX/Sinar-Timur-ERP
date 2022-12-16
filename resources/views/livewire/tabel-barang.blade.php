@@ -17,6 +17,9 @@
     @error('LOKASI')
         <x-flash-error :message="$message" />
     @enderror
+    @error('SATUAN')
+        <x-flash-error :message="$message" />
+    @enderror
     <div class="table-responsive" style="overflow: auto;">
         <table class="table table-hover">
             <thead>
@@ -98,24 +101,36 @@
                 </div>
 
                 <div class="modal-body">
-                    <div class="input-group" style="margin-bottom: 10px;"><span
-                            class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
-                            Barang</span><input class="form-control" type="text" wire:model="ID_BARANG" readonly>
+                    <div class="input-group" style="margin-bottom: 10px;">
+                        <div class="form-floating"><input class="form-control" id="id-barang" type="text"
+                                wire:model="ID_BARANG" readonly>
+                            <label for="id-barang">ID Barang</label>
+                        </div>
                     </div>
-                    <div class="input-group" style="margin-bottom: 10px;"><span
-                            class="d-lg-flex justify-content-lg-end input-group-text"
-                            style="width: 130px;">Harga</span><input class="form-control" type="number"
-                            wire:model="HARGA"></div>
-                    <div class="input-group" style="margin-bottom: 10px;"><span
-                            class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Nama
-                            Barang</span><input class="form-control" type="text" wire:model="NAMA_BARANG">
+                    <div class="input-group" style="margin-bottom: 10px;">
+                        <div class="form-floating"><input class="form-control" id="harga-brg" type="number"
+                                wire:model="HARGA">
+                            <label for="harga-brg">Harga Barang</label>
+                        </div>
                     </div>
-                    <div class="input-group" style="margin-bottom: 10px;"><span
-                            class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Stok
-                            Barang</span><input class="form-control" type="number" wire:model="STOK"></div>
-                    <div class="input-group" style="margin-bottom: 10px;"><span
-                            class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Lokasi
-                        </span><input class="form-control" type="text" wire:model="LOKASI"></div>
+                    <div class="input-group" style="margin-bottom: 10px;">
+                        <div class="form-floating"><input class="form-control" type="text" id="nama"
+                                wire:model="NAMA_BARANG">
+                            <label for="nama">Nama Barang</label>
+                        </div>
+                    </div>
+                    <div class="input-group" style="margin-bottom: 10px;">
+                        <div class="form-floating"><input class="form-control" id="stok" type="number"
+                                wire:model="STOK">
+                            <label for="stok">Stok</label>
+                        </div>
+                    </div>
+                    <div class="input-group" style="margin-bottom: 10px;">
+                        <div class="form-floating"><input class="form-control" id="lokasi" type="text"
+                                wire:model="LOKASI">
+                            <label for="lokasi">Lokasi</label>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="modal-footer">
@@ -127,7 +142,7 @@
         </div>
     </div>
     {{-- Modal Tambah --}}
-    <div wire:ignore class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
+    <div wire:ignore.self class="offcanvas offcanvas-end" tabindex="-1" id="tambah-barang" data-bs-scroll="true">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title">Tambah Barang</h5><button type="button" wire:click="resetInput"
                 class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -135,29 +150,46 @@
         <div class="offcanvas-body">
             <!-- Start: Nama Barang -->
             <div class="container-fluid">
-                <div class="input-group" style="margin-bottom: 15px;"><span
-                        class="input-group-text">Nama</span><input class="form-control" type="text"
-                        id="input-nama-barang" required="" wire:model="NAMA_BARANG">
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <div class="form-floating"><input class="form-control" type="text" id="input-nama-barang"
+                            required="" wire:model="NAMA_BARANG">
+                        <label for="input-nama-barang">Nama Barang</label>
+                    </div>
+
                 </div>
-                <div class="input-group" style="margin-bottom: 15px;"><span
-                        class="input-group-text">Harga</span><input class="form-control" type="number"
-                        id="input-harga-barang" required="" wire:model="HARGA">
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <div class="form-floating"><input class="form-control" type="number" id="input-harga-barang"
+                            required="" wire:model="HARGA">
+                        <label for="input-harga-barang">Harga</label>
+
+                    </div>
                 </div>
-                <div class="input-group" style="margin-bottom: 15px;"><span
-                        class="input-group-text">Stok</span><input class="form-control" type="number"
-                        id="tambah-stok-barang" required="" wire:model="STOK"><span
-                        class="input-group-text">@</span>
-                    <select class="form-select" wire:model="SATUAN">
-                        <option value="PCS" selected="PCS">PCS</option>
-                        <option value="KG">KG</option>
-                        <option value="LITER">LITER</option>
-                        <option value="METER">METER</option>
-                    </select>
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <div class="form-floating"><input class="form-control" type="number" id="tambah-stok-barang"
+                            required="" wire:model="STOK"> <label for="selectbarang">STOK</label>
+                    </div>
+                    <span class="input-group-text">@</span>
+                    <div class="form-floating">
+                        <select id="selectbarang"class="form-select" wire:model="SATUAN">
+                            <option selected=""></option>
+                            <option value="PCS">PCS</option>
+                            <option value="KG">KG</option>
+                            <option value="LITER">LITER</option>
+                            <option value="METER">METER</option>
+                        </select>
+                        <label for="selectbarang">SATUAN</label>
+                    </div>
                 </div>
-                <div class="input-group" style="margin-bottom: 15px;"><span
-                        class="input-group-text">Lokasi</span><input class="form-control" type="text"
-                        id="input-lokasi" required="" wire:model="LOKASI">
+
+                <div class="input-group" style="margin-bottom: 15px;">
+                    <div class="form-floating">
+                        <input class="form-control" type="text" id="input-lokasi" required=""
+                            wire:model="LOKASI">
+                        <label for="input-lokasi">Lokasi</label>
+                    </div>
+
                 </div>
+
             </div>
         </div>
         <footer style="margin: 12px;text-align: right;"><button class="btn btn-primary" type="button"

@@ -25,6 +25,7 @@ class TabelBarang extends Component
         'STOK.numeric' => 'Stok harus berupa angka',
         'ID_BARANG.required' => 'ID Barang tidak boleh kosong',
         'LOKASI.required' => 'Lokasi tidak boleh kosong',
+        'SATUAN.required' => 'Satuan tidak boleh kosong'
     ];
     public function render()
     {
