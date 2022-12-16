@@ -65,6 +65,7 @@ class TabelNota extends Component
 
             DB::table('TRANSAKSI_PENJUALAN')->insert(['ID_PEL' => 'P0001', 'TOTAL_TRANSJUAL' => 0, 'TOTAL_ITEMJUAL' => 0]);
             session()->flash('message', 'Transaksi ' . DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL') . ' Berhasil');
+            $this->KUANTITAS_JUAL = '';
             $this->emit('refreshComponent');
         }
 

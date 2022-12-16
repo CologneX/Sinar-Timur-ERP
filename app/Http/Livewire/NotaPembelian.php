@@ -70,7 +70,7 @@ class NotaPembelian extends Component
             DB::table('TRANSAKSI_PEMBELIAN')->where('ID_TRANSBELI', DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI'))->update(['ID_SUP' => $this->ID_SUP]);
             DB::table('TRANSAKSI_PEMBELIAN')->insert(['ID_SUP' => 'S0001', 'TOTAL_TRANSBELI' => 0, 'TOTAL_ITEMBELI' => 0]);
             session()->flash('message', 'Transaksi ' . DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') . ' Berhasil');
-
+            $this->KUANTITAS_BELI = '';
             $this->emit('refreshComponent');
         }
 
