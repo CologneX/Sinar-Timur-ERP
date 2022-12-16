@@ -95,17 +95,23 @@
                 </div>
                 <form wire:submit.prevent="updateSupplier">
                     <div class="modal-body">
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
-                                Supplier</span><input class="form-control" type="text" wire:model="ID_SUP" readonly>
+                        <div class="input-group" style="margin-bottom: 10px;">
+                            <div class="form-floating"><input class="form-control" type="text" id="idsup"
+                                    wire:model="ID_SUP" readonly>
+                                <label for="idsup">ID Supplier</label>
+                            </div>
                         </div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Nama
-                                Supplier</span><input class="form-control" type="text" wire:model="NAMA_SUP"></div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text"
-                                style="width: 130px;">Alamat</span><input class="form-control" type="text"
-                                wire:model="ALAMAT_SUP">
+                        <div class="input-group" style="margin-bottom: 10px;">
+                            <div class="form-floating"><input class="form-control" type="text" id="namasup"
+                                    wire:model="NAMA_SUP">
+                                <label for="namasup">Nama Supplier</label>
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 10px;">
+                            <div class="form-floating"><input class="form-control" id="alamatsup" type="text"
+                                    wire:model="ALAMAT_SUP">
+                                <label for="alamatsup">Alamat Supplier</label>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -128,17 +134,19 @@
                 <div class="modal-body">
                     <!-- Start: Nama Barang -->
                     <div class="container-fluid">
-                        <div class="input-group" style="margin-bottom: 15px;"><span
-                                class="input-group-text">Nama</span><input class="form-control" type="text"
-                                wire:model="NAMA_SUP">
+
+                        <div class="input-group" style="margin-bottom: 15px;">
+                            <div class="form-floating"><input class="form-control" type="text" id="namasup"
+                                    wire:model="NAMA_SUP">
+                                <label for="namasup">Nama Supplier</label>
+                            </div>
                         </div>
-
-
-                        <div class="input-group" style="margin-bottom: 15px;"><span
-                                class="input-group-text">Alamat</span><input class="form-control" type="text"
-                                wire:model="ALAMAT_SUP">
+                        <div class="input-group" style="margin-bottom: 15px;">
+                            <div class="form-floating"><input class="form-control" type="text" id="alamat"
+                                    wire:model="ALAMAT_SUP">
+                                <label for="alamat">Alamat</label>
+                            </div>
                         </div>
-
                         <div class="modal-footer"><button class="btn btn-primary" type="submit"
                                 wire:click="simpanSupplier">Tambah</button>
                         </div>
