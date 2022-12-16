@@ -16,26 +16,29 @@
             </thead>
             <tbody>
                 @forelse ($transjual as $data)
-                    <tr>
-                        <td>{{ $data->ID_TRANSJUAL }}</td>
-                        <td>{{ $data->ID_PEL }}</td>
-                        <td>{{ $data->TGL_TRANSJUAL }}</td>
-                        <td>@money($data->TOTAL_TRANSJUAL)</td>
-                        <td>{{ $data->TOTAL_ITEMJUAL }}</td>
-                        <td class="flex-grow-0" style="padding: 0px;overflow: visible;">
-                            <div class="dropstart"><button wire:click="detailTransjual({{$data->URUT_TRANSJUAL}})" class="btn" data-bs-toggle="modal"
-                                    data-bs-target="#detailTransJualModal" type="button"
-                                    style="padding-right: 5px;padding-left: 5px;overflow: visible;padding-bottom: 8px;padding-top: 6px;"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                        fill="currentColor" viewBox="0 0 16 16" class="bi bi-three-dots-vertical"
-                                        style="width: 16px;">
-                                        <path
-                                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
-                                        </path>
-                                    </svg></button>
-                            </div>
-                        </td>
-                    </tr>
+                    @if (!$loop->last)
+                        <tr>
+                            <td>{{ $data->ID_TRANSJUAL }}</td>
+                            <td>{{ $data->ID_PEL }}</td>
+                            <td>{{ $data->TGL_TRANSJUAL }}</td>
+                            <td>@money($data->TOTAL_TRANSJUAL)</td>
+                            <td>{{ $data->TOTAL_ITEMJUAL }}</td>
+                            <td class="flex-grow-0" style="padding: 0px;overflow: visible;">
+                                <div class="dropstart"><button wire:click="detailTransjual({{ $data->URUT_TRANSJUAL }})"
+                                        class="btn" data-bs-toggle="modal" data-bs-target="#detailTransJualModal"
+                                        type="button"
+                                        style="padding-right: 5px;padding-left: 5px;overflow: visible;padding-bottom: 8px;padding-top: 6px;"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
+                                            fill="currentColor" viewBox="0 0 16 16" class="bi bi-three-dots-vertical"
+                                            style="width: 16px;">
+                                            <path
+                                                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
+                                            </path>
+                                        </svg></button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endif
                 @empty
                     <tr>
                         <td colspan="6" class="text-center">Tidak ada data</td>
@@ -70,7 +73,8 @@
                                 @forelse ($tabel as $items)
                                     <tr>
                                         <td>{{ $items->ID_BARANG }}</td>
-                                        <td> {{DB::table('BARANG')->where('ID_BARANG',$items->ID_BARANG)->value('NAMA_BARANG')}}</td>
+                                        <td> {{ DB::table('BARANG')->where('ID_BARANG', $items->ID_BARANG)->value('NAMA_BARANG') }}
+                                        </td>
                                         <td>{{ $items->KUANTITAS_JUAL }}</td>
                                         <td>@money($items->HARGA_JUAL)</td>
                                         <td>@money($items->SUBTOTAL_DETAILJUAL)</td>

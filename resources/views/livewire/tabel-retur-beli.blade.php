@@ -43,20 +43,6 @@
                         <td>{{ $data->ID_BARANG_RETURNBELI }}</td>
                         <td>{{ $data->TANGGALRETURBELI }}</td>
                         <td>{{ $data->KUANTITAS_RETURBELI }}</td>
-                        {{-- <td class="flex-grow-0" style="padding: 0px;overflow: visible;">
-                            <div class="dropstart"><button class="btn" type="button"
-                                    style="padding-right: 5px;padding-left: 5px;overflow: visible;padding-bottom: 8px;padding-top: 6px;"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"
-                                        fill="currentColor" viewBox="0 0 16 16" class="bi bi-three-dots-vertical"
-                                        style="width: 16px;">
-                                        <path
-                                            d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z">
-                                        </path>
-                                    </svg></button>
-                                <div class="dropdown-menu dropdown-menu-dark"><a class="dropdown-item"
-                                        href="#">Ubah</a><a class="dropdown-item" href="#">Hapus</a></div>
-                            </div>
-                        </td> --}}
                         <td class="justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center justify-content-xxl-center"
                             style="padding: 0px;"><button class="btn btn-link" type="button"
                                 style="color: var(--bs-danger);"><svg xmlns="http://www.w3.org/2000/svg"

@@ -20,6 +20,7 @@ class NotaPembelian extends Component
     protected $paginationTheme = 'bootstrap';
     protected $listeners = ['refreshComponent' => 'render'];
     //custom validation message
+    
     protected $messages = [
         'KUANTITAS_BELI.required' => 'Kuantitas tidak boleh kosong',
         'KUANTITAS_BELI.numeric' => 'Kuantitas harus berupa angka',
