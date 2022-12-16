@@ -96,20 +96,30 @@
                 </div>
                 <form wire:submit.prevent="updatePelanggan">
                     <div class="modal-body">
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">ID
-                                Pelanggan</span><input class="form-control" type="text" wire:model="ID_PEL" readonly>
+                        <div class="input-group" style="margin-bottom: 10px;">
+                            <div class="form-floating"><input class="form-control" type="text" id="idpel"
+                                    wire:model="ID_PEL" placeholder="efsf" readonly>
+                                <label for="idpel">ID Pelanggan</label>
+                            </div>
                         </div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">Nama
-                            </span><input class="form-control" type="text" wire:model="NAMA_PEL"></div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text"
-                                style="width: 130px;">Alamat</span><input class="form-control" type="text"
-                                wire:model="ALAMAT"></div>
-                        <div class="input-group" style="margin-bottom: 10px;"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text" style="width: 130px;">No
-                                Telepon</span><input class="form-control" type="text" wire:model="NOTELP"></div>
+                        <div class="input-group" style="margin-bottom: 10px;">
+                            <div class="form-floating"><input class="form-control" type="text" id="namapel"
+                                    wire:model="NAMA_PEL" placeholder="efsf">
+                                <label for="namapel">Nama Pelanggan</label>
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 10px;">
+                            <div class="form-floating"><input class="form-control" type="text" id="alamat"
+                                    wire:model="ALAMAT" placeholder="efsf">
+                                <label for="alamat">Alamat</label>
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 10px;">
+                            <div class="form-floating"><input class="form-control" id="notelp" type="text"
+                                    wire:model="NOTELP" placeholder="efsf">
+                                <label for="notelp">No Telp</label>
+                            </div>
+                        </div>
                     </div>
                 </form>
                 <div class="modal-footer">
@@ -131,19 +141,26 @@
                 <div class="modal-body">
                     <!-- Start: Nama Barang -->
                     <div class="container-fluid">
-                        <div class="input-group" style="margin-bottom: 15px;"><span
-                                class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
-                                style="width: 100px;">Nama</span><input class="form-control" type="text"
-                                id="input-nama-pelanggan" required="" wire:model="NAMA_PEL">
+                        <div class="input-group" style="margin-bottom: 15px;">
+                            <div class="form-floating"><input class="form-control" type="text"
+                                    id="input-nama-pelanggan" required="" wire:model="NAMA_PEL"
+                                    placeholder="efsf">
+                                <label for="input-nama-pelanggan">Nama Pelanggan</label>
+                            </div>
                         </div>
-                        <div class="input-group" style="margin-bottom: 15px;"><span
-                                class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
-                                style="width: 100px;">No Telp</span><input class="form-control" type="text"
-                                id="input-notelp-pelanggan" required="" wire:model="NOTELP"></div>
-                        <div class="input-group" style="margin-bottom: 15px;"><span
-                                class="d-lg-flex justify-content-end justify-content-lg-end input-group-text"
-                                style="width: 100px;">Alamat</span>
-                            <textarea class="form-control" id="input-alamat-pelanggan" wire:model="ALAMAT"></textarea>
+                        <div class="input-group" style="margin-bottom: 15px;">
+                            <div class="form-floating"><input class="form-control" type="text"
+                                    id="input-notelp-pelanggan" required="" wire:model="NOTELP"
+                                    placeholder="efsf">
+                                <label for="input-notelp-pelanggan">No Telp</label>
+                            </div>
+                        </div>
+                        <div class="input-group" style="margin-bottom: 15px;">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="input-alamat-pelanggan" wire:model="ALAMAT" placeholder="efsf">
+                                </textarea>
+                                <label for="input-alamat-pelanggan">Alamat</label>
+                            </div>
                         </div>
                     </div><!-- End: Nama Barang -->
                 </div>

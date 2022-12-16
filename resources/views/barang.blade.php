@@ -10,12 +10,17 @@
                             style="padding-bottom: 5px;">
 
                             <div class="col d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-end align-content-center justify-content-sm-end justify-content-md-end justify-content-xl-end"
-                                style="padding-left: 12px;"><button
+                                style="padding-left: 12px;">
+                                {{-- <button
                                     class="btn btn-outline-primary text-center d-flex justify-content-center align-items-center"
                                     type="button"
                                     style="margin-right: 9px;padding-right: 6px;padding-left: 4px;width: 84px;"
                                     data-bs-target="#tambah-barang" data-bs-toggle="offcanvas"><i
-                                        class="fas fa-plus"></i>&nbsp;Barang</button>
+                                        class="fas fa-plus"></i>&nbsp;Barang</button> --}}
+                                <div class="d-flex justify-content-end"><button
+                                        class="btn btn-outline-primary d-sm-flex justify-content-sm-end align-items-sm-center"
+                                        type="button" data-bs-toggle="offcanvas" data-bs-target="#tambah-barang"><i
+                                            class="fas fa-plus"></i>&nbsp;Tambah</button></div>
                                 {{-- <button
                                     class="btn btn-outline-primary d-flex d-sm-flex justify-content-center align-items-center justify-content-sm-end align-items-sm-center"
                                     type="button" data-bs-target="#filter-barang" data-bs-toggle="offcanvas"

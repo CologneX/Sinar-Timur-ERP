@@ -103,31 +103,31 @@
                 <div class="modal-body">
                     <div class="input-group" style="margin-bottom: 10px;">
                         <div class="form-floating"><input class="form-control" id="id-barang" type="text"
-                                wire:model="ID_BARANG" readonly>
+                                wire:model="ID_BARANG" placeholder="efsf" readonly>
                             <label for="id-barang">ID Barang</label>
                         </div>
                     </div>
                     <div class="input-group" style="margin-bottom: 10px;">
                         <div class="form-floating"><input class="form-control" id="harga-brg" type="number"
-                                wire:model="HARGA">
+                                wire:model="HARGA" placeholder="efsf">
                             <label for="harga-brg">Harga Barang</label>
                         </div>
                     </div>
                     <div class="input-group" style="margin-bottom: 10px;">
                         <div class="form-floating"><input class="form-control" type="text" id="nama"
-                                wire:model="NAMA_BARANG">
+                                wire:model="NAMA_BARANG" placeholder="efsf">
                             <label for="nama">Nama Barang</label>
                         </div>
                     </div>
                     <div class="input-group" style="margin-bottom: 10px;">
                         <div class="form-floating"><input class="form-control" id="stok" type="number"
-                                wire:model="STOK">
+                                wire:model="STOK" placeholder="efsf">
                             <label for="stok">Stok</label>
                         </div>
                     </div>
                     <div class="input-group" style="margin-bottom: 10px;">
                         <div class="form-floating"><input class="form-control" id="lokasi" type="text"
-                                wire:model="LOKASI">
+                                wire:model="LOKASI" placeholder="efsf">
                             <label for="lokasi">Lokasi</label>
                         </div>
                     </div>
@@ -152,39 +152,39 @@
             <div class="container-fluid">
                 <div class="input-group" style="margin-bottom: 15px;">
                     <div class="form-floating"><input class="form-control" type="text" id="input-nama-barang"
-                            required="" wire:model="NAMA_BARANG">
+                            required="" wire:model="NAMA_BARANG" placeholder="efsf">
                         <label for="input-nama-barang">Nama Barang</label>
                     </div>
 
                 </div>
                 <div class="input-group" style="margin-bottom: 15px;">
                     <div class="form-floating"><input class="form-control" type="number" id="input-harga-barang"
-                            required="" wire:model="HARGA">
+                            required="" wire:model="HARGA" placeholder="efsf">
                         <label for="input-harga-barang">Harga</label>
 
                     </div>
                 </div>
                 <div class="input-group" style="margin-bottom: 15px;">
                     <div class="form-floating"><input class="form-control" type="number" id="tambah-stok-barang"
-                            required="" wire:model="STOK"> <label for="selectbarang">STOK</label>
+                            required="" wire:model="STOK" placeholder="efsf"> <label for="selectbarang">Stok</label>
                     </div>
                     <span class="input-group-text">@</span>
                     <div class="form-floating">
-                        <select id="selectbarang"class="form-select" wire:model="SATUAN">
+                        <select id="selectbarang"class="form-select" wire:model="SATUAN" placeholder="efsf">
                             <option selected=""></option>
                             <option value="PCS">PCS</option>
                             <option value="KG">KG</option>
                             <option value="LITER">LITER</option>
                             <option value="METER">METER</option>
                         </select>
-                        <label for="selectbarang">SATUAN</label>
+                        <label for="selectbarang">Satuan</label>
                     </div>
                 </div>
 
                 <div class="input-group" style="margin-bottom: 15px;">
                     <div class="form-floating">
                         <input class="form-control" type="text" id="input-lokasi" required=""
-                            wire:model="LOKASI">
+                            wire:model="LOKASI" placeholder="efsf">
                         <label for="input-lokasi">Lokasi</label>
                     </div>
 

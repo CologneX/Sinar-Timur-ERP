@@ -97,19 +97,19 @@
                     <div class="modal-body">
                         <div class="input-group" style="margin-bottom: 10px;">
                             <div class="form-floating"><input class="form-control" type="text" id="idsup"
-                                    wire:model="ID_SUP" readonly>
+                                    wire:model="ID_SUP" placeholder="efsf" readonly>
                                 <label for="idsup">ID Supplier</label>
                             </div>
                         </div>
                         <div class="input-group" style="margin-bottom: 10px;">
                             <div class="form-floating"><input class="form-control" type="text" id="namasup"
-                                    wire:model="NAMA_SUP">
+                                    wire:model="NAMA_SUP" placeholder="efsf">
                                 <label for="namasup">Nama Supplier</label>
                             </div>
                         </div>
                         <div class="input-group" style="margin-bottom: 10px;">
                             <div class="form-floating"><input class="form-control" id="alamatsup" type="text"
-                                    wire:model="ALAMAT_SUP">
+                                    wire:model="ALAMAT_SUP" placeholder="efsf">
                                 <label for="alamatsup">Alamat Supplier</label>
                             </div>
                         </div>
@@ -137,13 +137,13 @@
 
                         <div class="input-group" style="margin-bottom: 15px;">
                             <div class="form-floating"><input class="form-control" type="text" id="namasup"
-                                    wire:model="NAMA_SUP">
+                                    wire:model="NAMA_SUP" placeholder="efsf">
                                 <label for="namasup">Nama Supplier</label>
                             </div>
                         </div>
                         <div class="input-group" style="margin-bottom: 15px;">
                             <div class="form-floating"><input class="form-control" type="text" id="alamat"
-                                    wire:model="ALAMAT_SUP">
+                                    wire:model="ALAMAT_SUP" placeholder="efsf">
                                 <label for="alamat">Alamat</label>
                             </div>
                         </div>
