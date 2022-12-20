@@ -15,8 +15,5 @@
         <div class="container my-auto">
             <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C) 2022</span></div>
         </div>
-        <div></div>
     </footer>
-    </div>
-
 @endsection

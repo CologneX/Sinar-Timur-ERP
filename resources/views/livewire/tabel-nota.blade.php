@@ -172,36 +172,41 @@
                     <form>
                         <div class="row">
                             <div class="col">
-                                <div class="input-group"><span class="d-flex justify-content-end input-group-text"
-                                        style="width: 130px;">ID Barang</span><input
-                                        class="border rounded form-control" type="text" wire:model="ID_BARANG"
-                                        readonly></div>
+                                <div class="input-group">
+                                    <div class="form-floating"><input class="border rounded form-control"
+                                            type="text" wire:model="ID_BARANG" id="id" readonly>
+                                        <label for="id">ID Barang</label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="col">
-                                <div class="input-group"><span class="d-flex justify-content-end input-group-text"
-                                        style="width: 130px;">Stok</span><input class="border rounded form-control"
-                                        type="number" wire:model="STOK" readonly></div>
+                                <div class="input-group">
+                                    <div class="form-floating"><input class="border rounded form-control"
+                                            id="stok" type="number" wire:model="STOK" readonly>
+                                        <label for="stok">Stok</label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div>
-                            <div class="input-group" style="margin-top: 10px;"><span
-                                    class="d-flex justify-content-end input-group-text" style="width: 130px;">Nama
-                                    Barang</span>
-                                <textarea class="form-control" wire:model="NAMA_BARANG" readonly></textarea>
+                            <div class="input-group" style="margin-top: 10px;">
+                                <div class="form-floating">
+                                    <textarea class="form-control" id="nama" wire:model="NAMA_BARANG" readonly></textarea>
+                                    <label for="nama">Nama Barang</label>
+                                </div>
                             </div>
-                            <div class="input-group" style="margin-top: 10px;"><span
-                                    class="d-flex justify-content-end input-group-text"
-                                    style="width: 130px;">Kuantitas</span><input class="form-control" type="number"
-                                    wire:model="KUANTITAS_JUAL">
-
-
+                            <div class="input-group" style="margin-top: 10px;">
+                                <div class="form-floating"><input class="form-control" id="kuantitas" type="number"
+                                        wire:model="KUANTITAS_JUAL">
+                                    <label for="kuantitas">Kuantitas</label>
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer"><button class="btn btn-light" type="button"
                         data-bs-dismiss="modal">Tutup</button><button class="btn btn-primary" type="button"
-                        wire:click="pilihBarang" wire:click="$emit('refreshComponent')">Masukkan</button></div>
+                        wire:click="pilihBarang">Masukkan</button></div>
             </div>
         </div>
     </div>
