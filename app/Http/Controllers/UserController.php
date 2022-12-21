@@ -19,7 +19,7 @@ class UserController extends Controller
     {
         $formFields = $request->validate([
             'name' => ['required','min:3'],
-            'email' => ['required','email',''],
+            'email' => ['required','email'],
             'password' => ['required', 'confirmed'],
             'password_confirmation' => ['required'],
         ]);
@@ -29,7 +29,7 @@ class UserController extends Controller
         // Create user
         $user = User::create($formFields);
         auth()->login($user);
-        return redirect('/barang')->with('message', 'Pengguna berhasil dibuat dan telah login');
+        return redirect('/barang')->with('message', 'Pengguna berhasil dibuat dan telah Login');
     }
     public function login()
     {

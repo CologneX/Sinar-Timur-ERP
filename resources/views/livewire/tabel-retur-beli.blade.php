@@ -83,10 +83,11 @@
                             </div>
                         </div>
                         <div class="col">
-                            <div class="input-group" style="margin-bottom: 10px;"><span
-                                    class="d-lg-flex justify-content-lg-end input-group-text"
-                                    style="width: 130px;">Kuantitas</span><input wire:model="KUANTITAS_RETURBELI"
-                                    class="form-control" type="number">
+                            <div class="input-group" style="margin-bottom: 10px;">
+                                <div class="form-floating"><input wire:model="KUANTITAS_RETURBELI" id="kuantitas"
+                                        class="form-control" type="number" placeholder=" ">
+                                    <label for="kuantitas">Kuantitas</label>
+                                </div>
                             </div>
                         </div>
                     </div>

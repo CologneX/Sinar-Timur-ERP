@@ -71,35 +71,41 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-12 col-lg-6">
-                                <div class="input-group" style="margin-bottom: 10px;"><span
-                                        class="d-lg-flex justify-content-lg-end input-group-text"
-                                        style="width: 130px;">ID
-                                        Penjualan</span><select name="ID_TRANSJUAL" wire:model="ID_TRANSJUAL"
-                                        class="selectpicker" data-live-search="true" placeholder="Pilih ID Penjualan">
+                                <div class="input-group" style="margin-bottom: 10px;">
+                                    <div class="form-floating"><select name="ID_TRANSJUAL" wire:model="ID_TRANSJUAL"
+                                            class="selectpicker" data-live-search="true"
+                                            placeholder="Pilih ID Penjualan">
 
-                                        @foreach ($transaksi as $data)
-                                            <option value="{{ $data->ID_TRANSJUAL }}">{{ $data->ID_TRANSJUAL }}</option>
-                                        @endforeach
-                                    </select>
+
+                                            @foreach ($transaksi as $data)
+                                                <option value="{{ $data->ID_TRANSJUAL }}">{{ $data->ID_TRANSJUAL }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col">
-                                <div class="input-group" style="margin-bottom: 10px;"><span
-                                        class="d-lg-flex justify-content-lg-end input-group-text"
-                                        style="width: 130px;">Kuantitas</span><input wire:model="KUANTITAS_RETURJUAL"
-                                        class="form-control" type="number">
+                                <div class="input-group" style="margin-bottom: 10px;">
+                                    <div class="form-floating"><input id="kuantitas" wire:model="KUANTITAS_RETURJUAL"
+                                            class="form-control" type="number" placeholder="efsf">
+                                        <label for="kuantitas">Kuantitas Retur</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group" style="margin-bottom: 10px;" id="barangBeli"><span
-                                class="d-lg-flex justify-content-lg-end input-group-text"
-                                style="width: 130px;">Barang</span>
-                            <select wire:model="ID_BARANG" name="ID_BARANG" class="selectpicker"
-                                data-container="#barangBeli" data-live-search="true" placeholder="Pilih ID Barang">
-                                @foreach ($barangBeli as $ID_BARANG)
-                                    <option value="{{ $ID_BARANG->ID_BARANG }}">{{ DB::table('BARANG')->where('ID_BARANG',$ID_BARANG->ID_BARANG)->value('NAMA_BARANG') }}</option>
-                                @endforeach
-                            </select>
+                        <div class="input-group" style="margin-bottom: 10px;" >
+                            <div class="form-floating">
+                                <select wire:model="ID_BARANG" id="id_barang" name="ID_BARANG" class="selectpicker"
+                                    data-container="#barangBeli" data-live-search="true" placeholder="Pilih ID Barang">
+                                    @foreach ($barangBeli as $ID_BARANG)
+                                        <option value="{{ $ID_BARANG->ID_BARANG }}">
+                                            {{ DB::table('BARANG')->where('ID_BARANG', $ID_BARANG->ID_BARANG)->value('NAMA_BARANG') }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <label for="id_barang">Kuantitas Retur</label>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer"><button class="btn btn-light" type="button"

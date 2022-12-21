@@ -76,12 +76,12 @@
                                         class="input-group-text" style="font-weight: bold;">NO NOTA</span><input
                                         class="form-control" type="text" id="no-nota" readonly=""
                                         style="max-width: 120px;font-weight: bold;text-align: center;"
-                                        value="{{ DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') }}"></div>
+                                        value="{{ DB::table('TRANSAKSI_PEMBELIAN')->max('ID_TRANSBELI') }}">
+                                    </div>
                             </div>
                             <div wire:ignore class="input-group">
-
                                 <span class="input-group-text">Supplier </span>
-                                <select wire:model="ID_SUP" wire:change="" class="selectpicker" data-live-search="true"
+                                <select data-width= "auto" wire:model="ID_SUP" wire:change="" class="selectpicker" data-live-search="true"
                                     placeholder="Pilih Supplier">
                                     @foreach ($supplier as $data)
                                         <option value="{{ $data->ID_SUP }}">{{ $data->NAMA_SUP }}</option>
@@ -175,7 +175,7 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="form-floating"><input class="border rounded form-control"
-                                            type="text" wire:model="ID_BARANG" id="id" readonly>
+                                            type="text" wire:model="ID_BARANG" id="id" placeholder="efsf" readonly>
                                         <label for="id">ID Barang</label>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="form-floating"><input class="border rounded form-control"
-                                            type="number" id="stok" wire:model="STOK" readonly>
+                                            type="number" id="stok" wire:model="STOK" placeholder="efsf" readonly>
                                         <label for="stok">Stok</label>
                                     </div>
                                 </div>
@@ -192,13 +192,13 @@
                         <div>
                             <div class="input-group" style="margin-top: 10px;">
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="nama" wire:model="NAMA_BARANG" readonly></textarea>
+                                    <textarea class="form-control" id="nama" wire:model="NAMA_BARANG" placeholder="efsf" readonly></textarea>
                                     <label for="nama">Nama Barang</label>
                                 </div>
                             </div>
                             <div class="input-group" style="margin-top: 10px;">
                                 <div class="form-floating"><input class="form-control" id="kuantitas" type="number"
-                                        wire:model="KUANTITAS_BELI">
+                                        wire:model="KUANTITAS_BELI" placeholder="efsf">
                                     <label for="kuantitas">Kuantitas</label>
                                 </div>
                             </div>

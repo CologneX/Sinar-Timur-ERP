@@ -153,12 +153,7 @@
         </div><!-- End: 1 Row 2 Columns -->
     </div>
 
-    <footer class="bg-white sticky-footer">
-        <div class="container my-auto">
-            <div class="text-center my-auto copyright"><span>Copyright Sinar Timur Sorong (C) 2022</span></div>
-        </div>
-        <div></div>
-    </footer>
+
 
 
     <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="qtyBarang">
@@ -174,7 +169,7 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="form-floating"><input class="border rounded form-control"
-                                            type="text" wire:model="ID_BARANG" id="id" readonly>
+                                            type="text" wire:model="ID_BARANG" id="id" placeholder="efsf" readonly>
                                         <label for="id">ID Barang</label>
                                     </div>
                                 </div>
@@ -182,7 +177,7 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="form-floating"><input class="border rounded form-control"
-                                            id="stok" type="number" wire:model="STOK" readonly>
+                                            id="stok" type="number" wire:model="STOK"  placeholder="efsf" readonly>
                                         <label for="stok">Stok</label>
                                     </div>
                                 </div>
@@ -191,13 +186,13 @@
                         <div>
                             <div class="input-group" style="margin-top: 10px;">
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="nama" wire:model="NAMA_BARANG" readonly></textarea>
+                                    <textarea class="form-control" id="nama" wire:model="NAMA_BARANG" placeholder="efsf" readonly></textarea>
                                     <label for="nama">Nama Barang</label>
                                 </div>
                             </div>
                             <div class="input-group" style="margin-top: 10px;">
                                 <div class="form-floating"><input class="form-control" id="kuantitas" type="number"
-                                        wire:model="KUANTITAS_JUAL">
+                                        wire:model="KUANTITAS_JUAL" placeholder="efsf">
                                     <label for="kuantitas">Kuantitas</label>
                                 </div>
                             </div>
