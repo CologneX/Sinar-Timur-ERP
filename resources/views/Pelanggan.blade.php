@@ -8,7 +8,6 @@
                     <div class="container-fluid" style="padding-left: 0px;padding-right: 0px;">
                         <div class="row g-0 d-flex d-lg-flex justify-content-sm-start align-items-lg-center"
                             style="padding-bottom: 5px;">
-
                             <div class="col d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-end align-content-center justify-content-sm-end justify-content-md-end justify-content-xl-end"
                                 style="padding-left: 12px;">
                                 {{-- <button
@@ -54,4 +53,9 @@
         </div>
         <div></div>
     </footer>
+    <a class="border rounded d-inline scroll-to-top" data-bss-tooltip="" data-bs-placement="left"
+        title="Tambah Transaksi" href="/nota"><i class="fas fa-plus"
+            style="font-size: 17px;">
+        </i>
+    </a>
 @endsection
