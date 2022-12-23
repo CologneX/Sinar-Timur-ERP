@@ -6,6 +6,6 @@ class ControllerPelanggan extends Controller
     public function showPelanggan()
     {
 
-        return view('pelanggan');
+        return view('Pelanggan');
     }
 }
