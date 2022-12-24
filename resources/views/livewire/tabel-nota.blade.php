@@ -153,15 +153,12 @@
         </div><!-- End: 1 Row 2 Columns -->
     </div>
 
-
-
-
     <div wire:ignore.self class="modal fade" role="dialog" tabindex="-1" id="qtyBarang">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 wire:ignore class="modal-title" id="qtyBarang">Barang</h4><button type="button"
-                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h4 wire:ignore class="modal-title" id="qtyBarang">Barang</h4><button wire:click="clearModal"
+                        type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form>
@@ -169,7 +166,8 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="form-floating"><input class="border rounded form-control"
-                                            type="text" wire:model="ID_BARANG" id="id" placeholder="efsf" readonly>
+                                            type="text" wire:model="ID_BARANG" id="id" placeholder="efsf"
+                                            readonly>
                                         <label for="id">ID Barang</label>
                                     </div>
                                 </div>
@@ -177,7 +175,8 @@
                             <div class="col">
                                 <div class="input-group">
                                     <div class="form-floating"><input class="border rounded form-control"
-                                            id="stok" type="number" wire:model="STOK"  placeholder="efsf" readonly>
+                                            id="stok" type="number" wire:model="STOK" placeholder="efsf"
+                                            readonly>
                                         <label for="stok">Stok</label>
                                     </div>
                                 </div>
@@ -199,10 +198,9 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer"><button class="btn btn-light" type="button"
-                        data-bs-dismiss="modal">Tutup</button><button class="btn btn-primary" type="button"
-                        wire:click="pilihBarang">Masukkan</button></div>
+                <div class="modal-footer"><button class="btn btn-light" type="button" data-bs-dismiss="modal"
+                        wire:click="clearModal">Tutup</button><button class="btn btn-primary" type="button"
+                        wire:click="pilihBarang">Masukkan</button></div </div>
             </div>
         </div>
     </div>
-</div>

@@ -24,7 +24,11 @@ class TabelNota extends Component
         'KUANTITAS_JUAL.max' => 'Kuantitas Jual melebihi stok barang',
         'ID_PEL.required' => 'Pilih Pelanggan terlebih dahulu',
     ];
-
+    public function clearModal(){
+        $this->KUANTITAS_JUAL = '';
+        $this->ID_BARANG = '';
+        $this->ID_PEL = '';
+    }
     public function render()
     {
         return view('livewire.tabel-nota', [
@@ -51,6 +55,7 @@ class TabelNota extends Component
         ]);
         DB::table('DETAIL_TRANSAKSI')->insert(['ID_TRANSJUAL' => DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_JUAL' => $this->KUANTITAS_JUAL]);
         $this->emit('refreshComponent');
+        $this->clearModal();
     }
     public function nextTransaksi()
     {
@@ -65,9 +70,11 @@ class TabelNota extends Component
 
         DB::table('TRANSAKSI_PENJUALAN')->insert(['ID_PEL' => 'P0001', 'TOTAL_TRANSJUAL' => 0, 'TOTAL_ITEMJUAL' => 0]);
         session()->flash('message', 'Transaksi ' . DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL') . ' Berhasil');
-        $this->KUANTITAS_JUAL = '';
+        $this->clearModal();
         $this->emit('refreshComponent');
+
     }
+
     public function hapusBarang(string $ID)
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
