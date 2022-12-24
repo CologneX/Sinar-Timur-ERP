@@ -1,5 +1,5 @@
 <div>
-    <div id="content">
+    <div wire:ignore id="content">
         <div class="container">
             @error('ID_PEL')
                 <x-flash-error :message="$message" />
