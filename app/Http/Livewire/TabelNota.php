@@ -15,7 +15,7 @@ class TabelNota extends Component
 
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    protected $listeners = ['refreshComponent' => '$refresh'];
+    // protected $listeners = ['refreshComponent' => '$refresh'];
     //custom error messahe
     protected $messages = [
         'KUANTITAS_JUAL.required' => 'Kuantitas harus diisi',
@@ -54,7 +54,7 @@ class TabelNota extends Component
             'KUANTITAS_JUAL' => 'required|numeric|min:1|max:' . $this->STOK,
         ]);
         DB::table('DETAIL_TRANSAKSI')->insert(['ID_TRANSJUAL' => DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL'), 'ID_BARANG' => $this->ID_BARANG, 'KUANTITAS_JUAL' => $this->KUANTITAS_JUAL]);
-        $this->emit('refreshComponent');
+        // $this->emit('refreshComponent');
         $this->clearModal();
     }
     public function nextTransaksi()
@@ -71,7 +71,7 @@ class TabelNota extends Component
         DB::table('TRANSAKSI_PENJUALAN')->insert(['ID_PEL' => 'P0001', 'TOTAL_TRANSJUAL' => 0, 'TOTAL_ITEMJUAL' => 0]);
         session()->flash('message', 'Transaksi ' . DB::table('TRANSAKSI_PENJUALAN')->max('ID_TRANSJUAL') . ' Berhasil');
         $this->clearModal();
-        $this->emit('refreshComponent');
+        // $this->emit('refreshComponent');
 
     }
 
@@ -79,6 +79,6 @@ class TabelNota extends Component
     {
         $getID = DB::table('BARANG')->select('ID_BARANG')->where('URUT_BARANG', $ID)->value('ID_BARANG');
         DB::table('DETAIL_TRANSAKSI')->where('ID_BARANG', $getID)->delete();
-        $this->emit('refreshComponent');
+        // $this->emit('refreshComponent');
     }
 }
