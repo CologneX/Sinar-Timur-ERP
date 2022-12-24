@@ -25,9 +25,9 @@ class TabelNota extends Component
         'ID_PEL.required' => 'Pilih Pelanggan terlebih dahulu',
     ];
     public function clearModal(){
-        $this->KUANTITAS_JUAL = '';
-        $this->ID_BARANG = '';
-        $this->ID_PEL = '';
+        $KUANTITAS_JUAL = '';
+        $zID_BARANG = '';
+        $ID_PEL = '';
     }
     public function render()
     {
